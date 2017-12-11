@@ -1,13 +1,13 @@
 package com.gisauto.pageObjects;
 
 import com.gisauto.utils.TestMain;
-import com.gisauto.webElements.Button;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class BasePage {
 
+    //TODO: 11.12.2017 artem.neradko - написать JavaDoc для всех методов и классов
     private final WebDriver driver = TestMain.driver;
     private final By login = By.name("_username"),
             password = By.name("_password"),
@@ -60,6 +60,20 @@ public class BasePage {
 
     public BasePage submitLogin() {
         getElement(submit).click();
+        return this;
+    }
+
+    public BasePage clickOnSearchByNumber(By by) {
+        getElement(by).click();
+        return this;
+    }
+
+    public BasePage clickOnCatalog() {
+        getElement(catalog).click();
+        return this;
+    }
+    public BasePage clickOnVINRequest() {
+        getElement(vinRequest).click();
         return this;
     }
 

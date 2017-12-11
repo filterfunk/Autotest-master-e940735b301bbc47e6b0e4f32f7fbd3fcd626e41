@@ -8,6 +8,7 @@ public final class PF {
 
     private static WebDriver driver = TestMain.driver;
 
+    //TODO: 11.12.2017 artem.neradko - написать JavaDoc для всех методов и классов
     /**
      * Page factory method creates instance of page class.
      * @param page - page to create

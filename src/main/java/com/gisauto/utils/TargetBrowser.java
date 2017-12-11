@@ -14,5 +14,5 @@ public @interface TargetBrowser {
      *
      * @return target browser
      */
-    String browser() default "FireFox";
+    String browser();
 }

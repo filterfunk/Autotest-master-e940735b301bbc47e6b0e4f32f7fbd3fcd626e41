@@ -19,6 +19,7 @@ public class Login extends TestMain {
 
     }
 
+
     public void test() {
         openPage("http://gisauto.ru/");
         get(By.className("dropdown-toggle")).click();

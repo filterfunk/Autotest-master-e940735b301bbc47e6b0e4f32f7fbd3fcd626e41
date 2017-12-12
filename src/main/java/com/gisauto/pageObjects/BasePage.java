@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
  *
  * @author Neradko Artsiom
  */
-public abstract class BasePage extends Page {
+public class BasePage extends Page {
 
     private final By login = By.name("_username"),
             password = By.name("_password"),

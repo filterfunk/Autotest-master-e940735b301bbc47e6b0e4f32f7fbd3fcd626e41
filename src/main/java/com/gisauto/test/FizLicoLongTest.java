@@ -35,18 +35,18 @@ public class FizLicoLongTest extends TestMain {
         searchByNumberPage.clickOnBuyButton();
         await(600);
         searchByNumberPage.clickOnSubmittBuyButton();
-        await(300);
+        await(600);
         ConditionChecker.addCheckString("ваш заказ на прокладка гбц отправлен продавцу\n" +
                         "моймагвы получите на e-mail " + TEST_EMAIL + " уведомления о вашем заказе",
                 searchByNumberPage.getConfirmMessage().trim().toLowerCase());
         yandexMailPage = PF.getPage(YandexMailPage.class);
-        await(300);
+        await(1000);
         yandexMailPage.typeLogin(TEST_EMAIL);
         yandexMailPage.typePassword(TEST_EMAIL_PASSWORD);
         yandexMailPage.clickOnSubmittButton();
-        await(2000);
+        await(5000);
         yandexMailPage.clickOnLastMessage();
-        await(1000);
+        await(2000);
         ConditionChecker.addCheckString("здравствуйте. вы отправили запрос на запчасть."
                 , yandexMailPage.getMessage().trim().toLowerCase());
     }

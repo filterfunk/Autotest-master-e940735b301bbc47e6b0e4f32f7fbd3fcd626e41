@@ -40,7 +40,7 @@ public abstract class TestMain {
                 System.setProperty("webdriver.chrome.driver",
                         System.getProperty("os.name")
                                 .equals("Linux")
-                                ? "/usr/local/share/chromedriver"
+                                ? "/home/artsiom/ChromeDriver"
                                 : "C:/WD/chromedriver.exe");
                 driver = new ChromeDriver();
                 break;
@@ -70,11 +70,17 @@ public abstract class TestMain {
         driver.quit();
     }
 
+    /**
+     * Метод <code>prepare()</code> вызывается перед запуском теста.
+     *<p>
+     * Рекомендуется использовать для подготовки тестовых данных,
+     * открытия нужных страниц и т.д.
+     */
     @Before
     public abstract void prepare();
 
     @Test
-    public abstract void test();
+    public abstract void process();
 
     @After
     public void validate() {

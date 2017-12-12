@@ -6,14 +6,21 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * PageObject страницы поиска по номеру
+ * <p>
+ * Хранит в себе информацию и набор методов для работы с WebElement'ами, присутствующими
+ * на странице поиска по номеру.
+ * @author Neradko Artsiom
+ */
 public class SearchByNumberPage extends BasePage {
     //TODO: 11.12.2017 artem.neradko - написать JavaDoc для всех методов и классов
 
-    WebDriver driver = TestMain.driver;
+    private WebDriver driver = TestMain.driver;
 
     public SearchByNumberPage() {
         if (!"Последние запросы поиска по номеру".equals(driver.getTitle())) {
-            throw new IllegalStateException("This page isn't homepage.");
+            throw new IllegalStateException("This page isn't search by number page.");
         }
     }
 

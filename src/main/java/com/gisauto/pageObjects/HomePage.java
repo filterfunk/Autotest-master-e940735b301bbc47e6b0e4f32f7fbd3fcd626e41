@@ -5,6 +5,13 @@ import com.gisauto.utils.TestMain;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+/**
+ * PageObject главной страницы
+ * <p>
+ * Хранит в себе информацию и набор методов для работы с WebElement'ами, присутствующими
+ * на главной странице.
+ * @author Neradko Artsiom
+ */
 public class HomePage extends BasePage {
     //TODO: 11.12.2017 artem.neradko - написать JavaDoc для всех методов и классов
 

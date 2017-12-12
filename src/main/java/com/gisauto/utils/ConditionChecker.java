@@ -3,7 +3,6 @@ package com.gisauto.utils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-import org.junit.Before;
 
 import java.util.HashMap;
 
@@ -14,8 +13,8 @@ import java.util.HashMap;
  * <p>
  * ключ - ожидаемый результат, значение - фактический.
  * Метод assertAll() производит проверку HashMap<> на предмет отличия фактического результата от ожидаемого.
- * @author Neradko Artsiom
  *
+ * @author Neradko Artsiom
  */
 public final class ConditionChecker {
 
@@ -27,8 +26,9 @@ public final class ConditionChecker {
 
     /**
      * Добавляет условие в HashMap<>.
+     *
      * @param excpectedResult ожидаемый результат.
-     * @param actualResult фактический результат.
+     * @param actualResult    фактический результат.
      */
     public static void addCheckString(String excpectedResult, String actualResult) {
         conditions.put(excpectedResult, actualResult);
@@ -36,6 +36,7 @@ public final class ConditionChecker {
 
     /**
      * Проводит проверку на предмет отличия фактического результата от ожидаемого.
+     *
      * @return HashMap, в которой содержатся отличные от ожидаемого фактические результаты.
      */
     private static HashMap<String, String> check() {
@@ -50,6 +51,7 @@ public final class ConditionChecker {
 
     /**
      * Проверяет наличие проваленных условий.
+     *
      * @return true если нет отличий фактического результата от ожидаемого, false - если есть.
      */
     private static boolean isAnyFailed() {

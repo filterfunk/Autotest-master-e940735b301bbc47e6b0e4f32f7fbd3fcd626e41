@@ -14,10 +14,9 @@ public class Login extends TestMain {
     private static final String LOGIN = "test12@test.com",
             PASSWORD = "111111";
 
+    @Override
     public void prepare() {
-
     }
-
 
     public void process() {
         openPage("http://gisauto.ru/");

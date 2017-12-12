@@ -14,7 +14,7 @@ public abstract class TestMain {
 
     public static WebDriver driver = null;
     public static final String TEST_EMAIL = "test.gisauto@yandex.ru", TEST_EMAIL_PASSWORD = "testgisauto",
-                                TEST_UR_EMAIL = "testur.gisauto@yandex.ru";
+            TEST_UR_EMAIL = "testur.gisauto@yandex.ru";
 
     protected TestMain() {
         main(null);
@@ -71,7 +71,7 @@ public abstract class TestMain {
 
     /**
      * Метод <code>prepare()</code> вызывается перед запуском теста.
-     *<p>
+     * <p>
      * Рекомендуется использовать для подготовки тестовых данных,
      * открытия нужных страниц и т.д.
      */

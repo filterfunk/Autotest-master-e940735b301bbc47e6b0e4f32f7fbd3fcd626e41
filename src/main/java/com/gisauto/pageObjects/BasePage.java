@@ -3,7 +3,6 @@ package com.gisauto.pageObjects;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 /**
  * Базовый клас PageObject'ов, от которого наследуются все прочие Page.
@@ -13,7 +12,7 @@ import org.openqa.selenium.WebElement;
  *
  * @author Neradko Artsiom
  */
-public class BasePage extends Page {
+public abstract class BasePage extends Page {
 
     private final By login = By.name("_username"),
             password = By.name("_password"),
@@ -29,10 +28,6 @@ public class BasePage extends Page {
             vinRequest = new By.ByXPath("/html/body/div[1]/div[2]/div/nav/a[3]"),
             about = new By.ByXPath("/html/body/div[1]/div[3]/div[1]/a"),
             top100 = new By.ByXPath("/html/body/div[1]/div[3]/div[2]/span");
-
-    public BasePage() {
-
-    }
 
     /**
      * Имитация нажатия на кнопку выбора города.
@@ -54,17 +49,6 @@ public class BasePage extends Page {
     public BasePage clickAny() {
         getElement(new By.ByXPath("//*[@id=\"modalSelectCity\"]")).click();
         return this;
-    }
-
-    /**
-     * Поиск элемента, с помощью любого инструмента (name, XPath, CSS и т.д.)
-     *
-     * @param by <class>By</class> инструмент, с помощью которого осуществляется поиск.
-     *           <p>(например <code>new By.ByXPath("//*[@id=\"btnOpenCity\"]")</code>
-     * @return найденный WebElement.
-     */
-    public WebElement getElement(By by) {
-        return driver.findElement(by);
     }
 
     public BasePage clickOnDropDown() {
@@ -124,10 +108,6 @@ public class BasePage extends Page {
     public BasePage clickOnVINRequest() {
         getElement(vinRequest).click();
         return this;
-    }
-
-    public boolean isVisible(WebElement webElement) {
-        return webElement.isDisplayed();
     }
 
     public boolean isCityVisible() {

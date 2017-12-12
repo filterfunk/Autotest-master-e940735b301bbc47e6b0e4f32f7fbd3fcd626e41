@@ -37,7 +37,7 @@ public class FizLicoLongTest extends TestMain {
         searchByNumberPage.clickOnSubmittBuyButton();
         await(300);
         ConditionChecker.addCheckString("ваш заказ на прокладка гбц отправлен продавцу\n" +
-                "моймагвы получите на e-mail " + TEST_EMAIL + " уведомления о вашем заказе",
+                        "моймагвы получите на e-mail " + TEST_EMAIL + " уведомления о вашем заказе",
                 searchByNumberPage.getConfirmMessage().trim().toLowerCase());
         yandexMailPage = PF.getPage(YandexMailPage.class);
         await(300);

@@ -8,13 +8,14 @@ import org.openqa.selenium.By;
  * <p>
  * Хранит в себе информацию и набор методов для работы с WebElement'ами, присутствующими
  * на главной странице.
+ *
  * @author Neradko Artsiom
  */
 public class HomePage extends BasePage {
 
-    public HomePage(){
+    public HomePage() {
         openPage("http://gisauto.ru/");
-        if (!"Поиск автозапчастей по всей России".equals(driver.getTitle())){
+        if (!"Поиск автозапчастей по всей России".equals(driver.getTitle())) {
             throw new IllegalStateException("This page isn't homepage.");
         }
     }
@@ -25,7 +26,7 @@ public class HomePage extends BasePage {
                 .submitLogin();
     }
 
-    public SearchByNumberPage clickOnSearchByNumber(){
+    public SearchByNumberPage clickOnSearchByNumber() {
         super.clickOnSearchByNumber(new By.ByXPath("/html/body/div[2]/div[1]/a[1]"));
         return PF.getPage(SearchByNumberPage.class);
     }

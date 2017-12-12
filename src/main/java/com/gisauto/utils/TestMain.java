@@ -13,7 +13,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public abstract class TestMain {
 
     public static WebDriver driver = null;
-    public static final String TEST_EMAIL = "test.gisauto@yandex.ru", TEST_EMAIL_PASSWORD = "testgisauto";
+    public static final String TEST_EMAIL = "test.gisauto@yandex.ru", TEST_EMAIL_PASSWORD = "testgisauto",
+                                TEST_UR_EMAIL = "testur.gisauto@yandex.ru";
 
     protected TestMain() {
         main(null);

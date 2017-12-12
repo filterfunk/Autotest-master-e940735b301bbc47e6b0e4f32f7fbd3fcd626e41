@@ -1,6 +1,7 @@
 package com.gisauto.utils;
 
 import com.gisauto.pageObjects.BasePage;
+import com.gisauto.pageObjects.Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -16,7 +17,7 @@ public final class PF {
      * @return - created page, which extends BasePage
      */
     @SuppressWarnings("unchecked")
-    public static <T extends BasePage> T getPage(Class<T> page){
+    public static <T extends Page> T getPage(Class<T> page){
         return PageFactory.initElements(driver, page);
     }
 

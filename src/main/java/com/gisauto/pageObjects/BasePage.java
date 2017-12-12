@@ -1,10 +1,8 @@
 package com.gisauto.pageObjects;
 
-import com.gisauto.utils.TestMain;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -67,10 +65,6 @@ public class BasePage extends Page {
      */
     public WebElement getElement(By by) {
         return driver.findElement(by);
-    }
-
-    public void openPage(String url) {
-        driver.get(url);
     }
 
     public BasePage clickOnDropDown() {

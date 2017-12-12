@@ -7,4 +7,7 @@ public abstract class Page {
 
     public WebDriver driver = TestMain.driver;
 
+    public void openPage(String url) {
+        driver.get(url);
+    }
 }

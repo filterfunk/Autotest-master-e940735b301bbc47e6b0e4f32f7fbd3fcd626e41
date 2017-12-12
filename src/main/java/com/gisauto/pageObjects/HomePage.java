@@ -1,9 +1,7 @@
 package com.gisauto.pageObjects;
 
 import com.gisauto.utils.PF;
-import com.gisauto.utils.TestMain;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 /**
  * PageObject главной страницы

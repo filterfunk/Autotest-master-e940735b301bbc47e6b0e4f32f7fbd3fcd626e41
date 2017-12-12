@@ -3,6 +3,7 @@ package com.gisauto.utils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.junit.Before;
 
 import java.util.HashMap;
 

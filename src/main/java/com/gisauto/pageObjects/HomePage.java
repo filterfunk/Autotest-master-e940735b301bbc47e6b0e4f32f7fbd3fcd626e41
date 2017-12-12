@@ -13,9 +13,6 @@ import org.openqa.selenium.WebDriver;
  * @author Neradko Artsiom
  */
 public class HomePage extends BasePage {
-    //TODO: 11.12.2017 artem.neradko - написать JavaDoc для всех методов и классов
-
-    WebDriver driver = TestMain.driver;
 
     public HomePage(){
         openPage("http://gisauto.ru/");

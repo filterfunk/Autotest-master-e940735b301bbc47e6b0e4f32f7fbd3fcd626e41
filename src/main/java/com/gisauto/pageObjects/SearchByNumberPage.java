@@ -11,12 +11,14 @@ import org.openqa.selenium.WebElement;
  * <p>
  * Хранит в себе информацию и набор методов для работы с WebElement'ами, присутствующими
  * на странице поиска по номеру.
+ *
  * @author Neradko Artsiom
  */
 public class SearchByNumberPage extends BasePage {
-    //TODO: 11.12.2017 artem.neradko - написать JavaDoc для всех методов и классов
 
-    private WebDriver driver = TestMain.driver;
+    private By submittBuyButton = new By.ByXPath("//*[@id=\"sendShopOrderButton\"]"),
+                confirmMessage = new By.ByXPath("/html/body/div[6]/div/div/div/div[1]/div[1]/div[2]/div[1]"),
+                goToCabinet = new By.ByXPath("/html/body/div[6]/div/div/div/div[1]/div[1]/div[2]/div[2]");
 
     public SearchByNumberPage() {
         if (!"Последние запросы поиска по номеру".equals(driver.getTitle())) {
@@ -24,20 +26,20 @@ public class SearchByNumberPage extends BasePage {
         }
     }
 
-    public SearchByNumberPage makeBuy() {
+    public SearchByNumberPage clickOnBuyButton() {
         int tr = 1;
         WebElement a;
         do {
-            a = getElement(new By.ByXPath("//*[@id=\"tbl\"]/tbody[2]/tr[" + tr + "]/td[6]/div[1]/span"));
+            a = getElement(new By.ByXPath("//*[@id=\"tbl\"]/tbody/tr[" + tr + "]/td[6]/div[1]/span/a"));
             tr++;
-        } while (!a.getText().equals("Test"));
+        } while (!a.getText().equals("TEST"));
         getElement(new By.ByXPath("//*[@id=\"tbl\"]/tbody/tr[" + tr + "]/td[5]/div[2]/div[1]")).click();
         return this;
     }
 
-    public SearchByNumberPage search(){
+    public SearchByNumberPage search() {
         WebElement input = getElement(new By.ByXPath("//*[@id=\"app\"]/div[1]/input"));
-        inputText(input,"079103383BB");
+        inputText(input, "079103383BB");
         input.sendKeys(Keys.ENTER);
         return this;
     }
@@ -51,6 +53,16 @@ public class SearchByNumberPage extends BasePage {
                 e.printStackTrace();
             }
         }
+
+    }
+
+    public SearchByNumberPage clickOnSubmittBuyButton() {
+        getElement(submittBuyButton).click();
+        return this;
+    }
+
+    public String getConfirmMessage(){
+        return getElement(confirmMessage).getText() + getElement(goToCabinet).getText();
     }
 
 }

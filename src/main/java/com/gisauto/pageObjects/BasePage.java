@@ -15,10 +15,8 @@ import org.openqa.selenium.WebElement;
  *
  * @author Neradko Artsiom
  */
-public class BasePage {
+public class BasePage extends Page {
 
-    //TODO: 11.12.2017 artem.neradko - написать JavaDoc для всех методов и классов
-    private final WebDriver driver = TestMain.driver;
     private final By login = By.name("_username"),
             password = By.name("_password"),
             dropDownToogle = new By.ByClassName("dropdown-toggle"),
@@ -27,16 +25,16 @@ public class BasePage {
 
     private static Logger logger = LogManager.getRootLogger();
 
-    public BasePage() {
-
-    }
-
     private By selectCity = new By.ByXPath("//*[@id=\"btnOpenCity\"]"),
             searchByNumber = new By.ByXPath("/html/body/div[1]/div[2]/div/nav/a[1]"),
             catalog = new By.ByXPath("/html/body/div[1]/div[2]/div/nav/a[2]"),
             vinRequest = new By.ByXPath("/html/body/div[1]/div[2]/div/nav/a[3]"),
             about = new By.ByXPath("/html/body/div[1]/div[3]/div[1]/a"),
             top100 = new By.ByXPath("/html/body/div[1]/div[3]/div[2]/span");
+
+    public BasePage() {
+
+    }
 
     /**
      * Имитация нажатия на кнопку выбора города.

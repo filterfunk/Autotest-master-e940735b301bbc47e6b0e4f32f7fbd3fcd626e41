@@ -2,7 +2,6 @@ package com.gisauto.test;
 
 import com.gisauto.utils.TargetBrowser;
 import com.gisauto.utils.TestMain;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import java.awt.*;
@@ -10,7 +9,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 
-@TargetBrowser
+@TargetBrowser(browser = "FireFox")
 public class Login extends TestMain {
     private static final String LOGIN = "test12@test.com",
             PASSWORD = "111111";
@@ -20,7 +19,7 @@ public class Login extends TestMain {
     }
 
 
-    public void test() {
+    public void process() {
         openPage("http://gisauto.ru/");
         get(By.className("dropdown-toggle")).click();
         get(By.name("_username")).sendKeys(LOGIN);

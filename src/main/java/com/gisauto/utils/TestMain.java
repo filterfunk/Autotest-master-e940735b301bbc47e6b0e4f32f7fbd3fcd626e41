@@ -12,8 +12,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public abstract class TestMain {
 
-    //TODO: 11.12.2017 artem.neradko - написать JavaDoc для всех методов и классов, сделать поддержку GoogleChrome
-
     public static WebDriver driver = null;
     public static final String TEST_EMAIL = "test.gisauto@yandex.ru", TEST_EMAIL_PASSWORD = "testgisauto";
 

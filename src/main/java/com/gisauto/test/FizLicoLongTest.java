@@ -7,10 +7,9 @@ import com.gisauto.utils.PF;
 import com.gisauto.utils.TargetBrowser;
 import com.gisauto.utils.TestMain;
 
-@TargetBrowser(browser = "GoogleChrome")
-public class HomePageTest extends TestMain {
+@TargetBrowser(browser = "FireFox")
+public class FizLicoLongTest extends TestMain {
 
-    private final String login = "testfiz@test.com", password = "111111";
     private HomePage homePage;
     private SearchByNumberPage searchByNumberPage;
 
@@ -18,24 +17,26 @@ public class HomePageTest extends TestMain {
         homePage = PF.getPage(HomePage.class);
     }
 
-    public void test() {
+    public void process() {
         homePage.clickOnSelectCity();
         await(1000);
         homePage.clickAny();
         await(1000);
         homePage.clickOnDropDown();
-        homePage.loginAs(login, password);
+        await(300);
+        homePage.loginAs(TEST_EMAIL, TEST_EMAIL_PASSWORD);
         await(2000);
         searchByNumberPage = homePage.clickOnSearchByNumber();
         await(2000);
         searchByNumberPage.search();
         await(2000);
-        searchByNumberPage.makeBuy();
-        //TODO: 11.12.2017 artem.neradko - дописать тест для физ.лица
-    }
-
-    public void validate() {
-        super.validate();
+        searchByNumberPage.clickOnBuyButton();
+        await(400);
+        searchByNumberPage.clickOnSubmittBuyButton();
+        await(300);
+        ConditionChecker.addCheckString("ваш заказ на прокладка гбц отправлен продавцу\n" +
+                "testвы получите на e-mail " + TEST_EMAIL + " уведомления о вашем заказе",
+                searchByNumberPage.getConfirmMessage().trim().toLowerCase());
     }
 
 }

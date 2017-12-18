@@ -1,0 +1,14 @@
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/pageObjects/HomePage.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/webElements/BaseElement.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/utils/ConditionChecker.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/pageObjects/SearchByNumberPage.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/pageObjects/YandexMailPage.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/utils/TestMain.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/utils/PF.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/webElements/CheckBox.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/test/Login.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/pageObjects/Page.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/pageObjects/BasePage.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/utils/annotations/TargetBrowser.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/test/FizLicoLongTest.java
+/home/artsiom/IdeaProjects/SeleniumTest/Autotest/src/test/java/com/gisauto/webElements/Button.java

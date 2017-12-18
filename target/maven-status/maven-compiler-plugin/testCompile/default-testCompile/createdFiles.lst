@@ -1,0 +1,14 @@
+com/gisauto/test/FizLicoLongTest.class
+com/gisauto/webElements/Button.class
+com/gisauto/pageObjects/Page.class
+com/gisauto/pageObjects/BasePage.class
+com/gisauto/pageObjects/SearchByNumberPage.class
+com/gisauto/test/Login.class
+com/gisauto/utils/annotations/TargetBrowser.class
+com/gisauto/utils/PF.class
+com/gisauto/utils/TestMain.class
+com/gisauto/webElements/BaseElement.class
+com/gisauto/utils/ConditionChecker.class
+com/gisauto/pageObjects/HomePage.class
+com/gisauto/webElements/CheckBox.class
+com/gisauto/pageObjects/YandexMailPage.class

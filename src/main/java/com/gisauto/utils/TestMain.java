@@ -1,14 +1,14 @@
-package com.gisauto.test.utils;
+package com.gisauto.utils;
 
-import com.gisauto.test.pageObjects.BasePage;
-import com.gisauto.test.utils.annotations.TargetBrowser;
+import com.gisauto.pageObjects.BasePage;
+import com.gisauto.utils.annotations.TargetBrowser;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import static com.gisauto.test.pageObjects.Page.screenShot;
+import static com.gisauto.pageObjects.Page.screenShot;
 
 
 public abstract class TestMain {

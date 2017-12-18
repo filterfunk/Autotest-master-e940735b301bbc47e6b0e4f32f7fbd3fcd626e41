@@ -1,4 +1,4 @@
-package com.gisauto.test.utils.annotations;
+package com.gisauto.utils.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

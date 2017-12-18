@@ -1,4 +1,4 @@
-package com.gisauto.test.webElements;
+package com.gisauto.webElements;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.internal.WrapsElement;

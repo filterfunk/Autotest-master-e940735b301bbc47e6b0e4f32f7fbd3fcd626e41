@@ -1,6 +1,6 @@
-package com.gisauto.test.utils;
+package com.gisauto.utils;
 
-import com.gisauto.test.pageObjects.Page;
+import com.gisauto.pageObjects.Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 

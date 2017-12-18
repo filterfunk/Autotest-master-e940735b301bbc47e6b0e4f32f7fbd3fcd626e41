@@ -1,11 +1,11 @@
 package com.gisauto.test.cases;
 
-import com.gisauto.test.pageObjects.HomePage;
-import com.gisauto.test.pageObjects.SearchByNumberPage;
-import com.gisauto.test.pageObjects.YandexMailPage;
-import com.gisauto.test.utils.PF;
-import com.gisauto.test.utils.TestMain;
-import com.gisauto.test.utils.annotations.TargetBrowser;
+import com.gisauto.pageObjects.HomePage;
+import com.gisauto.pageObjects.SearchByNumberPage;
+import com.gisauto.pageObjects.YandexMailPage;
+import com.gisauto.utils.PF;
+import com.gisauto.utils.TestMain;
+import com.gisauto.utils.annotations.TargetBrowser;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;

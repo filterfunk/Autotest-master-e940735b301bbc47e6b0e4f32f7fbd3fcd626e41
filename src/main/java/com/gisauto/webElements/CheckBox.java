@@ -1,4 +1,4 @@
-package com.gisauto.test.webElements;
+package com.gisauto.webElements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;

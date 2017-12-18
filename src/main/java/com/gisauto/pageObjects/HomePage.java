@@ -1,6 +1,6 @@
-package com.gisauto.test.pageObjects;
+package com.gisauto.pageObjects;
 
-import com.gisauto.test.utils.PF;
+import com.gisauto.utils.PF;
 import org.openqa.selenium.By;
 
 /**
@@ -14,9 +14,10 @@ import org.openqa.selenium.By;
 public class HomePage extends BasePage {
 
     public HomePage() {
+
         openPage("http://gisauto.ru/");
         if (!"Поиск автозапчастей по всей России".equals(driver.getTitle())) {
-            throw new IllegalStateException("This page isn't homepage.");
+            throw new IllegalStateException("Открытая страница не является главной страницей");
         }
     }
 

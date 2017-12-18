@@ -1,4 +1,4 @@
-package com.gisauto.test.utils;
+package com.gisauto.utils;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

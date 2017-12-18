@@ -1,6 +1,6 @@
 package com.gisauto.test.pageObjects;
 
-import com.gisauto.utils.TestMain;
+import com.gisauto.test.utils.TestMain;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

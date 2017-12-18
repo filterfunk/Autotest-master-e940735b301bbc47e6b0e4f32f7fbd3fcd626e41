@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.gisauto.test.FizLicoLongTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.198 sec <<< FAILURE! - in com.gisauto.test.FizLicoLongTest
-process(com.gisauto.test.FizLicoLongTest)  Time elapsed: 7.354 sec  <<< ERROR!
-java.lang.IllegalStateException: This page isn't homepage.
-	at com.gisauto.test.FizLicoLongTest.prepare(FizLicoLongTest.java:22)
-

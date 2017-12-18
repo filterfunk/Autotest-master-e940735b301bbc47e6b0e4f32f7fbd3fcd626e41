@@ -1,16 +1,9 @@
 package com.gisauto.test.pageObjects;
 
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
 /**
  * Базовый клас PageObject'ов, от которого наследуются все прочие Page GisAuto.

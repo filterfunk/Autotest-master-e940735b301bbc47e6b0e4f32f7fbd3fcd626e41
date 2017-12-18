@@ -1,7 +1,7 @@
 package com.gisauto.test.pageObjects;
 
-import org.openqa.selenium.By;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 
 public class YandexMailPage extends Page {
 
@@ -43,7 +43,7 @@ public class YandexMailPage extends Page {
     }
 
     @Step
-    public YandexMailPage loginAs(String login, String password){
+    public YandexMailPage loginAs(String login, String password) {
         return typeLogin(login).typePassword(password).clickOnSubmittButton();
     }
 

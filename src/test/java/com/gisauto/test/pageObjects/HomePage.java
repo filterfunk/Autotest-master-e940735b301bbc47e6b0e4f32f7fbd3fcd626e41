@@ -1,6 +1,6 @@
 package com.gisauto.test.pageObjects;
 
-import com.gisauto.utils.PF;
+import com.gisauto.test.utils.PF;
 import org.openqa.selenium.By;
 
 /**

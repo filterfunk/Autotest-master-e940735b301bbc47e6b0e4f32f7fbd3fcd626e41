@@ -2,13 +2,18 @@ package com.gisauto.utils;
 
 import com.gisauto.pageObjects.BasePage;
 import com.gisauto.utils.annotations.TargetBrowser;
+import io.qameta.allure.Attachment;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import static com.gisauto.pageObjects.Page.screenShot;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 
 public abstract class TestMain {
@@ -71,6 +76,24 @@ public abstract class TestMain {
     public void validate() {
         screenShot();
         driver.quit();
+    }
+
+    @Attachment
+    public static byte[] screenShot() {
+        byte[] out = null;
+        try {
+            BufferedImage screenShot = new Robot().createScreenCapture(
+                    new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+            ByteArrayOutputStream bo = new ByteArrayOutputStream();
+            ImageIO.write(screenShot, "png", bo);
+            out = bo.toByteArray();
+            bo.close();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return out;
     }
 
 }

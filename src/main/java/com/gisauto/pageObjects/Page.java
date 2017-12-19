@@ -57,24 +57,6 @@ public abstract class Page {
     }
 
     @Attachment
-    public static byte[] screenShot() {
-        byte[] out = null;
-        try {
-            BufferedImage screenscreenShot = new Robot().createScreenCapture(
-                    new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-            ByteArrayOutputStream bo = new ByteArrayOutputStream();
-            ImageIO.write(screenscreenShot, "jpg", bo);
-            out = bo.toByteArray();
-            bo.close();
-        } catch (AWTException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return out;
-    }
-
-    @Attachment
     public static String getErrorMessage(Exception ex) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < ex.getStackTrace().length; i++) {

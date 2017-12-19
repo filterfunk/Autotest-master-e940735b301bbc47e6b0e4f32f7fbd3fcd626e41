@@ -28,7 +28,8 @@ public class BasePage extends Page {
             catalog = new By.ByXPath("/html/body/div[1]/div[2]/div/nav/a[2]"),
             vinRequest = new By.ByXPath("/html/body/div[1]/div[2]/div/nav/a[3]"),
             about = new By.ByXPath("/html/body/div[1]/div[3]/div[1]/a"),
-            top100 = new By.ByXPath("/html/body/div[1]/div[3]/div[2]/span");
+            top100 = new By.ByXPath("/html/body/div[1]/div[3]/div[2]/span"),
+            bg = new By.ByXPath("//*[@id=\"modalSelectCity\"]");
 
     /**
      * Имитация нажатия на кнопку выбора города.
@@ -50,7 +51,7 @@ public class BasePage extends Page {
      */
     @Step(value = "Нажатие на любое место страницы, для закрытия модального окна")
     public BasePage clickAny() {
-        getElement(new By.ByXPath("//*[@id=\"modalSelectCity\"]")).click();
+        getElement(bg).click();
         return this;
     }
 
@@ -67,7 +68,7 @@ public class BasePage extends Page {
         } catch (Exception ex) {
             logger.error("Не удалось ввести имя пользователя. Возможно элемент входа скрыт.");
             ex.printStackTrace();
-            throw new AssertionError();
+            throw new AssertionError("Не удалось ввести имя пользователя. Возможно элемент входа скрыт.");
         }
         return this;
     }
@@ -79,7 +80,7 @@ public class BasePage extends Page {
         } catch (Exception ex) {
             logger.error("Не удалось ввести пароль. Возможно элемент входа скрыт.");
             ex.printStackTrace();
-            throw new AssertionError();
+            throw new AssertionError("Не удалось ввести пароль. Возможно элемент входа скрыт.");
         }
         return this;
     }
@@ -91,7 +92,7 @@ public class BasePage extends Page {
         } catch (Exception ex) {
             logger.error("Не удалось нажать на \"Войти\". Возможно элемент входа скрыт.");
             ex.printStackTrace();
-            throw new AssertionError();
+            throw new AssertionError("Не удалось нажать на \"Войти\". Возможно элемент входа скрыт.");
         }
         return this;
     }
@@ -103,8 +104,7 @@ public class BasePage extends Page {
         } catch (Exception ex) {
             logger.error("Не удалось нажать на \"Поиск по номеру\".");
             ex.printStackTrace();
-            screenShot();
-            throw new AssertionError();
+            throw new AssertionError("Не удалось нажать на \"Поиск по номеру\".");
         }
         return this;
     }

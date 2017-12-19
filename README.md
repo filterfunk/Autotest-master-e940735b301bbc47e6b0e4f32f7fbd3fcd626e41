@@ -5,6 +5,12 @@
 * Для успешного выполнения прогона тестов необходимо установить:
     * [MVN](https://maven.apache.org/install.html)
     * [Java (минимум 8 версия)](https://java.com/ru/download/)
+    
+* ## Компоненты:
+* Тестовый фреймворк - [JUnit4](https://github.com/junit-team/junit4)
+* Фреймворк автотестов - [Selenium WebDriver](https://github.com/SeleniumHQ/selenium)
+* Логгер - [log4j](https://github.com/apache/logging-log4j2)
+* Отчеты - [Yandex Allure](https://github.com/allure-framework/allure2)
 
 ## Установка и запуск
 * Для того чтобы запустить проект и начать прогон тестов необходимо:

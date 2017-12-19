@@ -23,6 +23,7 @@ import java.io.IOException;
 public abstract class Page {
 
     public WebDriver driver = TestMain.driver;
+    private static long waitTime = 1000;
 
     public void openPage(String url) {
         driver.get(url);
@@ -64,4 +65,9 @@ public abstract class Page {
         }
         return sb.toString();
     }
+
+    public static void setWaitTime(long time) {
+        waitTime = time;
+    }
+
 }

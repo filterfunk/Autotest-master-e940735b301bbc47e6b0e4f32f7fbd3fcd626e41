@@ -11,7 +11,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @TargetBrowser(browser = "FireFox")
-@DisplayName(value = "Длинный тест физ.лица")
 public class FizLicoLongTest extends TestMain {
 
     private HomePage homePage;
@@ -27,15 +26,22 @@ public class FizLicoLongTest extends TestMain {
     public void process() {
         homePage.clickOnSelectCity();
         await(1000);
+        Assert.assertEquals("Модальное окно расположения скрыто",
+                true,
+                homePage.isCityVisible());
         homePage.clickAny();
         await(1000);
+        Assert.assertEquals("Модальное окно расположения открыто",
+                false,
+                homePage.isCityVisible());
+
         homePage.clickOnDropDown();
         await(300);
         homePage.loginAs(TEST_EMAIL, TEST_EMAIL_PASSWORD);
         await(2000);
 
         searchByNumberPage = homePage.clickOnSearchByNumber();
-        await(2000);
+        await(3000);
         searchByNumberPage.search("079103383BB");
         await(2000);
         searchByNumberPage.clickOnBuyButton("МОЙМАГ");

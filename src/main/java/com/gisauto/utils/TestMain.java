@@ -53,14 +53,6 @@ public abstract class TestMain {
         driver.manage().window().maximize();
     }
 
-    public static void await(long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
     /**
      * Метод <code>prepare()</code> вызывается перед запуском теста.
      * <p>
@@ -94,6 +86,14 @@ public abstract class TestMain {
             e.printStackTrace();
         }
         return out;
+    }
+
+    public static void await(long waitTime) {
+        try {
+            Thread.sleep(waitTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

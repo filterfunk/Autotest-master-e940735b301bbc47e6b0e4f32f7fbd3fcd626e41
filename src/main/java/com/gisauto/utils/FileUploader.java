@@ -24,7 +24,7 @@ public final class FileUploader {
 
         try {
             Robot robot = new Robot();
-            robot.setAutoDelay(250);
+            robot.setAutoDelay(250); //задержка после каждого действия
 
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.keyRelease(KeyEvent.VK_ENTER);

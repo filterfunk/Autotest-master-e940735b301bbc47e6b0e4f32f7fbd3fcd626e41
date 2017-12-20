@@ -57,9 +57,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
-                    <!--<argLine>-->
-                          <!-- -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.13/aspectjweaver-1.8.13.jar"-->
-                    <!--</argLine>-->
+                    <argLine>
+                          -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.13/aspectjweaver-1.8.13.jar"
+                    </argLine>
                     <properties>
                         <property>
                             <name>listener</name>

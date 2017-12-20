@@ -13,23 +13,23 @@ import org.openqa.selenium.By;
  *
  * @author Neradko Artsiom
  */
-public class BasePage extends Page {
+public abstract class BasePage extends Page {
 
+    private static Logger logger = LogManager.getRootLogger();
     private final By login = By.name("_username"),
             password = By.name("_password"),
             dropDownToogle = new By.ByClassName("dropdown-toggle"),
             submit = new By.ByXPath("//*[@id=\"formLogin\"]/div[7]/button"),
-            city = new By.ByXPath("//*[@id=\"formSetCity\"]");
-
-    private static Logger logger = LogManager.getRootLogger();
-
-    private By selectCity = new By.ByXPath("//*[@id=\"btnOpenCity\"]"),
-            searchByNumber = new By.ByXPath("/html/body/div[1]/div[2]/div/nav/a[1]"),
-            catalog = new By.ByXPath("/html/body/div[1]/div[2]/div/nav/a[2]"),
-            vinRequest = new By.ByXPath("/html/body/div[1]/div[2]/div/nav/a[3]"),
-            about = new By.ByXPath("/html/body/div[1]/div[3]/div[1]/a"),
-            top100 = new By.ByXPath("/html/body/div[1]/div[3]/div[2]/span"),
-            bg = new By.ByXPath("//*[@id=\"modalSelectCity\"]");
+            city = new By.ByXPath("//*[@id=\"formSetCity\"]"),
+            selectCity = new By.ByXPath("//*[@id=\"btnOpenCity\"]"),
+            searchByNumber = new By.ByXPath("//*[@id=\"leftNavInner\"]/a[1]"),
+            catalog = new By.ByXPath("//*[@id=\"leftNavInner\"]/a[2]"),
+            vinRequest = new By.ByXPath("//*[@id=\"leftNavInner\"]/a[3]"),
+            toHome = new By.ByXPath("//*[@id=\"topLine\"]/a"),
+            priceUp = new By.ByXPath("//*[@id=\"price-up\"]"),
+            bg = new By.ByXPath("//*[@id=\"modalSelectCity\"]"),
+            contacts = new By.ByXPath("//*[@id=\"openContactsModal\"]"),
+            cart = new By.ByXPath("//*[@id=\"openCart\"]");
 
     /**
      * Имитация нажатия на кнопку выбора города.

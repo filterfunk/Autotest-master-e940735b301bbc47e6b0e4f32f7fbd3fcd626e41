@@ -67,7 +67,7 @@ public abstract class TestMain {
 
     @After
     public void validate() {
-        screenShot();
+//        screenShot();
         driver.quit();
     }
 
@@ -76,15 +76,15 @@ public abstract class TestMain {
      * @return массив байт с изображением
      */
     @Attachment
-    public static void screenShot() {
-//        byte[] out = null;
+    public static byte[] screenShot() {
+        byte[] out = null;
 
         try {
             BufferedImage screenShot = new Robot().createScreenCapture(
                     new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
             ByteArrayOutputStream bo = new ByteArrayOutputStream();
             ImageIO.write(screenShot, "png", bo);
-//            out = bo.toByteArray();
+            out = bo.toByteArray();
             bo.close();
         } catch (AWTException e) {
             e.printStackTrace();
@@ -92,7 +92,7 @@ public abstract class TestMain {
             e.printStackTrace();
         }
 
-//        return out;
+        return out;
     }
 
     /**

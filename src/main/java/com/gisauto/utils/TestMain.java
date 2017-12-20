@@ -1,6 +1,7 @@
 package com.gisauto.utils;
 
 import com.gisauto.pageObjects.BasePage;
+import com.gisauto.pageObjects.HomePage;
 import com.gisauto.utils.annotations.TargetBrowser;
 import io.qameta.allure.Attachment;
 import org.junit.After;
@@ -49,7 +50,7 @@ public abstract class TestMain {
                 driver = new ChromeDriver();
                 break;
         }
-        PF.getPage(BasePage.class);
+        PF.getPage(HomePage.class);
         driver.manage().window().maximize();
     }
 
@@ -70,24 +71,35 @@ public abstract class TestMain {
         driver.quit();
     }
 
+    /**
+     * Делает скриншот и прикрепляет к отчёту Yandex.allure
+     * @return массив байт с изображением
+     */
     @Attachment
-    public static byte[] screenShot() {
-        byte[] out = null;
+    public static void screenShot() {
+//        byte[] out = null;
+
         try {
             BufferedImage screenShot = new Robot().createScreenCapture(
                     new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
             ByteArrayOutputStream bo = new ByteArrayOutputStream();
             ImageIO.write(screenShot, "png", bo);
-            out = bo.toByteArray();
+//            out = bo.toByteArray();
             bo.close();
         } catch (AWTException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return out;
+
+//        return out;
     }
 
+    /**
+     * Метод ожидания. Используется после выполнения шага теста для
+     * ожидания подгрузки страниц/элементов.
+     * @param waitTime время ожидания в миллисекундах
+     */
     public static void await(long waitTime) {
         try {
             Thread.sleep(waitTime);

@@ -1,6 +1,5 @@
 package com.gisauto.utils;
 
-import com.gisauto.pageObjects.BasePage;
 import com.gisauto.pageObjects.HomePage;
 import com.gisauto.utils.annotations.TargetBrowser;
 import io.qameta.allure.Attachment;

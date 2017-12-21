@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 public class Catalog extends BasePage{
 
+    //Redezign
     private final By searchInput = new By.ByXPath("//*[@id=\"vehicle_number_vehicleNumber\"]"),
                     trucks = new By.ByXPath("//*[@id=\"titleOri\"]"),
                     moto = new By.ByXPath("//*[@id=\"sticker-scroll\"]/section[2]/ul/li[3]/a"),

@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -38,7 +40,9 @@ public abstract class TestMain {
                                 .equals("Linux")
                                 ? "/usr/bin/geckodriver"
                                 : "C:/WD/geckodriver.exe");
-                driver = new FirefoxDriver();
+                FirefoxOptions options = new FirefoxOptions();
+                options.setLogLevel(FirefoxDriverLogLevel.TRACE);
+                driver = new FirefoxDriver(options);
                 break;
             default:
                 System.setProperty("webdriver.chrome.driver",

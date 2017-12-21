@@ -25,12 +25,12 @@ public class FizLicoLongTest extends TestMain {
     @DisplayName(value = "Длинный тест физ.лица")
     public void process() {
         homePage.clickOnSelectCity();
-        await(300);
+        await(1000);
         Assert.assertEquals("Модальное окно расположения скрыто",
                 true,
                 homePage.isCityVisible());
         homePage.clickAny();
-        await(300);
+        await(2000);
         Assert.assertEquals("Модальное окно расположения открыто",
                 false,
                 homePage.isCityVisible());

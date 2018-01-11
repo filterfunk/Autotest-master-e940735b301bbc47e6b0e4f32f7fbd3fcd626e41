@@ -5,6 +5,7 @@
 * Для успешной установки проекта и его использования необходимо установить:
     * [MVN](https://maven.apache.org/install.html)
     * [Java (минимум 8 версия)](https://java.com/ru/download/)
+    * [FireFox driver](https://github.com/mozilla/geckodriver/releases)
     
 * ## Компоненты:
 * Тестовый фреймворк - [JUnit4](https://github.com/junit-team/junit4)

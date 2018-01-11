@@ -16,40 +16,28 @@ import org.openqa.selenium.By;
 public abstract class BasePage extends Page {
 
     private static Logger logger = LogManager.getRootLogger();
-    private final By login = By.name("_username"),
-            password = By.name("_password"),
-            dropDownToogle = new By.ByClassName("dropdown-toggle"),
-            submit = new By.ByXPath("//*[@id=\"formLogin\"]/div[7]/button"),
-            city = new By.ByXPath("//*[@id=\"formSetCity\"]"),
-            selectCity = new By.ByXPath("//*[@id=\"btnOpenCity\"]"),
-            searchByNumber = new By.ByXPath("//*[@id=\"leftNavInner\"]/a[1]"),
-            catalog = new By.ByXPath("//*[@id=\"leftNavInner\"]/a[2]"),
-            vinRequest = new By.ByXPath("//*[@id=\"leftNavInner\"]/a[3]"),
-            toHome = new By.ByXPath("//*[@id=\"topLine\"]/a"),
-            priceUp = new By.ByXPath("//*[@id=\"price-up\"]"),
-            bg = new By.ByXPath("//*[@id=\"modalSelectCity\"]"),
+    private final By login = new By.ByXPath("//*[@id=\"username\"]"),
+            password = new By.ByXPath("//*[@id=\"password\"]"),
+            dropDownToogle = new By.ByXPath("//*[@id=\"login-menu-block\"]"),
+            submit = new By.ByXPath("//*[@id=\"formLogin-modal\"]/button"),
+            city = new By.ByXPath("//*[@id=\"modalSelectCity\"]/div/div/div[1]"),
+            selectCity = new By.ByXPath("/html/body/div[1]/div[3]/div[1]/span"),
+            searchByNumber = new By.ByXPath("/html/body/div[2]/nav/ul/li[1]/a"),
+            catalog = new By.ByXPath("/html/body/div[2]/nav/ul/li[2]/a"),
+            vinRequest = new By.ByXPath("/html/body/div[2]/nav/ul/li[3]/a"),
+            toHome = new By.ByXPath("/html/body/div[1]/div[1]/div[2]/div[1]"),
+            priceUpload = new By.ByXPath("//*[@id=\"price-up\"]"),
+            bg = new By.ByXPath("/html/body/div[4]"),
             contacts = new By.ByXPath("//*[@id=\"openContactsModal\"]"),
             cart = new By.ByXPath("//*[@id=\"openCart\"]");
 
-    /**
-     * Имитация нажатия на кнопку выбора города.
-     *
-     * @return самого себя.
-     */
     @Step(value = "Нажатие на кнопку выбора города")
     public BasePage clickOnSelectCity() {
         getElement(selectCity).click();
         return this;
     }
 
-    /**
-     * Имитация нажатия в любое место страницы.
-     * <p>
-     * Используется для закрытия модальных окон.
-     *
-     * @return самого себя.
-     */
-    @Step(value = "Нажатие на любое место страницы, для закрытия модального окна")
+    @Step(value = "Нажатие на футер, для закрытия модального окна")
     public BasePage clickAny() {
         getElement(bg).click();
         return this;
@@ -98,9 +86,9 @@ public abstract class BasePage extends Page {
     }
 
     @Step(value = "Нажатие на \"Поиск по номеру\"")
-    public BasePage clickOnSearchByNumber(By by) {
+    public BasePage clickOnSearchByNumber() {
         try {
-            getElement(by).click();
+            getElement(searchByNumber).click();
         } catch (Exception ex) {
             logger.error("Не удалось нажать на \"Поиск по номеру\".");
             ex.printStackTrace();

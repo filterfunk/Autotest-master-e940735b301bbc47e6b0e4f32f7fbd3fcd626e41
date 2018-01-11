@@ -6,12 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-
 /**
  * Базовый клас PageObject'ов, от которого наследуются все прочие Page.
  * <p>
@@ -23,7 +17,6 @@ import java.io.IOException;
 public abstract class Page {
 
     public WebDriver driver = TestMain.driver;
-    private static long waitTime = 1000;
 
     public void openPage(String url) {
         driver.get(url);
@@ -36,7 +29,6 @@ public abstract class Page {
      *           <p>(например <code>new By.ByXPath("//*[@id=\"btnOpenCity\"]")</code>
      * @return найденный WebElement.
      */
-
     public WebElement getElement(By by) {
         return driver.findElement(by);
     }
@@ -54,7 +46,6 @@ public abstract class Page {
                 e.printStackTrace();
             }
         }
-
     }
 
     @Attachment
@@ -66,8 +57,8 @@ public abstract class Page {
         return sb.toString();
     }
 
-    public static void setWaitTime(long time) {
-        waitTime = time;
+    public boolean checkTitle(String excpected){
+        return excpected.equals(driver.getTitle());
     }
 
 }

@@ -17,11 +17,11 @@ public class SearchByNumberPage extends BasePage {
 
     private By submittBuyButton = new By.ByXPath("//*[@id=\"sendShopOrderButton\"]"),
             confirmMessage = new By.ByXPath("/html/body/div[6]/div/div/div/div[1]/div[1]/div[2]/div[1]"),
-            goToCabinet = new By.ByXPath("/html/body/div[6]/div/div/div/div[1]/div[1]/div[2]/div[2]"),
-            searchField = new By.ByXPath("//*[@id=\"app\"]/div[1]/input");
+            goToCabinet = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[1]/div[1]/a"),
+            searchField = new By.ByXPath("//*[@id=\"app\"]/div[2]/input");
 
     public SearchByNumberPage() {
-        if (!"Последние запросы поиска по номеру".equals(driver.getTitle())) {
+        if (!checkTitle("Последние запросы поиска по номеру")) {
             throw new IllegalStateException("Открытая страница не является страницей поиска по номеру");
         }
     }
@@ -30,13 +30,17 @@ public class SearchByNumberPage extends BasePage {
     public SearchByNumberPage clickOnBuyButton(String shopName) {
         int tr = 1;
         WebElement a = null;
+
         do {
             if (tr != 5) {
-                a = getElement(new By.ByXPath("//*[@id=\"tbl\"]/tbody/tr[" + tr + "]/td[6]/div[1]/span/a"));
+                a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody/tr["
+                        + tr + "]/td[7]/div[2]/span/a/span[1]"));
             }
             tr++;
         } while (!a.getText().equals(shopName));
-        getElement(new By.ByXPath("//*[@id=\"tbl\"]/tbody/tr[" + tr + "]/td[5]/div[2]/div[1]")).click();
+
+        getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody/tr["
+                + tr + "]/td[7]/div[2]/span/a/span[1]")).click();
         return this;
     }
 

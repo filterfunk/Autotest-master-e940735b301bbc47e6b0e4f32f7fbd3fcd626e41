@@ -1,6 +1,7 @@
 package com.gisauto.pageObjects;
 
 import com.gisauto.utils.PF;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 /**
@@ -14,21 +15,21 @@ import org.openqa.selenium.By;
 public class HomePage extends BasePage {
 
     public HomePage() {
-
-        openPage("http://gisauto.ru/");
-        if (!"Поиск автозапчастей по всей России".equals(driver.getTitle())) {
+        openPage("http://test.gisauto.ru/");
+        if (!checkTitle("Поиск автозапчастей по всей России")) {
             throw new IllegalStateException("Открытая страница не является главной страницей");
         }
     }
 
-    public HomePage loginAs(String username, String password) {
-        return (HomePage) typeUsername(username)
+    public Profile loginAs(String username, String password) {
+        return (Profile) typeUsername(username)
                 .typePassword(password)
                 .submitLogin();
     }
 
+    @Step(value = "Нажатие на поиск по номеру")
     public SearchByNumberPage clickOnSearchByNumber() {
-        super.clickOnSearchByNumber(new By.ByXPath("/html/body/div[2]/div[1]/a[1]"));
+        super.clickOnSearchByNumber();
         return PF.getPage(SearchByNumberPage.class);
     }
 

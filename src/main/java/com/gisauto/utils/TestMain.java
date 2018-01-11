@@ -70,7 +70,7 @@ public abstract class TestMain {
 
     @After
     public void validate() {
-//        screenShot();
+        screenShot();
         driver.quit();
     }
 

@@ -25,16 +25,16 @@ public class FizLicoLongTest extends TestMain {
     @DisplayName(value = "Длинный тест физ.лица")
     public void process() {
         await(4000);
-//        homePage.clickOnSelectCity();
-//        await(1000);
-//        Assert.assertEquals("Модальное окно расположения скрыто",
-//                true,
-//                homePage.isCityVisible());
-//        homePage.clickAny();
-//        await(2000);
-//        Assert.assertEquals("Модальное окно расположения открыто",
-//                false,
-//                homePage.isCityVisible());
+        homePage.clickOnSelectCity();
+        await(1000);
+        Assert.assertEquals("Модальное окно расположения открыто",
+                true,
+                homePage.isCityVisible());
+        homePage.clickAny();
+        await(2000);
+        Assert.assertEquals("Модальное окно расположения скрыто",
+                true,
+                !homePage.isCityVisible());
 
         homePage.clickOnDropDown();
         await(100);
@@ -45,7 +45,7 @@ public class FizLicoLongTest extends TestMain {
         await(3000);
         searchByNumberPage.search("079103383BB");
         await(2000);
-        searchByNumberPage.clickOnBuyButton("МОЙМАГ");
+        searchByNumberPage.clickOnBuyButton("Светлый");
         await(600);
         searchByNumberPage.clickOnSubmittBuyButton();
         await(600);

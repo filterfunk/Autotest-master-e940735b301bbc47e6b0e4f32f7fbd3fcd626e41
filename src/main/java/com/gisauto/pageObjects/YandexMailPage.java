@@ -13,7 +13,7 @@ public class YandexMailPage extends Page {
 
     public YandexMailPage() {
         openPage("https://passport.yandex.ru/auth?retpath=https%3A%2F%2Fmail.yandex.ru%2F%3Fconnection_id%3Diface-1513054766675-02035703&backpath=https%3A%2F%2Fmail.yandex.ru%2F%3Fnoretpath%3D1");
-        if (!driver.getTitle().contains(("Авторизация"))) {
+        if (!checkTitle("Авторизация")) {
             throw new IllegalStateException("Открытая страница не является страницей Yandex-почты.");
         }
     }
@@ -42,7 +42,6 @@ public class YandexMailPage extends Page {
         return this;
     }
 
-    @Step
     public YandexMailPage loginAs(String login, String password) {
         return typeLogin(login).typePassword(password).clickOnSubmittButton();
     }

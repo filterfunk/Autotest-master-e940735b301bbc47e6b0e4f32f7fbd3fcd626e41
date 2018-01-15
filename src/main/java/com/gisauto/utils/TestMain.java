@@ -41,7 +41,7 @@ public abstract class TestMain {
                                 ? "/usr/bin/geckodriver"
                                 : "C:/WD/geckodriver.exe");
                 FirefoxOptions options = new FirefoxOptions();
-                options.setLogLevel(FirefoxDriverLogLevel.TRACE);
+                options.setLogLevel(FirefoxDriverLogLevel.ERROR);
                 driver = new FirefoxDriver(options);
                 break;
             default:

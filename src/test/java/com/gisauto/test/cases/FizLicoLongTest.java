@@ -1,6 +1,7 @@
 package com.gisauto.test.cases;
 
 import com.gisauto.pageObjects.HomePage;
+import com.gisauto.pageObjects.Profile;
 import com.gisauto.pageObjects.SearchByNumberPage;
 import com.gisauto.pageObjects.YandexMailPage;
 import com.gisauto.utils.PF;
@@ -14,6 +15,7 @@ import org.junit.Test;
 public class FizLicoLongTest extends TestMain {
 
     private HomePage homePage;
+    private Profile profile;
     private SearchByNumberPage searchByNumberPage;
     private YandexMailPage yandexMailPage;
 
@@ -38,10 +40,10 @@ public class FizLicoLongTest extends TestMain {
 
         homePage.clickOnDropDown();
         await(100);
-        homePage.loginAs(TEST_EMAIL, TEST_EMAIL_PASSWORD);
+        profile = homePage.loginAs(TEST_EMAIL, TEST_EMAIL_PASSWORD);
         await(2000);
 
-        searchByNumberPage = homePage.clickOnSearchByNumber();
+        searchByNumberPage = profile.clickOnSearchByNumber();
         await(3000);
         searchByNumberPage.search("079103383BB");
         await(2000);

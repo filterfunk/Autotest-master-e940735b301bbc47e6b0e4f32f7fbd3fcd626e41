@@ -1,5 +1,6 @@
 package com.gisauto.pageObjects;
 
+import com.gisauto.utils.PF;
 import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -86,7 +87,7 @@ public abstract class BasePage extends Page {
     }
 
     @Step(value = "Нажатие на \"Поиск по номеру\"")
-    public BasePage clickOnSearchByNumber() {
+    public SearchByNumberPage clickOnSearchByNumber() {
         try {
             getElement(searchByNumber).click();
         } catch (Exception ex) {
@@ -94,7 +95,7 @@ public abstract class BasePage extends Page {
             ex.printStackTrace();
             throw new AssertionError("Не удалось нажать на \"Поиск по номеру\".");
         }
-        return this;
+        return PF.getPage(SearchByNumberPage.class);
     }
 
     @Step(value = "Нажатие на \"Каталоги запчастей\"")
@@ -106,6 +107,26 @@ public abstract class BasePage extends Page {
     @Step(value = "Нажатие на \"Запрос по VIN\"")
     public BasePage clickOnVINRequest() {
         getElement(vinRequest).click();
+        return this;
+    }
+
+    public BasePage clickOnCart(){
+        getElement(cart).click();
+        return this;
+    }
+
+    public HomePage clickOnToHome(){
+        getElement(toHome).click();
+        return PF.getPage(HomePage.class);
+    }
+
+    public BasePage clickOnPriceUpload(){
+        getElement(priceUpload).click();
+        return this;
+    }
+
+    public BasePage clickOnContacts(){
+        getElement(contacts).click();
         return this;
     }
 

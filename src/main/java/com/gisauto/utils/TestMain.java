@@ -48,7 +48,7 @@ public abstract class TestMain {
                 System.setProperty("webdriver.chrome.driver",
                         System.getProperty("os.name")
                                 .equals("Linux")
-                                ? "/home/artsiom/ChromeDriver"
+                                ? "/home/artsiom/chromedriver"
                                 : "C:/WD/chromedriver.exe");
                 driver = new ChromeDriver();
                 break;

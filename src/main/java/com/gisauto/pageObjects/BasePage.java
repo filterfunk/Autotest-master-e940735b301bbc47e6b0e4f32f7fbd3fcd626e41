@@ -28,7 +28,7 @@ public abstract class BasePage extends Page {
             vinRequest = new By.ByXPath("/html/body/div[2]/nav/ul/li[3]/a"),
             toHome = new By.ByXPath("/html/body/div[1]/div[1]/div[2]/div[1]"),
             priceUpload = new By.ByXPath("//*[@id=\"price-up\"]"),
-            bg = new By.ByXPath("/html/body/div[4]"),
+            closeCity= new By.ByXPath("//*[@id=\"modalSelectCity\"]/div/div/div[1]/div[1]/div"),
             contacts = new By.ByXPath("//*[@id=\"openContactsModal\"]"),
             cart = new By.ByXPath("//*[@id=\"openCart\"]");
 
@@ -40,7 +40,7 @@ public abstract class BasePage extends Page {
 
     @Step(value = "Нажатие на футер, для закрытия модального окна")
     public BasePage clickAny() {
-        getElement(bg).click();
+        getElement(closeCity).click();
         return this;
     }
 

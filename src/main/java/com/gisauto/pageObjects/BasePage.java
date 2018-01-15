@@ -23,7 +23,7 @@ public abstract class BasePage extends Page {
             submit = new By.ByXPath("//*[@id=\"formLogin-modal\"]/button"),
             city = new By.ByXPath("//*[@id=\"modalSelectCity\"]/div/div/div[1]"),
             selectCity = new By.ByXPath("/html/body/div[1]/div[3]/div[1]/span"),
-            searchByNumber = new By.ByXPath("/html/body/div[2]/nav/ul/li[1]/a"),
+            searchByNumber = new By.ByXPath("/html/body/div[1]/div[1]/nav/ul/li[1]"),
             catalog = new By.ByXPath("/html/body/div[2]/nav/ul/li[2]/a"),
             vinRequest = new By.ByXPath("/html/body/div[2]/nav/ul/li[3]/a"),
             toHome = new By.ByXPath("/html/body/div[1]/div[1]/div[2]/div[1]"),

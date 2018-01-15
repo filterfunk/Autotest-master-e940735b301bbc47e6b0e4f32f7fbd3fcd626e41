@@ -11,7 +11,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
 
-@TargetBrowser(browser = "FireFox")
+@TargetBrowser(browser = "F")
 public class FizLicoLongTest extends TestMain {
 
     private HomePage homePage;
@@ -26,42 +26,34 @@ public class FizLicoLongTest extends TestMain {
     @Test
     @DisplayName(value = "Длинный тест физ.лица")
     public void process() {
-        await(4000);
-        homePage.clickOnSelectCity();
-        await(1000);
-        Assert.assertEquals("Модальное окно расположения открыто",
-                true,
-                homePage.isCityVisible());
-        homePage.clickAny();
-        await(2000);
-        Assert.assertEquals("Модальное окно расположения скрыто",
-                true,
-                !homePage.isCityVisible());
+//        homePage.clickOnSelectCity();
+//        Assert.assertEquals("Модальное окно расположения открыто",
+//                true,
+//                homePage.isCityVisible());
+//        homePage.clickAny();
+//        Assert.assertEquals("Модальное окно расположения скрыто",
+//                true,
+//                !homePage.isCityVisible());
 
-        homePage.clickOnDropDown();
-        await(100);
-        profile = homePage.loginAs(TEST_EMAIL, TEST_EMAIL_PASSWORD);
-        await(2000);
+
+        profile = ((HomePage) homePage
+                .clickOnDropDown())
+                .loginAs(TEST_EMAIL, TEST_EMAIL_PASSWORD);
 
         searchByNumberPage = profile.clickOnSearchByNumber();
-        await(3000);
-        searchByNumberPage.search("079103383BB");
-        await(2000);
-        searchByNumberPage.clickOnBuyButton("Светлый");
-        await(600);
-        searchByNumberPage.clickOnSubmittBuyButton();
-        await(600);
+        searchByNumberPage
+                .search("079103383BB")
+                .clickOnBuyButton("Светлый")
+                .clickOnSubmittBuyButton();
 
         Assert.assertEquals("ваш заказ на прокладка гбц отправлен продавцу\n" +
                         "моймагвы получите на e-mail " + TEST_EMAIL + " уведомления о вашем заказе",
                 searchByNumberPage.getConfirmMessage().trim().toLowerCase());
 
         yandexMailPage = PF.getPage(YandexMailPage.class);
-        await(1000);
-        yandexMailPage.loginAs(TEST_EMAIL, TEST_EMAIL_PASSWORD);
-        await(5000);
-        yandexMailPage.clickOnLastMessage();
-        await(2000);
+        yandexMailPage
+                .loginAs(TEST_EMAIL, TEST_EMAIL_PASSWORD)
+                .clickOnLastMessage();
 
         Assert.assertEquals("здравствуйте. вы отправили запрос на запчасть."
                 , yandexMailPage.getMessage().trim().toLowerCase());

@@ -21,9 +21,6 @@ public class SearchByNumberPage extends BasePage {
             searchField = new By.ByXPath("//*[@id=\"app\"]/div[2]/input");
 
     public SearchByNumberPage() {
-        if (!checkTitle("Последние запросы поиска по номеру")) {
-            throw new IllegalStateException("Открытая страница не является страницей поиска по номеру");
-        }
     }
 
     @Step(value = "Нажатие на кнопку \"Заказать\"")

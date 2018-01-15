@@ -17,6 +17,7 @@ import org.openqa.selenium.WebElement;
 public abstract class Page {
 
     public WebDriver driver = TestMain.driver;
+    private long startTime;
 
     public void openPage(String url) {
         driver.get(url);
@@ -25,12 +26,13 @@ public abstract class Page {
     /**
      * Поиск элемента, с помощью любого инструмента (name, XPath, CSS и т.д.)
      *
-     * @param by <class>By</class> инструмент, с помощью которого осуществляется поиск.
-     *           <p>(например <code>new By.ByXPath("//*[@id=\"btnOpenCity\"]")</code>
+     * @param xpath <class>By</class> инструмент, с помощью которого осуществляется поиск.
+     *              <p>(например <code>new By.ByXPath("//*[@id=\"btnOpenCity\"]")</code>
      * @return найденный WebElement.
      */
-    public WebElement getElement(By by) {
-        return driver.findElement(by);
+    public WebElement getElement(By xpath) {
+        startTime = System.currentTimeMillis();
+        return tryFindElement(xpath);
     }
 
     public boolean isVisible(WebElement webElement) {
@@ -57,8 +59,34 @@ public abstract class Page {
         return sb.toString();
     }
 
-    public boolean checkTitle(String excpected){
+    public boolean checkTitle(String excpected) {
         return excpected.equals(driver.getTitle());
+    }
+
+    public WebElement tryFindElement(By xPath) {
+        if (System.currentTimeMillis() - startTime > 11000) {
+            throw new RuntimeException("Не удалось найти элемент по XPath: " + xPath);
+        }
+
+        WebElement element = null;
+
+        if (tryGetElement(xPath)) {
+            element = driver.findElement(xPath);;
+        } else {
+            TestMain.await(1000);
+            tryFindElement(xPath);
+        }
+
+        return element;
+    }
+
+    private boolean tryGetElement(By xPath) {
+        try {
+            driver.findElement(xPath);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
 }

@@ -66,7 +66,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <!--<argLine>-->
-                          <!-- -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.7.4/aspectjweaver-1.7.4.jar"-->
+                           <!-- -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.7.4/aspectjweaver-1.7.4.jar"-->
                     <!--</argLine>-->
                     <properties>
                         <property>
@@ -77,7 +77,7 @@
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
-                            <value>${project.build.directory}/allure-results</value>
+                            <value>${project.build.directory}\allure-results</value>
                         </property>
                         <property>
                             <name>allure.link.issue.pattern</name>

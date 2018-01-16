@@ -18,7 +18,7 @@ public class HomePage extends BasePage {
     private final By.ByXPath submit = new By.ByXPath("//*[@id=\"formLogin-modal\"]/button");
 
     public HomePage() {
-        openPage("http://test.gisauto.ru/");
+        openPage("https://gisauto.ru/");
         if (!checkTitle("Поиск автозапчастей по всей России")) {
             throw new IllegalStateException("Открытая страница не является главной страницей");
         }

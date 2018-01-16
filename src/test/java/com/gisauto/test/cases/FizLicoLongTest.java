@@ -11,7 +11,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
 
-@TargetBrowser(browser = "F")
+@TargetBrowser(browser = "C")
 public class FizLicoLongTest extends TestMain {
 
     private HomePage homePage;
@@ -44,6 +44,7 @@ public class FizLicoLongTest extends TestMain {
         searchByNumberPage
                 .search("079103383BB")
                 .clickOnBuyButton("Светлый")
+                .clickoOnCheckBox()
                 .clickOnSubmittBuyButton();
 
         Assert.assertEquals("ваш заказ на прокладка гбц отправлен продавцу\n" +

@@ -1,4 +1,4 @@
-package com.gisauto.test.cases;
+package com.gisauto.cases;
 
 import com.gisauto.pageObjects.HomePage;
 import com.gisauto.pageObjects.Profile;
@@ -23,7 +23,7 @@ public class FizLicoLongTest extends TestMain {
         homePage = PF.getPage(HomePage.class);
     }
 
-    @Test
+//    @Test
     @DisplayName(value = "Длинный тест физ.лица")
     public void process() {
 //        homePage.clickOnSelectCity();

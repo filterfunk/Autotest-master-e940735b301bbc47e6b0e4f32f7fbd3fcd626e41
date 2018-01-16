@@ -9,9 +9,10 @@ import com.gisauto.utils.TestMain;
 import com.gisauto.utils.annotations.TargetBrowser;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-@TargetBrowser(browser = "C")
+@TargetBrowser(browser = "F")
 public class FizLicoLongTest extends TestMain {
 
     private HomePage homePage;
@@ -19,11 +20,12 @@ public class FizLicoLongTest extends TestMain {
     private SearchByNumberPage searchByNumberPage;
     private YandexMailPage yandexMailPage;
 
+    @Before
     public void prepare() {
         homePage = PF.getPage(HomePage.class);
     }
 
-//    @Test
+    @Test
     @DisplayName(value = "Длинный тест физ.лица")
     public void process() {
 //        homePage.clickOnSelectCity();
@@ -35,7 +37,7 @@ public class FizLicoLongTest extends TestMain {
 //                true,
 //                !homePage.isCityVisible());
 
-
+        await(2000);
         profile = ((HomePage) homePage
                 .clickOnDropDown())
                 .loginAs(TEST_EMAIL, TEST_EMAIL_PASSWORD);

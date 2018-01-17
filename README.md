@@ -12,6 +12,7 @@
 * Фреймворк автотестов - [Selenium WebDriver](https://github.com/SeleniumHQ/selenium)
 * Логгер - [log4j](https://github.com/apache/logging-log4j2)
 * Отчеты - [Yandex Allure](https://github.com/allure-framework/allure2)
+* BDD - [Cucumber](https://cucumber.io/)
 
 ## Установка и запуск
 * Для того чтобы запустить проект и начать прогон тестов необходимо:

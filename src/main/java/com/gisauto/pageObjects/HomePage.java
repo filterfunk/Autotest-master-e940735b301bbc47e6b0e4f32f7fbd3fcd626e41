@@ -2,8 +2,9 @@ package com.gisauto.pageObjects;
 
 import com.gisauto.utils.PF;
 import com.gisauto.utils.TestMain;
-import io.qameta.allure.Step;
+//import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * PageObject главной страницы
@@ -18,7 +19,7 @@ public class HomePage extends BasePage {
     private final By.ByXPath submit = new By.ByXPath("//*[@id=\"formLogin-modal\"]/button");
 
     public HomePage() {
-        openPage("https://gisauto.ru/");
+        openPage("http://test.gisauto.ru/");
         if (!checkTitle("Поиск автозапчастей по всей России")) {
             throw new IllegalStateException("Открытая страница не является главной страницей");
         }

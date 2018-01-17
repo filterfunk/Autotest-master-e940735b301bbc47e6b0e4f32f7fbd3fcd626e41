@@ -1,10 +1,8 @@
 package com.gisauto.utils;
 
-import com.gisauto.pageObjects.HomePage;
 import com.gisauto.utils.annotations.TargetBrowser;
 import io.qameta.allure.Attachment;
 import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -53,29 +51,17 @@ public abstract class TestMain {
                 driver = new ChromeDriver();
                 break;
         }
-        PF.getPage(HomePage.class);
         driver.manage().window().maximize();
     }
 
-    /**
-     * Метод <code>prepare()</code> вызывается перед запуском теста.
-     * <p>
-     * Рекомендуется использовать для подготовки тестовых данных,
-     * открытия нужных страниц и т.д.
-     */
-    @Before
-    public abstract void prepare();
-
-    public abstract void process();
-
     @After
     public void validate() {
-        screenShot();
         driver.quit();
     }
 
     /**
      * Делает скриншот и прикрепляет к отчёту Yandex.allure
+     *
      * @return массив байт с изображением
      */
     @Attachment
@@ -101,6 +87,7 @@ public abstract class TestMain {
     /**
      * Метод ожидания. Используется после выполнения шага теста для
      * ожидания подгрузки страниц/элементов.
+     *
      * @param waitTime время ожидания в миллисекундах
      */
     public static void await(long waitTime) {

@@ -2,8 +2,9 @@ package com.gisauto.pageObjects;
 
 import com.gisauto.utils.PF;
 import com.gisauto.utils.TestMain;
-import io.qameta.allure.Step;
+//import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * PageObject главной страницы

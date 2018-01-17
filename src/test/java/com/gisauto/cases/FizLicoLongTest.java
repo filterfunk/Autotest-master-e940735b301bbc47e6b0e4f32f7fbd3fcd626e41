@@ -7,10 +7,8 @@ import com.gisauto.pageObjects.YandexMailPage;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.TestMain;
 import com.gisauto.utils.annotations.TargetBrowser;
-import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
 
 @TargetBrowser(browser = "F")
 public class FizLicoLongTest extends TestMain {
@@ -25,8 +23,7 @@ public class FizLicoLongTest extends TestMain {
         homePage = PF.getPage(HomePage.class);
     }
 
-    @Test
-    @DisplayName(value = "Длинный тест физ.лица")
+//    @Test
     public void process() {
 //        homePage.clickOnSelectCity();
 //        Assert.assertEquals("Модальное окно расположения открыто",

@@ -1,8 +1,6 @@
 package com.gisauto.pageObjects;
 
 import com.gisauto.utils.PF;
-import com.gisauto.utils.TestMain;
-//import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -41,7 +39,6 @@ public class HomePage extends BasePage {
     public Profile submitLogin() {
         try {
             getElement(submit).click();
-            TestMain.await(2000);
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new AssertionError("Не удалось нажать на \"Войти\". Возможно элемент входа скрыт.");

@@ -1,5 +1,6 @@
 package com.gisauto.pageObjects;
 
+import com.gisauto.utils.Driver;
 import com.gisauto.utils.TestMain;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.By;
@@ -16,11 +17,11 @@ import org.openqa.selenium.WebElement;
  */
 public abstract class Page {
 
-    public WebDriver driver = TestMain.driver;
     private long startTime;
+    private static final long WAIT_TIME = 60000;
 
     public void openPage(String url) {
-        driver.get(url);
+        Driver.getDriver().get(url);
     }
 
     /**
@@ -60,20 +61,20 @@ public abstract class Page {
     }
 
     public boolean checkTitle(String excpected) {
-        return excpected.equals(driver.getTitle());
+        return excpected.equals(Driver.getDriver().getTitle());
     }
 
     public WebElement tryFindElement(By xPath) {
-        if (System.currentTimeMillis() - startTime > 11000) {
+        if (System.currentTimeMillis() - startTime > WAIT_TIME) {
             throw new RuntimeException("Не удалось найти элемент по XPath: " + xPath);
         }
 
         WebElement element = null;
 
         if (tryGetElement(xPath)) {
-            element = driver.findElement(xPath);;
+            element = Driver.getDriver().findElement(xPath);;
         } else {
-            TestMain.await(1000);
+            await(1000);
             tryFindElement(xPath);
         }
 
@@ -82,10 +83,18 @@ public abstract class Page {
 
     private boolean tryGetElement(By xPath) {
         try {
-            driver.findElement(xPath);
+            Driver.getDriver().findElement(xPath);
             return true;
         } catch (Exception ex) {
             return false;
+        }
+    }
+
+    public static void await(long waitTime) {
+        try {
+            Thread.sleep(waitTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

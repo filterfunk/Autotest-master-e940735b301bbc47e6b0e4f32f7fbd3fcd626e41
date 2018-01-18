@@ -1,5 +1,6 @@
 package com.gisauto.pageObjects;
 
+import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 //import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
@@ -29,9 +30,11 @@ public abstract class BasePage extends Page {
             vinRequest = new By.ByXPath("/html/body/div[2]/nav/ul/li[3]/a"),
             toHome = new By.ByXPath("/html/body/div[1]/div[1]/div[2]/div[1]"),
             priceUpload = new By.ByXPath("//*[@id=\"price-up\"]"),
-            closeCity= new By.ByXPath("//*[@id=\"modalSelectCity\"]/div/div/div[1]/div[1]/div"),
+            closeCity = new By.ByXPath("//*[@id=\"modalSelectCity\"]/div/div/div[1]/div[1]/div"),
             contacts = new By.ByXPath("//*[@id=\"openContactsModal\"]"),
-            cart = new By.ByXPath("//*[@id=\"openCart\"]");
+            cart = new By.ByXPath("//*[@id=\"openCart\"]"),
+            register = new By.ByXPath("//*[@id=\"loginModal\"]/div/div/div[2]/div/a"),
+            modalLogin = new By.ByXPath("//*[@id=\"loginModal\"]/div/div");
 
     @Step(value = "Нажатие на кнопку выбора города")
     public BasePage clickOnSelectCity() {
@@ -111,28 +114,41 @@ public abstract class BasePage extends Page {
         return this;
     }
 
-    public BasePage clickOnCart(){
+    public BasePage clickOnCart() {
         getElement(cart).click();
         return this;
     }
 
-    public HomePage clickOnToHome(){
+    public HomePage clickOnToHome() {
         getElement(toHome).click();
         return PF.getPage(HomePage.class);
     }
 
-    public BasePage clickOnPriceUpload(){
+    public BasePage clickOnPriceUpload() {
         getElement(priceUpload).click();
         return this;
     }
 
-    public BasePage clickOnContacts(){
+    public BasePage clickOnContacts() {
         getElement(contacts).click();
         return this;
     }
 
+    public BasePage clickOnRegister() {
+        getElement(register).click();
+        return this;
+    }
+
+    public boolean isModalVisible(){
+        return isVisible(getElement(modalLogin));
+    }
+
     public boolean isCityVisible() {
         return isVisible(getElement(city));
+    }
+
+    public boolean isLoggedIn() {
+        return !isVisible(getElement(dropDownToogle));
     }
 
 }

@@ -69,16 +69,13 @@ public abstract class Page {
             throw new RuntimeException("Не удалось найти элемент по XPath: " + xPath);
         }
 
-        WebElement element = null;
-
         if (tryGetElement(xPath)) {
-            element = Driver.getDriver().findElement(xPath);;
+            return Driver.getDriver().findElement(xPath);
         } else {
             await(1000);
             tryFindElement(xPath);
         }
-
-        return element;
+        return null;
     }
 
     private boolean tryGetElement(By xPath) {
@@ -90,7 +87,7 @@ public abstract class Page {
         }
     }
 
-    public static void await(long waitTime) {
+    public void await(long waitTime) {
         try {
             Thread.sleep(waitTime);
         } catch (InterruptedException e) {

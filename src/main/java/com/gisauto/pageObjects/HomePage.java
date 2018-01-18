@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
     private final By.ByXPath submit = new By.ByXPath("//*[@id=\"formLogin-modal\"]/button");
 
     public HomePage() {
-        openPage("http://test.gisauto.ru/");
+        openPage("http://beta.gisauto.ru/");
         if (!checkTitle("Поиск автозапчастей по всей России")) {
             throw new IllegalStateException("Открытая страница не является главной страницей");
         }
@@ -28,13 +28,11 @@ public class HomePage extends BasePage {
         return submitLogin();
     }
 
-    @Step(value = "Нажатие на поиск по номеру")
     public SearchByNumberPage clickOnSearchByNumber() {
         super.clickOnSearchByNumber();
         return PF.getPage(SearchByNumberPage.class);
     }
 
-    @Step(value = "Нажати на кнопку \"Войти\"")
     @Override
     public Profile submitLogin() {
         try {

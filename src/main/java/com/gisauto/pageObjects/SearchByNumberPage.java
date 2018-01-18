@@ -1,6 +1,5 @@
 package com.gisauto.pageObjects;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -24,7 +23,6 @@ public class SearchByNumberPage extends BasePage {
     public SearchByNumberPage() {
     }
 
-    @Step(value = "Нажатие на кнопку \"Заказать\"")
     public SearchByNumberPage clickOnBuyButton(String shopName) {
         int tr = 1;
         WebElement a = null;
@@ -42,7 +40,6 @@ public class SearchByNumberPage extends BasePage {
         return this;
     }
 
-    @Step(value = "Поиск")
     public SearchByNumberPage search(String number) {
         WebElement input = getElement(searchField);
         inputText(input, number);
@@ -50,18 +47,15 @@ public class SearchByNumberPage extends BasePage {
         return this;
     }
 
-    @Step(value = "Нажатие на кнопку подтверждения заказа")
     public SearchByNumberPage clickOnSubmittBuyButton() {
         getElement(submittBuyButton).click();
         return this;
     }
 
-    @Step(value = "Проверка содержимого сообщения о подтверждении заказа")
     public String getConfirmMessage() {
         return getElement(confirmMessage).getText() + getElement(goToCabinet).getText();
     }
 
-    @Step(value = "Заполнение Чекбокса")
     public SearchByNumberPage clickoOnCheckBox() {
         getElement(checkBox).click();
         return this;

@@ -1,6 +1,5 @@
 package com.gisauto.pageObjects;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class YandexMailPage extends Page {
@@ -18,25 +17,21 @@ public class YandexMailPage extends Page {
         }
     }
 
-    @Step(value = "Нажатие на последнее письмо")
     public YandexMailPage clickOnLastMessage() {
         getElement(message).click();
         return this;
     }
 
-    @Step(value = "Ввод логина Yandex")
     public YandexMailPage typeLogin(String login) {
         getElement(loginField).sendKeys(login);
         return this;
     }
 
-    @Step(value = "Ввод пароля Yandex")
     public YandexMailPage typePassword(String password) {
         getElement(passwordField).sendKeys(password);
         return this;
     }
 
-    @Step(value = "Нажатие на кнопку входа Yandex")
     public YandexMailPage clickOnSubmittButton() {
         getElement(loginButton).click();
         return this;
@@ -46,7 +41,6 @@ public class YandexMailPage extends Page {
         return typeLogin(login).typePassword(password).clickOnSubmittButton();
     }
 
-    @Step(value = "Получение содержимого письма Yandex")
     public String getMessage() {
         return getElement(messageField).getText();
     }

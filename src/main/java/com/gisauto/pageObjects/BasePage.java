@@ -1,12 +1,9 @@
 package com.gisauto.pageObjects;
 
-import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
-//import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Базовый клас PageObject'ов, от которого наследуются все прочие Page GisAuto.
@@ -33,28 +30,23 @@ public abstract class BasePage extends Page {
             closeCity = new By.ByXPath("//*[@id=\"modalSelectCity\"]/div/div/div[1]/div[1]/div"),
             contacts = new By.ByXPath("//*[@id=\"openContactsModal\"]"),
             cart = new By.ByXPath("//*[@id=\"openCart\"]"),
-            register = new By.ByXPath("//*[@id=\"loginModal\"]/div/div/div[2]/div/a"),
-            modalLogin = new By.ByXPath("//*[@id=\"loginModal\"]/div/div");
+            register = new By.ByXPath("//*[@id=\"loginModal\"]/div/div/div[2]/div");
 
-    @Step(value = "Нажатие на кнопку выбора города")
     public BasePage clickOnSelectCity() {
         getElement(selectCity).click();
         return this;
     }
 
-    @Step(value = "Нажатие на футер, для закрытия модального окна")
     public BasePage clickAny() {
         getElement(closeCity).click();
         return this;
     }
 
-    @Step(value = "Нажатие на кнопку входа/пользователя")
     public BasePage clickOnDropDown() {
         getElement(dropDownToogle).click();
         return this;
     }
 
-    @Step(value = "Ввод логина")
     public BasePage typeUsername(String username) {
         try {
             getElement(login).sendKeys(username);
@@ -66,7 +58,6 @@ public abstract class BasePage extends Page {
         return this;
     }
 
-    @Step(value = "Ввод пароля")
     public BasePage typePassword(String pass) {
         try {
             getElement(password).sendKeys(pass);
@@ -78,7 +69,6 @@ public abstract class BasePage extends Page {
         return this;
     }
 
-    @Step(value = "Нажати на кнопку \"Войти\"")
     public BasePage submitLogin() {
         try {
             getElement(submit).click();
@@ -90,7 +80,6 @@ public abstract class BasePage extends Page {
         return this;
     }
 
-    @Step(value = "Нажатие на \"Поиск по номеру\"")
     public SearchByNumberPage clickOnSearchByNumber() {
         try {
             getElement(searchByNumber).click();
@@ -102,13 +91,11 @@ public abstract class BasePage extends Page {
         return PF.getPage(SearchByNumberPage.class);
     }
 
-    @Step(value = "Нажатие на \"Каталоги запчастей\"")
     public BasePage clickOnCatalog() {
         getElement(catalog).click();
         return this;
     }
 
-    @Step(value = "Нажатие на \"Запрос по VIN\"")
     public BasePage clickOnVINRequest() {
         getElement(vinRequest).click();
         return this;
@@ -139,8 +126,8 @@ public abstract class BasePage extends Page {
         return this;
     }
 
-    public boolean isModalVisible(){
-        return isVisible(getElement(modalLogin));
+    public boolean isModalVisible() {
+        return isVisible(getElement(register));
     }
 
     public boolean isCityVisible() {

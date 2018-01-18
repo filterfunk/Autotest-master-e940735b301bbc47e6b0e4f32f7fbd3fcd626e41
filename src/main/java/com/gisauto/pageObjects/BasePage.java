@@ -16,7 +16,7 @@ import org.openqa.selenium.By;
 public abstract class BasePage extends Page {
 
     private static Logger logger = LogManager.getRootLogger();
-    private final By login = new By.ByXPath("//*[@id=\"username\"]"),
+    final By login = new By.ByXPath("//*[@id=\"username\"]"),
             password = new By.ByXPath("//*[@id=\"password\"]"),
             dropDownToogle = new By.ByXPath("//*[@id=\"login-menu-block\"]"),
             submit = new By.ByXPath("//*[@id=\"formLogin-modal\"]/button"),
@@ -121,9 +121,9 @@ public abstract class BasePage extends Page {
         return this;
     }
 
-    public BasePage clickOnRegister() {
+    public Register clickOnRegister() {
         getElement(register).click();
-        return this;
+        return PF.getPage(Register.class);
     }
 
     public boolean isModalVisible() {

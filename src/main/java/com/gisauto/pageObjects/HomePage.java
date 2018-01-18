@@ -14,8 +14,6 @@ import ru.yandex.qatools.allure.annotations.Step;
  */
 public class HomePage extends BasePage {
 
-    private final By.ByXPath submit = new By.ByXPath("//*[@id=\"formLogin-modal\"]/button");
-
     public HomePage() {
         openPage("http://beta.gisauto.ru/");
         if (!checkTitle("Поиск автозапчастей по всей России")) {

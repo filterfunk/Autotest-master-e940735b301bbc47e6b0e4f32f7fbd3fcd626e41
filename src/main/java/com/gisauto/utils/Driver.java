@@ -1,6 +1,8 @@
 package com.gisauto.utils;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
@@ -15,6 +17,7 @@ public final class Driver {
                         .equals("Linux")
                         ? "/usr/bin/geckodriver"
                         : "C:/WD/geckodriver.exe");
+
         FirefoxOptions options = new FirefoxOptions();
         driver = new FirefoxDriver(options);
 
@@ -23,7 +26,10 @@ public final class Driver {
 //                        .equals("Linux")
 //                        ? "/home/artsiom/chromedriver"
 //                        : "C:/WD/chromedriver.exe");
-//        driver = new ChromeDriver();
+//
+//        ChromeOptions options = new ChromeOptions();
+//        driver = new ChromeDriver(options);
+
         driver.manage().window().maximize();
         return driver;
     }

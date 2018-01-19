@@ -1,6 +1,7 @@
 package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.HomePage;
+import com.gisauto.pageObjects.Profile;
 import com.gisauto.pageObjects.Register;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
@@ -35,6 +36,7 @@ public final class HomePageStepDefs {
 
     @То("^система редиректит на страницу профиля")
     public void системаРедиректитНаСтраницуПрофиля() {
+        PF.getPage(Profile.class).isPageLoaded("Автозапчасти России - Настройки - Мой профиль");
         Assert
                 .assertEquals("Автозапчасти России - Настройки - Мой профиль", Driver.getDriver()
                         .getTitle());

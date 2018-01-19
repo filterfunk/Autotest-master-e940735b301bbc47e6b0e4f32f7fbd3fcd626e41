@@ -1,16 +1,9 @@
 package com.gisauto.hooks;
 
-import com.gisauto.pageObjects.HomePage;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import cucumber.api.java.After;
 import io.qameta.allure.Attachment;
-import org.junit.Assert;
-import org.junit.Before;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -47,6 +40,7 @@ public final class Hooks {
     @After
     public void quit() {
 //        Assert.assertEquals(false, PF.getPage(HomePage.class).isLoggedIn());
+        PF.reset();
         Driver.kill();
     }
 

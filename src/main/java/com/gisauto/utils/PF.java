@@ -19,7 +19,7 @@ public final class PF {
     public static <T extends Page> T getPage(Class<T> pageObject) {
         for (Object a : pagesInstances) {
             if (a != null) {
-                if (a.getClass() == pageObject.getClass()) {
+                if (a.getClass() == pageObject) {
                     return (T) a;
                 }
             } else pagesInstances.remove(a);
@@ -28,6 +28,10 @@ public final class PF {
         T page = PageFactory.initElements(Driver.getDriver(), pageObject);
         pagesInstances.add(page);
         return page;
+    }
+
+    public static void reset(){
+        pagesInstances = new ArrayList<>();
     }
 
 }

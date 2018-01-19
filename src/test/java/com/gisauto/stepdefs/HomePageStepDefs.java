@@ -1,6 +1,7 @@
 package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.HomePage;
+import com.gisauto.pageObjects.Register;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import cucumber.api.java.ru.Дано;

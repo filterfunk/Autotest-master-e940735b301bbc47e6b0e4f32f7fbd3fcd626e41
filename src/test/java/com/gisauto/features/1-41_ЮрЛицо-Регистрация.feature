@@ -1,6 +1,6 @@
 # language: ru
 @all
-Функция: 1-41:Юр.Лицо - Регистрация
+Функция: 1-41_ЮрЛицо-Регистрация
 
   Предыстория:
     Дано пользователь открывает главную страницу
@@ -21,5 +21,5 @@
 
     Примеры:
       | логин                  | пароль      | подтверждение пароля | организация |
-      | test.gisauto@yandex.ru | testgisauto | testgisauto          | test1       |
-      | test12345@test.com     | 111111      | 111111               | test2       |
+      | test.gisauto2@yandex.ru | testgisauto | testgisauto          | test12       |
+      | test123456@test.com     | 111111      | 111111               | test22       |

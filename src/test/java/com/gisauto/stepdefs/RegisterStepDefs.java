@@ -53,7 +53,8 @@ public class RegisterStepDefs {
     }
 
     @То("^система редиректит на страницу регистрации")
-    public void системаРедиректитНаСтраницуРегистрации(){
-        Assert.assertEquals("Регистрация на портале GisAuto.ru", Driver.getDriver().getTitle());
+    public void системаРедиректитНаСтраницуРегистрации() {
+        if (PF.getPage(Register.class).isPageLoaded("Регистрация на портале GisAuto.ru"))
+            Assert.assertEquals("Регистрация на портале GisAuto.ru", Driver.getDriver().getTitle());
     }
 }

@@ -1,10 +1,8 @@
 package com.gisauto.pageObjects;
 
 import com.gisauto.utils.Driver;
-import com.gisauto.utils.TestMain;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -22,6 +20,17 @@ public abstract class Page {
 
     public void openPage(String url) {
         Driver.getDriver().get(url);
+    }
+
+    public boolean isPageLoaded(String title) {
+        startTime = System.currentTimeMillis();
+
+        do {
+            await(1000);
+        } while (System.currentTimeMillis() - startTime < 10000 && !checkTitle(title));
+        if (System.currentTimeMillis() - startTime > 10000 && !checkTitle(title)) {
+            throw new RuntimeException("Страница " + title + " не загрузилась");
+        } else return true;
     }
 
     /**
@@ -80,8 +89,7 @@ public abstract class Page {
 
     private boolean tryGetElement(By xPath) {
         try {
-            Driver.getDriver().findElement(xPath);
-            return true;
+            return Driver.getDriver().findElement(xPath).isDisplayed();
         } catch (Exception ex) {
             return false;
         }

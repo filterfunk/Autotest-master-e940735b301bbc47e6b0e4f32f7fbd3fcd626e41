@@ -27,6 +27,7 @@ public abstract class Page {
 
         do {
             await(1000);
+            if (checkTitle(title)) break;
         } while (System.currentTimeMillis() - startTime < 10000 && !checkTitle(title));
         if (System.currentTimeMillis() - startTime > 10000 && !checkTitle(title)) {
             throw new RuntimeException("Страница " + title + " не загрузилась");

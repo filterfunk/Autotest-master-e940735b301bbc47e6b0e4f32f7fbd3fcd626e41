@@ -1,6 +1,5 @@
 package com.gisauto.pageObjects;
 
-import com.gisauto.utils.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -69,30 +68,30 @@ public class SearchByNumberPage extends BasePage {
         return this;
     }
 
-    public boolean isMakeOrderModalVisible(){
+    public boolean isMakeOrderModalVisible() {
         return isVisible(getElement(makeOrderModal));
     }
 
-    public boolean isOrderConfirmationModalVisible(){
+    public boolean isOrderConfirmationModalVisible() {
         return isVisible(getElement(orderConfirmationModal));
     }
 
-    public SearchByNumberPage typeName(String username){
+    public SearchByNumberPage typeName(String username) {
         inputText(getElement(name), username);
         return this;
     }
 
-    public SearchByNumberPage typeEmail(String mail){
+    public SearchByNumberPage typeEmail(String mail) {
         inputText(getElement(email), mail);
         return this;
     }
 
-    public SearchByNumberPage typePhoneNumber(String phone){
+    public SearchByNumberPage typePhoneNumber(String phone) {
         inputText(getElement(phoneNumber), phone);
         return this;
     }
 
-    public SearchByNumberPage chooseCity(){
+    public SearchByNumberPage chooseCity() {
         getElement(city).click();
         getElement(firstCity).click();
         return this;

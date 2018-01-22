@@ -3,6 +3,7 @@ package com.gisauto.pageObjects;
 import com.gisauto.utils.Driver;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -51,13 +52,17 @@ public abstract class Page {
     }
 
     public void inputText(WebElement textField, String string) {
-        for (int i = 0; i < string.length(); i++) {
-            textField.sendKeys(string.charAt(i) + "");
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        try {
+            for (int i = 0; i < string.length(); i++) {
+                textField.sendKeys(string.charAt(i) + "");
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
+        } catch (JavascriptException ex) {
+            Driver.kill();
         }
     }
 

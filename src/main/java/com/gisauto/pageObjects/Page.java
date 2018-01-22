@@ -85,7 +85,7 @@ public abstract class Page {
             await(1000);
             tryFindElement(xPath);
         }
-        return null;
+        return Driver.getDriver().findElement(xPath); //временное решение
     }
 
     private boolean tryGetElement(By xPath) {

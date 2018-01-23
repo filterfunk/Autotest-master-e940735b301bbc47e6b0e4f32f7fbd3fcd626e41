@@ -36,8 +36,8 @@ public class ProfileStepDefs {
         PF.getPage(Profile.class).clickOnCitySelect().clickOnFirstCity();
     }
 
-    @Если("^пользователь нажимает сохранить")
-    public void пользовательНажимаетСохранить(){
+    @Если("^пользователь нажимает сохранить профиль")
+    public void пользовательНажимаетСохранитьПрофиль(){
         PF.getPage(Profile.class).clickOnSaveButton();
     }
 

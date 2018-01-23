@@ -51,8 +51,8 @@ public class OrganizationInfoStepDefs {
         PF.getPage(OrganizationInfo.class).clickOnSelectShopCity().clickOnFirstCity();
     }
 
-    @Если("^пользователь нажимает сохранить")
-    public void пользовательНажимаетСохранить(){
+    @Если("^пользователь нажимает сохранить данные")
+    public void пользовательНажимаетСохранитьДанные(){
         PF.getPage(OrganizationInfo.class).clickOnSaveButton();
     }
 }

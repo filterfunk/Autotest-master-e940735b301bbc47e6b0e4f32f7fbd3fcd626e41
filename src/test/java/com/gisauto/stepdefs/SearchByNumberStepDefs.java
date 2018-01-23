@@ -14,24 +14,24 @@ public class SearchByNumberStepDefs {
     }
 
     @То("^система редиректит на страницу \"([^\"]*)\"$")
-    public void системаРедиректитНаСтраницу(String title){
+    public void системаРедиректитНаСтраницу(String title) {
         PF.getPage(SearchByNumberPage.class).checkTitle(title);
     }
 
     @Если("^пользователь нажимает заказать у \"([^\"]*)\"$")
-    public void пользовательНажимаетЗаказать(String seller){
+    public void пользовательНажимаетЗаказать(String seller) {
         PF.getPage(SearchByNumberPage.class).clickOnBuyButton(seller);
     }
 
     @То("^появляется модалка заказать")
-    public void появляетсяМодалкаЗаказать(){
+    public void появляетсяМодалкаЗаказать() {
         Assert
                 .assertEquals("Модалка заказть видима ", true,
                         PF.getPage(SearchByNumberPage.class).isMakeOrderModalVisible());
     }
 
     @Если("^пользователь выбирает город вводит \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" нажимает на чекбокс и заказать")
-    public void пользовтельВыбираетГородВводитИмяПочтуТелефонНажимаетНаЧекБоксИЗаказать(String name, String email, String number){
+    public void пользовтельВыбираетГородВводитИмяПочтуТелефонНажимаетНаЧекБоксИЗаказать(String name, String email, String number) {
         PF.getPage(SearchByNumberPage.class)
                 .typeName(name)
                 .chooseCity()
@@ -42,7 +42,7 @@ public class SearchByNumberStepDefs {
     }
 
     @То("^модалка заказать закрывается и появляется модалка с подтверждением")
-    public void модалкаЗаказатьЗакрываетсяИПоявляетсяМодалкаСПодтверждением(){
+    public void модалкаЗаказатьЗакрываетсяИПоявляетсяМодалкаСПодтверждением() {
         Assert
                 .assertEquals("Модалка заказть закрыта ", true,
                         !PF.getPage(SearchByNumberPage.class).isMakeOrderModalVisible());
@@ -50,6 +50,40 @@ public class SearchByNumberStepDefs {
         Assert
                 .assertEquals("Модалка подтверждения видима", true,
                         PF.getPage(SearchByNumberPage.class).isOrderConfirmationModalVisible());
+    }
+
+    @Если("^пользователь нажимает добавить в корзину у \"([^\"]*)\"$")
+    public void пользовательНажимаетДобавитьВКорзинуУ(String seller) {
+        PF.getPage(SearchByNumberPage.class).clickOnAddToCart(seller);
+    }
+
+    @Если("^пользователь открывает корзину")
+    public void пользовательОткрываетКорзину() {
+        PF.getPage(SearchByNumberPage.class).clickOnCart();
+    }
+
+    @Если("^пользователь нажимает отправить заказы")
+    public void пользовательНажимаетОтправитьЗаказы() {
+        PF.getPage(SearchByNumberPage.class).clickOnSubmittBuyButton();
+    }
+
+    @Если("^пользователь заполняет поля нажимает на чекбокс и отправить")
+    public void пользовательЗаполняетПоляНажимаетНаЧекбоксИОтправить(String name, String email, String phone) {
+        PF.getPage(SearchByNumberPage.class)
+                .typeCartName(name)
+                .clickOnOrderConfirmSelectCity()
+                .clickOnOrderConfirmFirstCity()
+                .typeCartEmail(email)
+                .typeCartPhone(phone)
+                .clickOnOrderConfirmCheckBox()
+                .clickOnOrderConfirSendButton();
+    }
+
+    @То("^появляется модалка с подтверждением")
+    public void появляетсяМодалкаСПодтверждением(){
+        Assert
+                .assertEquals("Модалка подтверждения видима", true,
+                        PF.getPage(SearchByNumberPage.class).isOrderCartConfirmSentModalVisible());
     }
 
 }

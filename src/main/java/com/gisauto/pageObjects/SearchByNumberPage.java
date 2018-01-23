@@ -25,12 +25,61 @@ public class SearchByNumberPage extends BasePage {
             phoneNumber = new By.ByXPath("//*[@id=\"order_search_by_num_item_orderSearchByNum_customerPhone\"]"),
             city = new By.ByXPath("//*[@id=\"formMakeSimpleOrder\"]/div[5]/div/div[1]/div[1]/input"),
             firstCity = new By.ByXPath("//*[@id=\"formMakeSimpleOrder\"]/div[5]/div/div[1]/div[2]/ul/li[1]/label/span"),
-            orderConfirmationModal = new By.ByXPath("//*[@id=\"modalOrderDone\"]/div");
+            orderConfirmationModal = new By.ByXPath("//*[@id=\"modalOrderDone\"]/div"),
+            orderConfirmName = new By.ByXPath("//*[@id=\"confirm_order_name\"]"),
+            orderConfirmCity = new By.ByXPath("//*[@id=\"confirmOrderForm\"]/div[2]/div[2]/div/div[1]/div[1]/input"),
+            orderConfirmMail = new By.ByXPath("//*[@id=\"confirm_order_email\"]"),
+            orderConfirmPhone = new By.ByXPath("//*[@id=\"confirm_order_phone\"]"),
+            orderConfirmCheckBox = new By.ByXPath("//*[@id=\"confirmOrderModalCeckbox\"]"),
+            orderConfirmSendButton = new By.ByXPath("//*[@id=\"order_confirm_button\"]"),
+            orderConfirmFirstCity = new By.ByXPath("//*[@id=\"confirmOrderForm\"]/div[2]/div[2]/div/div[1]/div[2]/ul/li[1]/label"),
+            orderConfirmSentModal = new By.ByXPath("//*[@id=\"modalCartDone\"]/div/div/div");
 
     public SearchByNumberPage() {
     }
 
     public SearchByNumberPage clickOnBuyButton(String shopName) {
+        getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody/tr["
+                + sellerIndex(shopName) + "]/td[6]/div/button")).click();
+        return this;
+    }
+
+    public SearchByNumberPage typeCartName(String name){
+        inputText(getElement(orderConfirmName), name);
+        return this;
+    }
+
+    public SearchByNumberPage typeCartEmail(String mail){
+        inputText(getElement(orderConfirmMail), mail);
+        return this;
+    }
+
+    public SearchByNumberPage typeCartPhone(String phone){
+        inputText(getElement(orderConfirmPhone), phone);
+        return this;
+    }
+
+    public SearchByNumberPage clickOnOrderConfirmFirstCity(){
+        getElement(orderConfirmFirstCity).click();
+        return this;
+    }
+
+    public SearchByNumberPage clickOnOrderConfirSendButton(){
+        getElement(orderConfirmSendButton).click();
+        return this;
+    }
+
+    public SearchByNumberPage clickOnOrderConfirmSelectCity(){
+        getElement(orderConfirmCity).click();
+        return this;
+    }
+
+    public SearchByNumberPage clickOnOrderConfirmCheckBox(){
+        getElement(orderConfirmCheckBox).click();
+        return this;
+    }
+
+    private int sellerIndex(String shopName) {
         int tr = 1;
         WebElement a = null;
 
@@ -41,9 +90,13 @@ public class SearchByNumberPage extends BasePage {
             }
             tr++;
         } while (!a.getText().equals(shopName));
+        return tr;
+    }
 
+    public SearchByNumberPage clickOnAddToCart(String shopName) {
         getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody/tr["
-                + tr + "]/td[6]/div/button")).click();
+                + sellerIndex(shopName) + "]/td[6]/div/div[1]"))
+                .click();
         return this;
     }
 
@@ -95,5 +148,9 @@ public class SearchByNumberPage extends BasePage {
         getElement(city).click();
         getElement(firstCity).click();
         return this;
+    }
+
+    public boolean isOrderCartConfirmSentModalVisible(){
+        return isVisible(getElement(orderConfirmSentModal));
     }
 }

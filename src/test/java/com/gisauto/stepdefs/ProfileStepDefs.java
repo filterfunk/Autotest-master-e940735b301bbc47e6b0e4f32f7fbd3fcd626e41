@@ -46,5 +46,9 @@ public class ProfileStepDefs {
         PF.getPage(Profile.class).clickOnOrgInfo();
     }
 
+    @Если("^пользователь нажимает загрузить прайс")
+    public void пользовательНажимаетЗагрузитьПрайс(){
+        PF.getPage(Profile.class).clickOnPriceUpload();
+    }
 
 }

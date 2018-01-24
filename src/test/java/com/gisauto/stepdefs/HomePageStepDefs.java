@@ -10,7 +10,7 @@ import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
 import org.junit.Assert;
 
-public final class HomePageStepDefs {
+public class HomePageStepDefs {
 
     @Дано("^пользователь открывает главную страницу")
     public void пользовательОткрываетГлавнуюСтраницу() {

@@ -41,4 +41,64 @@ public class PriceUploadStepDefs {
         PF.getPage(PriceUpload.class).clickOnSaveButton();
     }
 
+    @Если("^пользователь нажимает настройка шаблонов")
+    public void пользовательНажимаетНастройкаШаблонов(){
+        PF.getPage(PriceUpload.class).clickOnTemplateSettings();
+    }
+
+    @Если("^пользователь вводит название шаблона \"([^\"]*)\"$")
+    public void пользовательВводитНазваниеШаблона(String templateName){
+        PF.getPage(PriceUpload.TemplateSettings.class).typeTemplateName(templateName);
+    }
+
+    @Если("^пользователь выбирает первую строку шаблона (\\d+)$")
+    public void пользовательВыбираетПервуюСтрокуШаблона(int count){
+        PF.getPage(PriceUpload.TemplateSettings.class).clickOnFirstLinePlus(count);
+    }
+
+    @Если("^пользоваетль выбирает номер \"([^\"]*)\" шаблона$")
+    public void пользовательВыбираетНомер(String num){
+        PF.getPage(PriceUpload.TemplateSettings.class).chooseNumber(num);
+    }
+
+    @Если("^пользователь выбирает производителя \"([^\"]*)\"$")
+    public void пользовательВыбираетПроизводителя(String manufacturer){
+        PF.getPage(PriceUpload.TemplateSettings.class).chooseManufacturer(manufacturer);
+    }
+
+    @Если("^пользователь выбирает наименование \"([^\"]*)\"$")
+    public void пользовательВыбираетНаименование(String name){
+        PF.getPage(PriceUpload.TemplateSettings.class).choosePartName(name);
+    }
+
+    @Если("^пользователь выбирает оптовую цену \"([^\"]*)\"$")
+    public void пользовательВыбираетОптовуюЦену(String price){
+        PF.getPage(PriceUpload.TemplateSettings.class).choosePriceForUr(price);
+    }
+
+    @Если("^пользователь выбирает розничную цену \"([^\"]*)\"$")
+    public void пользовательВыбираетРозничнуюЦену(String price){
+        PF.getPage(PriceUpload.TemplateSettings.class).choosePriceForFiz(price);
+    }
+
+    @Если("^пользователь выбирает количество \"([^\"]*)\"$")
+    public void пользовательВыбираетКоличество(String count){
+        PF.getPage(PriceUpload.TemplateSettings.class).chooseCount(count);
+    }
+
+    @Если("^пользователь выбирает срок поставки \"([^\"]*)\"$")
+    public void пользовательВыбираетСрокПоставки(String delivery){
+        PF.getPage(PriceUpload.TemplateSettings.class).chooseDelivery(delivery);
+    }
+
+    @Если("^пользователь вводит срок поставки \"([^\"]*)\"$")
+    public void пользовательВводитСрокПоставки(String delivery){
+        PF.getPage(PriceUpload.TemplateSettings.class).typeDelivery(delivery);
+    }
+
+    @Если("^пользователь нажимает сохранить")
+    public void пользовательНажимаетСохранить(){
+        PF.getPage(PriceUpload.TemplateSettings.class).clickOnSaveButton();
+    }
+
 }

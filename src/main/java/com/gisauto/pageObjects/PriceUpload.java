@@ -256,6 +256,29 @@ public class PriceUpload extends BasePage {
             inputText(getElement(deliverySelect), text);
             return this;
         }
+
+        public TemplateSettings clickOnEditTemplate(String templateName){
+            int i = 1;
+            WebElement element;
+            do {
+                i++;
+                element = getElement(new By.ByXPath("//*[@id=\"newUploadTemplateItem\"]/div/div/div[2]/div[1]/div/div[2]/table/tbody/tr[" + i + "]/td[1]/div[2]"));
+            } while (!element.getText().equals(templateName));
+            getElement(new By.ByXPath("//*[@id=\\\"newUploadTemplateItem\\\"]/div/div/div[2]/div[1]/div/div[2]/table/tbody/tr[" + i + "]/td[2]/div/div[1]/button")).click();
+            return this;
+        }
+
+        public TemplateSettings clickOnDeleteTemplate(String templateName){
+            int i = 1;
+            WebElement element;
+            do {
+                i++;
+                element = getElement(new By.ByXPath("//*[@id=\"newUploadTemplateItem\"]/div/div/div[2]/div[1]/div/div[2]/table/tbody/tr[" + i + "]/td[1]/div[2]"));
+            } while (!element.getText().equals(templateName));
+            getElement(new By.ByXPath("//*[@id=\"newUploadTemplateItem\"]/div/div/div[2]/div[1]/div/div[2]/table/tbody/tr[" + i + "]/td[2]/div/div[2]/button")).click();
+            return this;
+        }
+
     }
 
 }

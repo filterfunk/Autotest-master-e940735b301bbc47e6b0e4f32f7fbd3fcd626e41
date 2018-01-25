@@ -101,4 +101,14 @@ public class PriceUploadStepDefs {
         PF.getPage(PriceUpload.TemplateSettings.class).clickOnSaveButton();
     }
 
+    @Если("^пользователь нажимает редактировать шаблон \"([^\"]*)\"$")
+    public void пользовательНажимаетРедактироватьШаблон(String templateName){
+        PF.getPage(PriceUpload.TemplateSettings.class).clickOnEditTemplate(templateName);
+    }
+
+    @Если("^пользователь нажимает удалить шаблон \"([^\"]*)\"$")
+    public void пользовательНажимаетУдалитьШаблон(String templateName){
+        PF.getPage(PriceUpload.TemplateSettings.class).clickOnDeleteTemplate(templateName);
+    }
+
 }

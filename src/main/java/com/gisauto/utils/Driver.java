@@ -77,4 +77,9 @@ public final class Driver {
         }
         return out;
     }
+
+    public static void refreshPage(){
+        driver.navigate().refresh();
+    }
+
 }

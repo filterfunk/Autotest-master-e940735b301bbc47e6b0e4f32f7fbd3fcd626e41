@@ -1,6 +1,7 @@
 package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.PriceUpload;
+import com.gisauto.pageObjects.TemplateSettings;
 import com.gisauto.utils.PF;
 import cucumber.api.java.ru.Если;
 
@@ -48,67 +49,67 @@ public class PriceUploadStepDefs {
 
     @Если("^пользователь вводит название шаблона \"([^\"]*)\"$")
     public void пользовательВводитНазваниеШаблона(String templateName){
-        PF.getPage(PriceUpload.TemplateSettings.class).typeTemplateName(templateName);
+        PF.getPage(TemplateSettings.class).typeTemplateName(templateName);
     }
 
     @Если("^пользователь выбирает первую строку шаблона (\\d+)$")
     public void пользовательВыбираетПервуюСтрокуШаблона(int count){
-        PF.getPage(PriceUpload.TemplateSettings.class).clickOnFirstLinePlus(count);
+        PF.getPage(TemplateSettings.class).clickOnFirstLinePlus(count);
     }
 
     @Если("^пользоваетль выбирает номер \"([^\"]*)\" шаблона$")
     public void пользовательВыбираетНомер(String num){
-        PF.getPage(PriceUpload.TemplateSettings.class).chooseNumber(num);
+        PF.getPage(TemplateSettings.class).chooseNumber(num);
     }
 
     @Если("^пользователь выбирает производителя \"([^\"]*)\"$")
     public void пользовательВыбираетПроизводителя(String manufacturer){
-        PF.getPage(PriceUpload.TemplateSettings.class).chooseManufacturer(manufacturer);
+        PF.getPage(TemplateSettings.class).chooseManufacturer(manufacturer);
     }
 
     @Если("^пользователь выбирает наименование \"([^\"]*)\"$")
     public void пользовательВыбираетНаименование(String name){
-        PF.getPage(PriceUpload.TemplateSettings.class).choosePartName(name);
+        PF.getPage(TemplateSettings.class).choosePartName(name);
     }
 
     @Если("^пользователь выбирает оптовую цену \"([^\"]*)\"$")
     public void пользовательВыбираетОптовуюЦену(String price){
-        PF.getPage(PriceUpload.TemplateSettings.class).choosePriceForUr(price);
+        PF.getPage(TemplateSettings.class).choosePriceForUr(price);
     }
 
     @Если("^пользователь выбирает розничную цену \"([^\"]*)\"$")
     public void пользовательВыбираетРозничнуюЦену(String price){
-        PF.getPage(PriceUpload.TemplateSettings.class).choosePriceForFiz(price);
+        PF.getPage(TemplateSettings.class).choosePriceForFiz(price);
     }
 
     @Если("^пользователь выбирает количество \"([^\"]*)\"$")
     public void пользовательВыбираетКоличество(String count){
-        PF.getPage(PriceUpload.TemplateSettings.class).chooseCount(count);
+        PF.getPage(TemplateSettings.class).chooseCount(count);
     }
 
     @Если("^пользователь выбирает срок поставки \"([^\"]*)\"$")
     public void пользовательВыбираетСрокПоставки(String delivery){
-        PF.getPage(PriceUpload.TemplateSettings.class).chooseDelivery(delivery);
+        PF.getPage(TemplateSettings.class).chooseDelivery(delivery);
     }
 
     @Если("^пользователь вводит срок поставки \"([^\"]*)\"$")
     public void пользовательВводитСрокПоставки(String delivery){
-        PF.getPage(PriceUpload.TemplateSettings.class).typeDelivery(delivery);
+        PF.getPage(TemplateSettings.class).typeDelivery(delivery);
     }
 
     @Если("^пользователь нажимает сохранить")
     public void пользовательНажимаетСохранить(){
-        PF.getPage(PriceUpload.TemplateSettings.class).clickOnSaveButton();
+        PF.getPage(TemplateSettings.class).clickOnSaveButton();
     }
 
     @Если("^пользователь нажимает редактировать шаблон \"([^\"]*)\"$")
     public void пользовательНажимаетРедактироватьШаблон(String templateName){
-        PF.getPage(PriceUpload.TemplateSettings.class).clickOnEditTemplate(templateName);
+        PF.getPage(TemplateSettings.class).clickOnEditTemplate(templateName);
     }
 
     @Если("^пользователь нажимает удалить шаблон \"([^\"]*)\"$")
     public void пользовательНажимаетУдалитьШаблон(String templateName){
-        PF.getPage(PriceUpload.TemplateSettings.class).clickOnDeleteTemplate(templateName);
+        PF.getPage(TemplateSettings.class).clickOnDeleteTemplate(templateName);
     }
 
 }

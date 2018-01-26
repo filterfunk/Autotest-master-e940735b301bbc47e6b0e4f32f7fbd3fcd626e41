@@ -39,6 +39,7 @@ public class HomePage extends BasePage {
             ex.printStackTrace();
             throw new AssertionError("Не удалось нажать на \"Войти\". Возможно элемент входа скрыт.");
         }
+        await(2000);
         return PF.getPage(Profile.class);
     }
 

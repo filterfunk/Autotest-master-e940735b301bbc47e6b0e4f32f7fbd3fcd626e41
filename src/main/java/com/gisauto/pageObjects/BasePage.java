@@ -1,11 +1,9 @@
 package com.gisauto.pageObjects;
 
-import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 
 /**
  * Базовый клас PageObject'ов, от которого наследуются все прочие Page GisAuto.

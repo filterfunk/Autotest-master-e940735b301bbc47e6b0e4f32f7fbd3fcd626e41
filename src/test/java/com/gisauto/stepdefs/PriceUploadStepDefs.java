@@ -9,7 +9,7 @@ public class PriceUploadStepDefs {
 
     @Если("^пользователь нажимает ручная загрузка")
     public void пользовательНажимаетРучнаяЗагрузка(){
-        PF.getPage(PriceUpload.class).clickOnHandUploadButton();
+        PF.getPage(PriceUpload.class).clickOnManualUploadButton();
     }
 
     @Если("^пользователь нажимает выбрать файл \"([^\"]*)\"$")

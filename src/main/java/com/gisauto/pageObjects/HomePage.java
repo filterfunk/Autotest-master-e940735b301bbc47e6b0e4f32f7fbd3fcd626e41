@@ -15,7 +15,7 @@ import ru.yandex.qatools.allure.annotations.Step;
 public class HomePage extends BasePage {
 
     public HomePage() {
-        openPage("https://beta.gisauto.ru/");
+        openPage("https://gisauto.ru/");
         if (!checkTitle("Поиск автозапчастей по всей России")) {
             throw new IllegalStateException("Открытая страница не является главной страницей");
         }

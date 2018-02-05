@@ -30,7 +30,10 @@ public abstract class BasePage extends Page {
             closeCity = new By.ByXPath("//*[@id=\"modalSelectCity\"]/div/div/div[1]/div[1]/div"),
             contacts = new By.ByXPath("//*[@id=\"openContactsModal\"]"),
             cart = new By.ByXPath("//*[@id=\"openCart\"]"),
-            register = new By.ByXPath("//*[@id=\"loginModal\"]/div/div/div[2]/div");
+            register = new By.ByXPath("//*[@id=\"loginModal\"]/div/div/div[2]/div"),
+            outgoingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[6]/div/a"),
+            incomingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[5]/div[1]/a"),
+            wareHouse = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[4]/div/a");
 
     public BasePage clickOnSelectCity() {
         getElement(selectCity).click();
@@ -136,6 +139,21 @@ public abstract class BasePage extends Page {
 
     public boolean isLoggedIn() {
         return !isVisible(getElement(dropDownToogle));
+    }
+
+    public BasePage clickOnIncomingRequests() {
+        getElement(incomingRequests).click();
+        return this;
+    }
+
+    public BasePage clickOnOutgoingRequests() {
+        getElement(outgoingRequests).click();
+        return this;
+    }
+
+    public BasePage clickOnWarehouse() {
+        getElement(wareHouse).click();
+        return this;
     }
 
 }

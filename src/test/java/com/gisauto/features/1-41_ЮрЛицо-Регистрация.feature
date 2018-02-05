@@ -23,8 +23,8 @@
 
     Примеры:
       | логин                   | пароль      | подтверждение пароля | организация |
-      | test.gisauto4@yandex.ru | testgisauto | testgisauto          | test13      |
-      | test12345678@test.com   | 111111      | 111111               | test222     |
+      | test.gisauto5@yandex.ru | testgisauto | testgisauto          | test13      |
+      | test123456789@test.com  | 111111      | 111111               | test222     |
 
   @Fail
   Структура сценария: Не успешная регистрация

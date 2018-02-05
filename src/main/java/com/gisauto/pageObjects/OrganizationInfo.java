@@ -1,6 +1,7 @@
 package com.gisauto.pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class OrganizationInfo extends BasePage {
 
@@ -70,5 +71,22 @@ public class OrganizationInfo extends BasePage {
     public OrganizationInfo clickOnSaveButton(){
         getElement(saveButton).click();
         return this;
+    }
+
+    public OrganizationInfo chooseCityFromSelect(String cityName){
+        getCityFromMultiSelect(cityName).click();
+        return this;
+    }
+
+    private WebElement getCityFromMultiSelect(String city) {
+        int i = 0;
+        WebElement element = null;
+        do {
+            i++;
+            element = getElement(new By.ByXPath("\n" +
+                    "        //*[@id=\"formSave\"]/div[13]/div[1]/div[1]/div/div/div[2]/ul/li[" + i + "]/label"));
+        }
+        while (element.getText().equals(city));
+        return element;
     }
 }

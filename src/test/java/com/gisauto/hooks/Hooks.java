@@ -3,14 +3,11 @@ package com.gisauto.hooks;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import cucumber.api.java.After;
-import io.qameta.allure.Attachment;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
+@RunWith(Suite.class)
 public final class Hooks {
 
     @After

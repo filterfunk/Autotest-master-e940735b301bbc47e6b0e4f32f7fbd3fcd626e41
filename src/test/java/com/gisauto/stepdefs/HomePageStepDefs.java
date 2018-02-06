@@ -3,8 +3,11 @@ package com.gisauto.stepdefs;
 import com.gisauto.pageObjects.HomePage;
 import com.gisauto.pageObjects.Profile;
 import com.gisauto.pageObjects.Register;
+import com.gisauto.users.Individual;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
+import com.gisauto.utils.UF;
+import com.github.javafaker.Faker;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
@@ -27,11 +30,11 @@ public class HomePageStepDefs {
         PF.getPage(HomePage.class).clickOnRegister();
     }
 
-    @Если("^пользователь вводит \"([^\"]*)\" и \"([^\"]*)\"$")
-    public void пользовательВводитЛогинИПароль(String login, String password) {
+    @Если("^пользователь вводит логин и пароль физ лица$")
+    public void пользовательВводитЛогинИПарольФизЛица(String login, String password) {
         PF
                 .getPage(HomePage.class)
-                .loginAs(login, password);
+                .loginAs(UF.getUser(Individual.class).getLogin(), UF.getUser(Individual.class).getPassword());
     }
 
     @То("^система редиректит на страницу профиля")

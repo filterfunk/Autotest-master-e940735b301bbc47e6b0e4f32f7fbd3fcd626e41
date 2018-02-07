@@ -31,7 +31,7 @@ public class HomePageStepDefs {
     }
 
     @Если("^пользователь вводит логин и пароль физ лица$")
-    public void пользовательВводитЛогинИПарольФизЛица(String login, String password) {
+    public void пользовательВводитЛогинИПарольФизЛица() {
         PF
                 .getPage(HomePage.class)
                 .loginAs(UF.getUser(Individual.class).getLogin(), UF.getUser(Individual.class).getPassword());

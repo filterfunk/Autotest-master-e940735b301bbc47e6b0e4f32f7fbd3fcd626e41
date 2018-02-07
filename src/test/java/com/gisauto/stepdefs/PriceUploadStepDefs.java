@@ -97,7 +97,7 @@ public class PriceUploadStepDefs {
         PF.getPage(TemplateSettings.class).typeDelivery(delivery);
     }
 
-    @Если("^пользователь нажимает сохранить")
+    @Если("^пользователь нажимает сохранить$")
     public void пользовательНажимаетСохранить(){
         PF.getPage(TemplateSettings.class).clickOnSaveButton();
     }

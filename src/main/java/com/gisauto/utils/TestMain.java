@@ -3,6 +3,7 @@ package com.gisauto.utils;
 import com.gisauto.utils.annotations.TargetBrowser;
 import io.qameta.allure.Attachment;
 import org.junit.After;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,6 +16,10 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+/**
+ * Пригоден только для unit-тестов
+ * Для использования унаследоваться от этого класса и реализовать метод test()
+ */
 @Deprecated
 public abstract class TestMain {
 
@@ -22,10 +27,6 @@ public abstract class TestMain {
     public static final String TEST_EMAIL = "test.gisauto@yandex.ru", TEST_EMAIL_PASSWORD = "testgisauto";
 
     protected TestMain() {
-        main(null);
-    }
-
-    public void main(String[] args) {
         init();
     }
 
@@ -53,6 +54,9 @@ public abstract class TestMain {
         }
         driver.manage().window().maximize();
     }
+
+    @Test
+    public abstract void test();
 
     @After
     public void validate() {

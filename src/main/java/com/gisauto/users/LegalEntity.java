@@ -4,7 +4,7 @@ import com.github.javafaker.Faker;
 
 public class LegalEntity extends User {
 
-    private String login, password, city, shopName, phoneNumber;
+    private String shopName;
 
     public LegalEntity (){
         login = Faker.instance().internet().emailAddress();
@@ -12,6 +12,7 @@ public class LegalEntity extends User {
         city = Faker.instance().address().cityName();
         shopName = Faker.instance().company().name();
         phoneNumber = Faker.instance().phoneNumber().phoneNumber();
+        log();
     }
 
     public String getLogin() {
@@ -28,5 +29,9 @@ public class LegalEntity extends User {
 
     public String getPhoneNumber() {
         return this.phoneNumber;
+    }
+
+    public String getShopName() {
+        return shopName;
     }
 }

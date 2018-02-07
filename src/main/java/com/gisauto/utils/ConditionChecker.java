@@ -1,7 +1,7 @@
 package com.gisauto.utils;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 
 import java.util.HashMap;
@@ -19,7 +19,7 @@ import java.util.HashMap;
 @Deprecated
 public final class ConditionChecker {
 
-    private static Logger logger = LogManager.getRootLogger();
+    private static final Logger logger = LogManager.getRootLogger();
 
     private static HashMap<String, String> conditions = new HashMap<String, String>(),
             failed = new HashMap<String, String>();

@@ -1,8 +1,9 @@
 package com.gisauto.pageObjects;
 
+import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 
 /**
@@ -31,9 +32,10 @@ public abstract class BasePage extends Page {
             contacts = new By.ByXPath("//*[@id=\"openContactsModal\"]"),
             cart = new By.ByXPath("//*[@id=\"openCart\"]"),
             register = new By.ByXPath("//*[@id=\"loginModal\"]/div/div/div[2]/div"),
-            outgoingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[6]/div/a"),
+            outgoingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div[2]/div/div[2]/div[2]/div[3]/div[1]/a"),
             incomingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[5]/div[1]/a"),
-            wareHouse = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[4]/div/a");
+            wareHouse = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[4]/div/a"),
+            profile = new By.ByXPath("//*[@id=\"login-menu-block\"]/div/div[2]");
 
     public BasePage clickOnSelectCity() {
         getElement(selectCity).click();
@@ -153,6 +155,18 @@ public abstract class BasePage extends Page {
 
     public BasePage clickOnWarehouse() {
         getElement(wareHouse).click();
+        return this;
+    }
+
+    public BasePage clickOnProfileButton() {
+        await(1000);
+        getElement(profile).click();
+        return this;
+    }
+
+
+    public BasePage refreshPage(){
+        Driver.getDriver().navigate().refresh();
         return this;
     }
 

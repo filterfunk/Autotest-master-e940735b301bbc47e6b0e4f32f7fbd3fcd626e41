@@ -1,8 +1,10 @@
 package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.Register;
+import com.gisauto.users.Individual;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
+import com.gisauto.utils.UF;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
 import org.junit.Assert;
@@ -29,12 +31,12 @@ public class RegisterStepDefs {
                 .submitt();
     }
 
-    @Если("^пользователь вводит \"([^\"]*)\" и \"([^\"]*)\" и \"([^\"]*)\"$")
-    public void пользовательВводитЛогинИПароль(String login, String password, String passwordConfirm) {
+    @Если("^пользователь вводит логин пароль подтверждения пароля физ лица$")
+    public void пользовательВводитЛогинИПароль() {
         PF.getPage(Register.class)
-                .typeEmail(login)
-                .typePassword(password)
-                .typePasswordConfirm(passwordConfirm)
+                .typeEmail(UF.getUser(Individual.class).getLogin())
+                .typePassword(UF.getUser(Individual.class).getPassword())
+                .typePasswordConfirm(UF.getUser(Individual.class).getPassword())
                 .submitt();
     }
 

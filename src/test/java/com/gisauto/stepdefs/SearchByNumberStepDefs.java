@@ -1,5 +1,6 @@
 package com.gisauto.stepdefs;
 
+import com.gisauto.pageObjects.OutgoingRequests;
 import com.gisauto.pageObjects.SearchByNumberPage;
 import com.gisauto.utils.PF;
 import cucumber.api.java.ru.Если;
@@ -39,6 +40,14 @@ public class SearchByNumberStepDefs {
                 .typePhoneNumber(number)
                 .clickoOnCheckBox()
                 .clickOnSubmittBuyButton();
+    }
+
+    @Если("^пользователь нажимает на чекбокс заказать и закрывает модалку")
+    public void пользовательНажимаетНаЧекбоксЗаказатьИЗакрываетМодалку(){
+        PF.getPage(SearchByNumberPage.class)
+                .clickOnOrderConfirmCheckBox()
+                .clickOnSubmittBuyButton()
+                .clickOnCloseModal();
     }
 
     @То("^модалка заказать закрывается и появляется модалка с подтверждением")
@@ -86,4 +95,18 @@ public class SearchByNumberStepDefs {
                         PF.getPage(SearchByNumberPage.class).isOrderCartConfirmSentModalVisible());
     }
 
+    @Если("^пользователь нажимает на профиль")
+    public void пользовательНажимаетНаПрофиль(){
+        PF.getPage(SearchByNumberPage.class).refreshPage().clickOnProfileButton();
+    }
+
+    @Если("^пользователь нажимает на исходящие запросы")
+    public void пользовательНажимаетНаИсходящиеЗапросы(){
+        PF.getPage(SearchByNumberPage.class).getS();
+    }
+
+    @То("^в таблице отображается созданный запрос на \"([^\"]*)\"$")
+    public void вТаблицеОтображаетсяСозданныйЗапрос(String partName){
+        PF.getPage(OutgoingRequests.class).checkRequest(partName);
+    }
 }

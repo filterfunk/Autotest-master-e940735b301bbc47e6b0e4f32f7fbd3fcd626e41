@@ -4,12 +4,11 @@ import com.github.javafaker.Faker;
 
 public class Individual extends User {
 
-    private String login, password, city, phoneNumber;
-
     public Individual (){
         login = Faker.instance().internet().emailAddress();
         password = Faker.instance().internet().password();
         city = Faker.instance().address().cityName();
+        log();
     }
 
     public String getLogin() {

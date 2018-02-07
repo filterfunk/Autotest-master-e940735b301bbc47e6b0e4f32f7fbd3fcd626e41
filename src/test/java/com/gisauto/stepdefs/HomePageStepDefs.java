@@ -4,6 +4,7 @@ import com.gisauto.pageObjects.HomePage;
 import com.gisauto.pageObjects.Profile;
 import com.gisauto.pageObjects.Register;
 import com.gisauto.users.Individual;
+import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
@@ -35,6 +36,13 @@ public class HomePageStepDefs {
         PF
                 .getPage(HomePage.class)
                 .loginAs(UF.getUser(Individual.class).getLogin(), UF.getUser(Individual.class).getPassword());
+    }
+
+    @Если("^пользователь вводит логин и пароль юр лица$")
+    public void пользовательВводитЛогинИПарольЮрЛица() {
+        PF
+                .getPage(HomePage.class)
+                .loginAs(UF.getUser(LegalEntity.class).getLogin(), UF.getUser(LegalEntity.class).getPassword());
     }
 
     @То("^система редиректит на страницу профиля")

@@ -60,7 +60,7 @@ public class SearchByNumberStepDefs {
                         PF.getPage(SearchByNumberPage.class).isOrderConfirmationModalVisible());
     }
 
-    @Если("^пользователь нажимает добавить в корзину у ")
+    @Если("^пользователь нажимает добавить в корзину у \"([^\"]*)\"$")
     public void пользовательНажимаетДобавитьВКорзинуУ(String seller) {
         PF.getPage(SearchByNumberPage.class).clickOnAddToCart(seller);
     }
@@ -72,7 +72,7 @@ public class SearchByNumberStepDefs {
 
     @Если("^пользователь нажимает отправить заказы")
     public void пользовательНажимаетОтправитьЗаказы() {
-        PF.getPage(SearchByNumberPage.class).clickOnSubmittBuyButton();
+        PF.getPage(SearchByNumberPage.class).clickOnSendOrdersButton();
     }
 
     @Если("^пользователь заполняет поля нажимает на чекбокс и отправить")
@@ -85,6 +85,23 @@ public class SearchByNumberStepDefs {
                 .typeCartPhone(phone)
                 .clickOnOrderConfirmCheckBox()
                 .clickOnOrderConfirSendButton();
+    }
+
+
+    @Если("^пользователь нажимает на чекбокс и отправить")
+    public void пользовательНажимаетНаЧекбоксИОтправить() {
+        PF.getPage(SearchByNumberPage.class)
+                .clickOnOrderConfirmCheckBox()
+                .clickOnOrderConfirSendButton()
+                .clickOnCloseModal();
+    }
+
+    @Если("^пользователь нажимает на чекбокс и отправить корзина")
+    public void пользовательНажимаетНаЧекбоксИОтправитьКорзина() {
+        PF.getPage(SearchByNumberPage.class)
+                .clickOnCartConfirmCheckBox()
+                .clickOnSendOrdersButton()
+                .clickOnCloseModal();
     }
 
     @То("^появляется модалка с подтверждением")

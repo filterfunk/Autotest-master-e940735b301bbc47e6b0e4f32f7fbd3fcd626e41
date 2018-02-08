@@ -1,6 +1,5 @@
 package com.gisauto.stepdefs;
 
-import com.gisauto.pageObjects.Profile;
 import com.gisauto.pageObjects.SearchByNumberPage;
 import com.gisauto.utils.PF;
 import cucumber.api.java.ru.Если;
@@ -47,7 +46,8 @@ public class SearchByNumberStepDefs {
         PF.getPage(SearchByNumberPage.class)
                 .clickOnOrderConfirmCheckBox()
                 .clickOnSubmittBuyButton()
-                .clickOnCloseModal();
+                .clickOnCloseModal()
+                .refreshPage();
     }
 
     @То("^модалка заказать закрывается и появляется модалка с подтверждением")
@@ -55,7 +55,6 @@ public class SearchByNumberStepDefs {
         Assert
                 .assertEquals("Модалка заказть закрыта ", true,
                         !PF.getPage(SearchByNumberPage.class).isMakeOrderModalVisible());
-
         Assert
                 .assertEquals("Модалка подтверждения видима", true,
                         PF.getPage(SearchByNumberPage.class).isOrderConfirmationModalVisible());
@@ -97,7 +96,7 @@ public class SearchByNumberStepDefs {
 
     @Если("^пользователь нажимает на профиль")
     public void пользовательНажимаетНаПрофиль() {
-        PF.getPage(SearchByNumberPage.class).refreshPage().clickOnProfileButton();
+        PF.getPage(SearchByNumberPage.class).clickOnProfileButton();
     }
 
     @Если("^пользователь нажимает на мои запросы")

@@ -35,6 +35,10 @@ public abstract class BasePage extends Page {
             wareHouse = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[4]/div/a"),
             profile = new By.ByXPath("//*[@id=\"login-menu-block\"]/div/div[2]");
 
+    public BasePage(){
+        await(500);
+    }
+
     public BasePage clickOnSelectCity() {
         getElement(selectCity).click();
         return this;
@@ -169,6 +173,7 @@ public abstract class BasePage extends Page {
 
     public BasePage logoutUr() {
         UrLicoModal.clickOnLogOut();
+        await(1000);
         return this;
     }
 
@@ -202,7 +207,7 @@ public abstract class BasePage extends Page {
     private static class UrLicoModal {
 
         private static final By incomingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[5]/div[1]/a[text() = 'Входящие запросы']"),
-                exit = new By.ByClassName("modal-profile__text med logout-btn"),
+                exit = new By.ByClassName("/html/body/div[14]/div/div/div[2]/div[2]/div[9]/div[1]/div"),
                 outgoingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[6]/div[1]/a[text() = 'Исходящие запросы']");
 
         public static void clickOnLogOut() {

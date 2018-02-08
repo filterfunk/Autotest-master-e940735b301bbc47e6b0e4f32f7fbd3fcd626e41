@@ -2,6 +2,7 @@ package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.Register;
 import com.gisauto.users.Individual;
+import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
@@ -21,13 +22,13 @@ public class RegisterStepDefs {
         PF.getPage(Register.class).clickOnFizLico();
     }
 
-    @Если("^пользователь вводит \"([^\"]*)\" и \"([^\"]*)\" и \"([^\"]*)\" и \"([^\"]*)\"$")
-    public void пользовательВводитЛогинИПарольИОрганизацию(String login, String password, String passwordConfirm, String org) {
+    @Если("^пользователь вводит логин пароль подтверждения пароля организацию юр лица$")
+    public void пользовательВводитЛогинИПарольИОрганизацию() {
         PF.getPage(Register.class)
-                .typeEmail(login)
-                .typePassword(password)
-                .typePasswordConfirm(passwordConfirm)
-                .typeOrganizationName(org)
+                .typeEmail(UF.getUser(LegalEntity.class).getLogin())
+                .typePassword(UF.getUser(LegalEntity.class).getPassword())
+                .typePasswordConfirm(UF.getUser(LegalEntity.class).getPassword())
+                .typeOrganizationName(UF.getUser(LegalEntity.class).getShopName())
                 .submitt();
     }
 

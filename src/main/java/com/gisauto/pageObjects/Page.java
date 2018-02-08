@@ -16,7 +16,7 @@ import org.openqa.selenium.WebElement;
  */
 public abstract class Page {
 
-    private long startTime;
+    private static long startTime;
     private static final long WAIT_TIME = 60000;
 
     public void openPage(String url) {
@@ -42,7 +42,7 @@ public abstract class Page {
      *              <p>(например <code>new By.ByXPath("//*[@id=\"btnOpenCity\"]")</code>
      * @return найденный WebElement.
      */
-    public WebElement getElement(By xpath) {
+    public static WebElement getElement(By xpath) {
         startTime = System.currentTimeMillis();
         return tryFindElement(xpath);
     }
@@ -79,7 +79,7 @@ public abstract class Page {
         return excpected.equals(Driver.getDriver().getTitle());
     }
 
-    public WebElement tryFindElement(By xPath) {
+    public static WebElement tryFindElement(By xPath) {
         if (System.currentTimeMillis() - startTime > WAIT_TIME) {
             throw new RuntimeException("Не удалось найти элемент по XPath: " + xPath);
         }
@@ -93,7 +93,7 @@ public abstract class Page {
         return Driver.getDriver().findElement(xPath); //временное решение
     }
 
-    private boolean tryGetElement(By xPath) {
+    private static boolean tryGetElement(By xPath) {
         try {
             return Driver.getDriver().findElement(xPath).isDisplayed();
         } catch (Exception ex) {
@@ -101,7 +101,7 @@ public abstract class Page {
         }
     }
 
-    public void await(long waitTime) {
+    public static void await(long waitTime) {
         try {
             Thread.sleep(waitTime);
         } catch (InterruptedException e) {

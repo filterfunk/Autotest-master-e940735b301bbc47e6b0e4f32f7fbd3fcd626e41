@@ -3,6 +3,7 @@ package com.gisauto.stepdefs;
 import com.gisauto.pageObjects.Profile;
 import com.gisauto.pageObjects.SearchByNumberPage;
 import com.gisauto.users.Individual;
+import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
 import cucumber.api.java.ru.Если;
@@ -20,8 +21,13 @@ public class ProfileStepDefs {
     }
 
     @Если("^пользователь вводит имя физ лица$")
-    public void пользовательВводитИмя() {
+    public void пользовательВводитИмяФизЛица() {
         PF.getPage(Profile.class).typeName(UF.getUser(Individual.class).getName());
+    }
+
+    @Если("^пользователь вводит имя юр лица$")
+    public void пользовательВводитИмяЮрЛица() {
+        PF.getPage(Profile.class).typeName(UF.getUser(LegalEntity.class).getName());
     }
 
     @Если("^пользователь вводит отчество \"([^\"]*)\"$")
@@ -30,8 +36,13 @@ public class ProfileStepDefs {
     }
 
     @Если("^пользователь вводит телефон физ лица$")
-    public void пользовательВводитТелефон() {
+    public void пользовательВводитТелефонФизЛица() {
         PF.getPage(Profile.class).typePhone(UF.getUser(Individual.class).getPhoneNumber());
+    }
+
+    @Если("^пользователь вводит телефон юр лица$")
+    public void пользовательВводитТелефонЮрЛица() {
+        PF.getPage(Profile.class).typePhone(UF.getUser(LegalEntity.class).getPhoneNumber());
     }
 
     @Если("^пользователь выбирает город")
@@ -54,4 +65,8 @@ public class ProfileStepDefs {
         PF.getPage(Profile.class).clickOnPriceUpload();
     }
 
+    @Если("^пользователь нажимает входящие запросы")
+    public void пользовательНажимаетНаAВходящиеЗапросы() {
+        PF.getPage(Profile.class).clickOnIncomingRequests();
+    }
 }

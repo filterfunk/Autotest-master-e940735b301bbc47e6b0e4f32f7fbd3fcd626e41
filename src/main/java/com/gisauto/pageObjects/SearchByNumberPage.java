@@ -36,14 +36,6 @@ public class SearchByNumberPage extends BasePage {
             orderConfirmSentModal = new By.ByXPath("//*[@id=\"modalCartDone\"]/div/div/div"),
             closeModalButton = new By.ByXPath("//*[@id=\"modalOrderDone\"]/div/div/div[2]/button");
 
-    public SearchByNumberPage() {
-    }
-
-    public SearchByNumberPage getS(){
-        getElement(new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div/div[1]/a[text() = 'Мои запросы']")).click();
-        return this;
-    }
-
     public SearchByNumberPage clickOnBuyButton(String shopName) {
        getSeller(shopName).click();
         return this;

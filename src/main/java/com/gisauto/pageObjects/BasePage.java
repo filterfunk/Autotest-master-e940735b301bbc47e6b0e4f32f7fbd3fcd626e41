@@ -50,6 +50,7 @@ public abstract class BasePage extends Page {
     }
 
     public BasePage clickOnDropDown() {
+        await(1000);
         getElement(dropDownToogle).click();
         return this;
     }
@@ -178,7 +179,6 @@ public abstract class BasePage extends Page {
     }
 
     public BasePage clickOnProfileButton() {
-        await(1000);
         getElement(profile).click();
         return this;
     }
@@ -207,7 +207,7 @@ public abstract class BasePage extends Page {
     private static class UrLicoModal {
 
         private static final By incomingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[5]/div[1]/a[text() = 'Входящие запросы']"),
-                exit = new By.ByClassName("/html/body/div[14]/div/div/div[2]/div[2]/div[9]/div[1]/div"),
+                exit = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[9]/div[1]/div"),
                 outgoingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[6]/div[1]/a[text() = 'Исходящие запросы']");
 
         public static void clickOnLogOut() {

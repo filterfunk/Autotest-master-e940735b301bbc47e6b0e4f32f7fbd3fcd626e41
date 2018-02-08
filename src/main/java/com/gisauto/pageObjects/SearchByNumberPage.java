@@ -15,6 +15,8 @@ import org.openqa.selenium.WebElement;
 public class SearchByNumberPage extends BasePage {
 
     private By submittBuyButton = new By.ByXPath("//*[@id=\"sendShopOrderButton\"]"),
+            cartConfirmCheckBox = new By.ByXPath("//*[@id=\"confirmOrderModalCeckbox\"]"),
+            sendOrders = new By.ByXPath("//*[@id=\"modalCart\"]/div/div/div[1]/div[2]/div/button[2]"),
             confirmMessage = new By.ByXPath("/html/body/div[6]/div/div/div/div[1]/div[1]/div[2]/div[1]"),
             goToCabinet = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[1]/div[1]/a"),
             searchField = new By.ByXPath("//*[@id=\"app\"]/div[2]/input"),
@@ -37,7 +39,17 @@ public class SearchByNumberPage extends BasePage {
             closeModalButton = new By.ByXPath("//*[@id=\"modalOrderDone\"]/div/div/div[2]/button");
 
     public SearchByNumberPage clickOnBuyButton(String shopName) {
-       getSeller(shopName).click();
+       getSellerOrder(shopName).click();
+        return this;
+    }
+
+    public SearchByNumberPage clickOnSendOrdersButton(){
+        getElement(sendOrders).click();
+        return this;
+    }
+
+    public SearchByNumberPage clickOnCartConfirmCheckBox(){
+        getElement(cartConfirmCheckBox).click();
         return this;
     }
 
@@ -76,7 +88,7 @@ public class SearchByNumberPage extends BasePage {
         return this;
     }
 
-    private WebElement getSeller(String shopName) {
+    private WebElement getSellerOrder(String shopName) {
         int tr = 1;
         WebElement a = null;
         WebElement b = null;
@@ -86,7 +98,6 @@ public class SearchByNumberPage extends BasePage {
                     a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
                             + tr + "]/td[7]/div[3]/span/a/span[1]"));
                 } catch (Exception e) {
-                    a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[7]/div[2]/span/a/span[1]"));
                     b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[6]/div/button"));
                     break;
                 }
@@ -97,8 +108,28 @@ public class SearchByNumberPage extends BasePage {
         return b;
     }
 
+    private WebElement getSellerCart(String shopName) {
+        int tr = 1;
+        WebElement a = null;
+        WebElement b = null;
+        do {
+            if (tr != 5) {
+                try {
+                    a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
+                            + tr + "]/td[7]/div[2]/span/a/span[1]"));
+                } catch (Exception e) {
+                    b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[6]/div/div[1]"));
+                    break;
+                }
+                b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/div[1]"));
+            }
+            tr++;
+        } while (!a.getText().equals(shopName));
+        return b;
+    }
+
     public SearchByNumberPage clickOnAddToCart(String shopName) {
-        getSeller(shopName).click();
+        getSellerCart(shopName).click();
         return this;
     }
 

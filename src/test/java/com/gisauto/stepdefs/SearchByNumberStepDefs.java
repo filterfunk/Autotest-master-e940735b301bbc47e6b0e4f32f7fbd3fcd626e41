@@ -1,6 +1,6 @@
 package com.gisauto.stepdefs;
 
-import com.gisauto.pageObjects.OutgoingRequests;
+import com.gisauto.pageObjects.Profile;
 import com.gisauto.pageObjects.SearchByNumberPage;
 import com.gisauto.utils.PF;
 import cucumber.api.java.ru.Если;
@@ -43,7 +43,7 @@ public class SearchByNumberStepDefs {
     }
 
     @Если("^пользователь нажимает на чекбокс заказать и закрывает модалку")
-    public void пользовательНажимаетНаЧекбоксЗаказатьИЗакрываетМодалку(){
+    public void пользовательНажимаетНаЧекбоксЗаказатьИЗакрываетМодалку() {
         PF.getPage(SearchByNumberPage.class)
                 .clickOnOrderConfirmCheckBox()
                 .clickOnSubmittBuyButton()
@@ -61,7 +61,7 @@ public class SearchByNumberStepDefs {
                         PF.getPage(SearchByNumberPage.class).isOrderConfirmationModalVisible());
     }
 
-    @Если("^пользователь нажимает добавить в корзину у \"([^\"]*)\"$")
+    @Если("^пользователь нажимает добавить в корзину у ")
     public void пользовательНажимаетДобавитьВКорзинуУ(String seller) {
         PF.getPage(SearchByNumberPage.class).clickOnAddToCart(seller);
     }
@@ -89,24 +89,25 @@ public class SearchByNumberStepDefs {
     }
 
     @То("^появляется модалка с подтверждением")
-    public void появляетсяМодалкаСПодтверждением(){
+    public void появляетсяМодалкаСПодтверждением() {
         Assert
                 .assertEquals("Модалка подтверждения видима", true,
                         PF.getPage(SearchByNumberPage.class).isOrderCartConfirmSentModalVisible());
     }
 
     @Если("^пользователь нажимает на профиль")
-    public void пользовательНажимаетНаПрофиль(){
+    public void пользовательНажимаетНаПрофиль() {
         PF.getPage(SearchByNumberPage.class).refreshPage().clickOnProfileButton();
     }
 
-    @Если("^пользователь нажимает на исходящие запросы")
-    public void пользовательНажимаетНаИсходящиеЗапросы(){
-        PF.getPage(SearchByNumberPage.class).getS();
+    @Если("^пользователь нажимает на мои запросы")
+    public void пользовательНажимаетНаМоиЗапросы() {
+        PF.getPage(SearchByNumberPage.class).clickOnOutgoingRequestsFiz();
     }
 
-    @То("^в таблице отображается созданный запрос на \"([^\"]*)\"$")
-    public void вТаблицеОтображаетсяСозданныйЗапрос(String partName){
-        PF.getPage(OutgoingRequests.class).checkRequest(partName);
+    @Если("^пользователь нажимает на исходящие запросы")
+    public void пользовательНажимаетНаИсходящиеЗапросы() {
+        PF.getPage(SearchByNumberPage.class).clickOnOutgoingRequestsUr();
     }
+
 }

@@ -2,13 +2,11 @@ package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.HomePage;
 import com.gisauto.pageObjects.Profile;
-import com.gisauto.pageObjects.Register;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
-import com.github.javafaker.Faker;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
@@ -69,6 +67,11 @@ public class HomePageStepDefs {
         return PF
                 .getPage(HomePage.class)
                 .isLoggedIn();
+    }
+
+    @Если("^пользователь вводит логин пароль \"([^\"]*)\" \"([^\"]*)\"$")
+    public void пользовательВводитЛогинПароль(String login, String password) {
+        PF.getPage(HomePage.class).loginAs(login, password);
     }
 
 }

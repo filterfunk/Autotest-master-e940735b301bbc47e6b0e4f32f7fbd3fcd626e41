@@ -39,11 +39,6 @@ public class SearchByNumberPage extends BasePage {
     public SearchByNumberPage() {
     }
 
-    public SearchByNumberPage getS(){
-        getElement(new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div/div[1]/a[text() = 'Мои запросы']")).click();
-        return this;
-    }
-
     public SearchByNumberPage clickOnBuyButton(String shopName) {
        getSeller(shopName).click();
         return this;

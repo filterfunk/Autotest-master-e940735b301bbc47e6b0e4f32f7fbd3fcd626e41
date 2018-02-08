@@ -14,12 +14,18 @@ public class Profile extends BasePage {
             citySelect = new By.ByXPath("//*[@id=\"formSaveReg\"]/div[1]/div[1]/fieldset/div[5]/div/div/div[1]/div[1]/input"),
             firstCity = new By.ByXPath("//*[@id=\"formSaveReg\"]/div[1]/div[1]/fieldset/div[5]/div/div/div[1]/div[2]/ul/li[1]/label/span"),
             saveButton = new By.ByXPath("//*[@id=\"submit-btn\"]"),
-            orgInfo = new By.ByXPath("//*[@id=\"mainWin\"]/div[1]/ul/li[2]/a");
+            orgInfo = new By.ByXPath("//*[@id=\"mainWin\"]/div[1]/ul/li[2]/a"),
+            incomingRequests = new By.ByXPath("//*[@id=\"topBlock\"]/nav/ul/li[3]/a");
 
     @Override
     public SearchByNumberPage clickOnSearchByNumber() {
         getElement(searchByNumber).click();
         return PF.getPage(SearchByNumberPage.class);
+    }
+
+    public Profile clickOnIncomingRequests(){
+        getElement(incomingRequests).click();
+        return this;
     }
 
     public Profile typeSurName(String surname) {

@@ -4,22 +4,20 @@ import com.github.javafaker.Faker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Locale;
+
 public abstract class User {
 
     String login, password, city, phoneNumber, name;
     static final Logger userLogger = LogManager.getLogger(User.class);
+    final Faker faker = Faker.instance(new Locale("Ru"));
 
     public User() {
-        name = Faker.instance().name().firstName();
-        login = Faker.instance().internet().emailAddress();
-        password = Faker.instance().internet().password();
-        city = Faker.instance().address().cityName();
-
-        String phone = Faker.instance().phoneNumber().cellPhone();
-        while (phone.length() < 13) {
-            phone += "0";
-        }
-        phoneNumber = phone;
+        name = faker.name().firstName();
+        login = faker.internet().emailAddress();
+        password = faker.internet().password();
+        city = faker.address().cityName();
+        phoneNumber = faker.phoneNumber().phoneNumber();
     }
 
     public String getName() {

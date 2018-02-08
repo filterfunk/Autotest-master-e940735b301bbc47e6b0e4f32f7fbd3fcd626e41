@@ -32,8 +32,6 @@ public abstract class BasePage extends Page {
             contacts = new By.ByXPath("//*[@id=\"openContactsModal\"]"),
             cart = new By.ByXPath("//*[@id=\"openCart\"]"),
             register = new By.ByXPath("//*[@id=\"loginModal\"]/div/div/div[2]/div"),
-            outgoingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div[2]/div/div[2]/div[2]/div[3]/div[1]/a"),
-            incomingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[5]/div[1]/a"),
             wareHouse = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[4]/div/a"),
             profile = new By.ByXPath("//*[@id=\"login-menu-block\"]/div/div[2]");
 
@@ -144,17 +142,33 @@ public abstract class BasePage extends Page {
     }
 
     public BasePage clickOnIncomingRequests() {
-        getElement(incomingRequests).click();
+        UrLicoModal.clickOnIncomingRequest();
         return this;
     }
 
-    public BasePage clickOnOutgoingRequests() {
-        getElement(outgoingRequests).click();
+    public BasePage clickOnOutgoingRequestsFiz() {
+        FizLicoModal.clickOnOutGoingRequest();
+        return this;
+    }
+
+    public BasePage clickOnOutgoingRequestsUr() {
+        UrLicoModal.clickOnOutgoingRequest();
         return this;
     }
 
     public BasePage clickOnWarehouse() {
         getElement(wareHouse).click();
+        return this;
+    }
+
+    public BasePage logoutFiz() {
+        FizLicoModal.clickOnExit();
+        await(1000);
+        return this;
+    }
+
+    public BasePage logoutUr() {
+        UrLicoModal.clickOnLogOut();
         return this;
     }
 
@@ -165,9 +179,43 @@ public abstract class BasePage extends Page {
     }
 
 
-    public BasePage refreshPage(){
+    public BasePage refreshPage() {
         Driver.getDriver().navigate().refresh();
         return this;
+    }
+
+    private static class FizLicoModal {
+
+        private static final By outgoingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div/div[1]/a[text() = 'Мои запросы']"),
+                exit = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[5]/div[1]/div");
+
+        public static void clickOnOutGoingRequest() {
+            getElement(outgoingRequests).click();
+        }
+
+        public static void clickOnExit() {
+            getElement(exit).click();
+        }
+
+    }
+
+    private static class UrLicoModal {
+
+        private static final By incomingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[5]/div[1]/a[text() = 'Входящие запросы']"),
+                exit = new By.ByClassName("modal-profile__text med logout-btn"),
+                outgoingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[6]/div[1]/a[text() = 'Исходящие запросы']");
+
+        public static void clickOnLogOut() {
+            getElement(exit).click();
+        }
+
+        public static void clickOnIncomingRequest() {
+            getElement(incomingRequests).click();
+        }
+
+        public static void clickOnOutgoingRequest() {
+            getElement(outgoingRequests).click();
+        }
     }
 
 }

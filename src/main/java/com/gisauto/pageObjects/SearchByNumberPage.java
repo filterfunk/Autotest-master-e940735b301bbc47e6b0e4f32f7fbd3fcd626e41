@@ -14,7 +14,7 @@ import org.openqa.selenium.WebElement;
  */
 public class SearchByNumberPage extends BasePage {
 
-    private By submittBuyButton = new By.ByXPath("//*[@id=\"sendShopOrderButton\"]"),
+    private By submitBuyButton = new By.ByXPath("//*[@id=\"sendShopOrderButton\"]"),
             cartConfirmCheckBox = new By.ByXPath("//*[@id=\"confirmOrderModalCeckbox\"]"),
             sendOrders = new By.ByXPath("//*[@id=\"modalCart\"]/div/div/div[1]/div[2]/div/button[2]"),
             confirmMessage = new By.ByXPath("/html/body/div[6]/div/div/div/div[1]/div[1]/div[2]/div[1]"),
@@ -91,40 +91,38 @@ public class SearchByNumberPage extends BasePage {
     private WebElement getSellerOrder(String shopName) {
         int tr = 1;
         WebElement a = null;
-        WebElement b = null;
+        WebElement b;
         do {
             if (tr != 5) {
                 try {
                     a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
                             + tr + "]/td[7]/div[3]/span/a/span[1]"));
                 } catch (Exception e) {
-                    b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[6]/div/button"));
-                    break;
+                    a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[7]/div[3]/span/a/span[1]"));
                 }
-                b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/button"));
             }
             tr++;
         } while (!a.getText().equals(shopName));
+        b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/button"));
         return b;
     }
 
     private WebElement getSellerCart(String shopName) {
         int tr = 1;
         WebElement a = null;
-        WebElement b = null;
+        WebElement b;
         do {
             if (tr != 5) {
                 try {
                     a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
-                            + tr + "]/td[7]/div[2]/span/a/span[1]"));
+                            + tr + "]/td[7]/div[3]/span/a/span[1]"));
                 } catch (Exception e) {
-                    b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[6]/div/div[1]"));
-                    break;
+                    a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr//td[7]/div[3]/span/a/span[1]"));
                 }
-                b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/div[1]"));
             }
             tr++;
         } while (!a.getText().equals(shopName));
+        b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/div[1]"));
         return b;
     }
 
@@ -141,7 +139,7 @@ public class SearchByNumberPage extends BasePage {
     }
 
     public SearchByNumberPage clickOnSubmittBuyButton() {
-        getElement(submittBuyButton).click();
+        getElement(submitBuyButton).click();
         return this;
     }
 

@@ -90,12 +90,14 @@ public abstract class Page {
             await(1000);
             tryFindElement(xPath);
         }
+        await(500);
         return Driver.getDriver().findElement(xPath); //временное решение
     }
 
     private static boolean tryGetElement(By xPath) {
         try {
-            return Driver.getDriver().findElement(xPath).isDisplayed();
+            Driver.getDriver().findElement(xPath);
+            return true;
         } catch (Exception ex) {
             return false;
         }

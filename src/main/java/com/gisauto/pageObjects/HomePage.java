@@ -14,6 +14,8 @@ import ru.yandex.qatools.allure.annotations.Step;
  */
 public class HomePage extends BasePage {
 
+    private final By searchByNumber = new By.ByXPath("/html/body/div[2]/nav/ul/li[1]/a");
+
     public HomePage() {
         openPage("https://beta.gisauto.ru/");
         if (!checkTitle("Поиск автозапчастей по всей России")) {
@@ -27,7 +29,7 @@ public class HomePage extends BasePage {
     }
 
     public SearchByNumberPage clickOnSearchByNumber() {
-        super.clickOnSearchByNumber();
+        getElement(this.searchByNumber).click();
         return PF.getPage(SearchByNumberPage.class);
     }
 

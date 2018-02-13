@@ -1,7 +1,9 @@
 package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.SearchByNumberPage;
+import com.gisauto.users.Individual;
 import com.gisauto.utils.PF;
+import com.gisauto.utils.UF;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
 import org.junit.Assert;
@@ -30,13 +32,13 @@ public class SearchByNumberStepDefs {
                         PF.getPage(SearchByNumberPage.class).isMakeOrderModalVisible());
     }
 
-    @Если("^пользователь выбирает город вводит \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" нажимает на чекбокс и заказать")
-    public void пользовтельВыбираетГородВводитИмяПочтуТелефонНажимаетНаЧекБоксИЗаказать(String name, String email, String number) {
+    @Если("^пользователь заполняет поля и нажимает на чекбокс и заказать")
+    public void пользовтельВыбираетГородВводитИмяПочтуТелефонНажимаетНаЧекБоксИЗаказать() {
         PF.getPage(SearchByNumberPage.class)
-                .typeName(name)
+                .typeName(UF.getUser(Individual.class).getName())
                 .chooseCity()
-                .typeEmail(email)
-                .typePhoneNumber(number)
+                .typeEmail("test.gisauto@yandex.ru")
+                .typePhoneNumber(UF.getUser(Individual.class).getPhoneNumber())
                 .clickoOnCheckBox()
                 .clickOnSubmittBuyButton();
     }

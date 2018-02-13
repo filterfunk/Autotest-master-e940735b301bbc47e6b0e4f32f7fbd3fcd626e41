@@ -20,7 +20,7 @@ public class SearchByNumberPage extends BasePage {
             confirmMessage = new By.ByXPath("/html/body/div[6]/div/div/div/div[1]/div[1]/div[2]/div[1]"),
             goToCabinet = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[1]/div[1]/a"),
             searchField = new By.ByXPath("//*[@id=\"app\"]/div[2]/input"),
-            checkBox = new By.ByXPath("//*[@id=\"isConsentCheckbox\"]"),
+            checkBox = new By.ByXPath("//*[@id=\"formMakeSimpleOrder\"]/div[9]/div"),
             makeOrderModal = new By.ByXPath("//*[@id=\"modalOrderPart\"]/div/div"),
             name = new By.ByXPath("//*[@id=\"order_search_by_num_item_orderSearchByNum_customerFio\"]"),
             email = new By.ByXPath("//*[@id=\"order_search_by_num_item_orderSearchByNum_customerEmail\"]"),
@@ -39,16 +39,16 @@ public class SearchByNumberPage extends BasePage {
             closeModalButton = new By.ByXPath("//*[@id=\"modalOrderDone\"]/div/div/div[2]/button");
 
     public SearchByNumberPage clickOnBuyButton(String shopName) {
-       getSellerOrder(shopName).click();
+        getSellerOrder(shopName).click();
         return this;
     }
 
-    public SearchByNumberPage clickOnSendOrdersButton(){
+    public SearchByNumberPage clickOnSendOrdersButton() {
         getElement(sendOrders).click();
         return this;
     }
 
-    public SearchByNumberPage clickOnCartConfirmCheckBox(){
+    public SearchByNumberPage clickOnCartConfirmCheckBox() {
         getElement(cartConfirmCheckBox).click();
         return this;
     }
@@ -88,42 +88,43 @@ public class SearchByNumberPage extends BasePage {
         return this;
     }
 
-    private WebElement getSellerOrder(String shopName) {
-        int tr = 1;
-        WebElement a = null;
-        WebElement b;
+    private int getSellerTr(String shopName) {
+        int tr = 0;
+        WebElement a;
         do {
-            if (tr != 5) {
-                try {
-                    a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
-                            + tr + "]/td[7]/div[3]/span/a/span[1]"));
-                } catch (Exception e) {
-                    a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[7]/div[3]/span/a/span[1]"));
-                }
-            }
             tr++;
+            try {
+                System.out.println("Try to find a shop with tr = " + tr);
+                a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
+                        + tr + "]/td[7]/div[" + (1 + tr) + "]/span/a/span[1]"));
+                System.out.println("Shop name with tr = " + tr + "is " + a.getText());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
         } while (!a.getText().equals(shopName));
-        b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/button"));
-        return b;
+        return tr;
+    }
+
+    private WebElement getSellerOrder(String shopName) {
+        int tr = getSellerTr(shopName);
+        switch (tr) {
+            case -1:
+                return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[6]/div/button"));
+            default:
+                return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/button"));
+        }
     }
 
     private WebElement getSellerCart(String shopName) {
-        int tr = 1;
-        WebElement a = null;
-        WebElement b;
-        do {
-            if (tr != 5) {
-                try {
-                    a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
-                            + tr + "]/td[7]/div[3]/span/a/span[1]"));
-                } catch (Exception e) {
-                    a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr//td[7]/div[3]/span/a/span[1]"));
-                }
-            }
-            tr++;
-        } while (!a.getText().equals(shopName));
-        b = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/div[1]"));
-        return b;
+        int tr = getSellerTr(shopName);
+        switch (tr) {
+            case -1:
+                return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[6]/div/div[1]"));
+            default:
+                return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/div[1]"));
+        }
+
     }
 
     public SearchByNumberPage clickOnAddToCart(String shopName) {
@@ -143,7 +144,7 @@ public class SearchByNumberPage extends BasePage {
         return this;
     }
 
-    public SearchByNumberPage clickOnCloseModal(){
+    public SearchByNumberPage clickOnCloseModal() {
         getElement(closeModalButton).click();
         return this;
     }

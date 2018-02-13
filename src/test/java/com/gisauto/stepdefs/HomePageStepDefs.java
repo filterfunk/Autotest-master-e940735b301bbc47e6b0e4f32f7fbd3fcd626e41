@@ -14,6 +14,11 @@ import org.junit.Assert;
 
 public class HomePageStepDefs {
 
+    @Если("^пользователь нажимает на поиск по номеру")
+    public void пользовательНажимаетНаПоискПоНомеру() {
+        PF.getPage(HomePage.class).clickOnSearchByNumber();
+    }
+
     @Дано("^пользователь открывает главную страницу")
     public void пользовательОткрываетГлавнуюСтраницу() {
         PF.getPage(HomePage.class);

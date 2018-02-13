@@ -4,17 +4,14 @@ import org.openqa.selenium.By;
 
 public class YandexMailPage extends Page {
 
-    private By message = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[2]/div[4]/div/div[2]/div[3]/div[2]/div[5]/div[1]/div/div/div[2]/div/div[1]/div/div/div/a"),
+    private By message = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[3]/div[4]/div/div[2]/div[3]/div[2]/div[6]/div[1]/div/div/div[2]/div/div[1]/div/div/div"),
             loginButton = new By.ByXPath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]/div/div[2]/div/div/form/div[4]/button[1]"),
             loginField = new By.ByXPath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]/div/div[2]/div/div/form/div[1]/label/input"),
             passwordField = new By.ByXPath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]/div/div[2]/div/div/form/div[2]/label/input"),
-            messageField = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[2]/div[4]/div/div[2]/div[3]/div[2]/div[5]/div[1]/div/div[3]/div");
+            messageField = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[3]/div[4]/div/div[2]/div[3]/div[2]/div[6]/div[1]/div/div[3]/div/p");
 
     public YandexMailPage() {
         openPage("https://passport.yandex.ru/auth?retpath=https%3A%2F%2Fmail.yandex.ru%2F%3Fconnection_id%3Diface-1513054766675-02035703&backpath=https%3A%2F%2Fmail.yandex.ru%2F%3Fnoretpath%3D1");
-        if (!checkTitle("Авторизация")) {
-            throw new IllegalStateException("Открытая страница не является страницей Yandex-почты.");
-        }
     }
 
     public YandexMailPage clickOnLastMessage() {

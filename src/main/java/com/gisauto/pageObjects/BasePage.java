@@ -110,6 +110,7 @@ public abstract class BasePage extends Page {
     }
 
     public BasePage clickOnCart() {
+        await(500);
         getElement(cart).click();
         return this;
     }

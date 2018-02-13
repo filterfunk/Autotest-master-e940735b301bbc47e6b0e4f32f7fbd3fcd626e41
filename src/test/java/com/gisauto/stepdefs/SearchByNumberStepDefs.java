@@ -2,6 +2,7 @@ package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.SearchByNumberPage;
 import com.gisauto.users.Individual;
+import com.gisauto.users.User;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
 import cucumber.api.java.ru.Если;
@@ -78,13 +79,13 @@ public class SearchByNumberStepDefs {
     }
 
     @Если("^пользователь заполняет поля нажимает на чекбокс и отправить")
-    public void пользовательЗаполняетПоляНажимаетНаЧекбоксИОтправить(String name, String email, String phone) {
+    public void пользовательЗаполняетПоляНажимаетНаЧекбоксИОтправить() {
         PF.getPage(SearchByNumberPage.class)
-                .typeCartName(name)
+                .typeCartName(UF.getUser(Individual.class).getName())
                 .clickOnOrderConfirmSelectCity()
                 .clickOnOrderConfirmFirstCity()
-                .typeCartEmail(email)
-                .typeCartPhone(phone)
+                .typeCartEmail(UF.getUser(Individual.class).getLogin())
+                .typeCartPhone(UF.getUser(Individual.class).getPhoneNumber())
                 .clickOnOrderConfirmCheckBox()
                 .clickOnOrderConfirSendButton();
     }

@@ -4,6 +4,8 @@ import com.gisauto.utils.PF;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Step;
 
+import java.util.Map;
+
 /**
  * PageObject главной страницы
  * <p>
@@ -17,7 +19,7 @@ public class HomePage extends BasePage {
     private final By searchByNumber = new By.ByXPath("/html/body/div[2]/nav/ul/li[1]/a");
 
     public HomePage() {
-        openPage("https://beta.gisauto.ru/");
+        openPage(System.getenv("HOMEPAGE"));
         if (!checkTitle("Поиск автозапчастей по всей России")) {
             throw new IllegalStateException("Открытая страница не является главной страницей");
         }

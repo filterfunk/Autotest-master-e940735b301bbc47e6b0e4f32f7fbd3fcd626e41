@@ -8,22 +8,22 @@ import cucumber.api.java.ru.Если;
 
 public class OrganizationInfoStepDefs {
 
-    @Если("^пользователь вводит инн")
-    public void пользовательВводитИНН() {
+    @Если("^пользователь вводит инн$")
+    public void пользовательВводитИнн() {
         PF.getPage(OrganizationInfo.class).typeInn(UF.getUser(LegalEntity.class).getInn() + "");
     }
 
-    @Если("^пользователь вводит название магазина")
+    @Если("^пользователь вводит название магазина$")
     public void пользовательВводитНазваниеМагазина() {
         PF.getPage(OrganizationInfo.class).typeShopName(UF.getUser(LegalEntity.class).getShopName());
     }
 
-    @Если("^пользователь вводит телефон магазина")
+    @Если("^пользователь вводит телефон магазина$")
     public void пользовательВводитТелефонМагазина() {
         PF.getPage(OrganizationInfo.class).typeShopPhone(UF.getUser(LegalEntity.class).getPhoneNumber());
     }
 
-    @Если("^пользователь вводит почту магазина")
+    @Если("^пользователь вводит почту магазина$")
     public void пользовательВводитПочтуМагазина() {
         PF.getPage(OrganizationInfo.class).typeShopEmail(UF.getUser(LegalEntity.class).getLogin());
     }
@@ -53,7 +53,12 @@ public class OrganizationInfoStepDefs {
         PF.getPage(OrganizationInfo.class).clickOnSelectShopCity().clickOnFirstCity();
     }
 
-    @Если("^пользователь нажимает сохранить данные")
+    @Если("^пользователь создает (\\d+) магазинов для автозагрузок")
+    public void пользовательСоздаетМагазиновДляАвтозагрузок(int count){
+        PF.getPage(OrganizationInfo.class).createShopsForAutoUpload(count);
+    }
+
+    @Если("^пользователь нажимает сохранить данные$")
     public void пользовательНажимаетСохранитьДанные() {
         PF.getPage(OrganizationInfo.class).clickOnSaveButton();
     }

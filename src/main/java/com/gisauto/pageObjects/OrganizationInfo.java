@@ -1,79 +1,87 @@
 package com.gisauto.pageObjects;
 
+import com.gisauto.users.LegalEntity;
+import com.gisauto.utils.UF;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class OrganizationInfo extends Profile {
 
     private By innInput = new By.ByXPath("//*[@id=\"organization_inn\"]"),
-    shopNameInput = new By.ByXPath("//*[@id=\"organization_mainShop_shopName\"]"),
-    shopPoneInput = new By.ByXPath("//*[@id=\"organization_mainShop_shopPhones_0_shopPhone\"]"),
-    shopEmailInput = new By.ByXPath("//*[@id=\"organization_mainShop_shopEmail\"]"),
-    shopWebSiteInput = new By.ByXPath("//*[@id=\"organization_mainShop_shopSite\"]"),
-    shopCitySelect = new By.ByXPath("//*[@id=\"formSave\"]/div[13]/div[1]/div[1]/div/div/div[1]/input"),
-    shopFirstCity = new By.ByXPath("//*[@id=\"formSave\"]/div[13]/div[1]/div[1]/div/div/div[2]/ul/li[1]/label"),
-    shopAdress1 = new By.ByXPath("//*[@id=\"organization_mainShop_street\"]"),
-    shopAdress2 = new By.ByXPath("//*[@id=\"organization_mainShop_building\"]"),
-    shopAdress3 = new By.ByXPath("//*[@id=\"organization_mainShop_office\"]"),
-    saveButton = new By.ByXPath("//*[@id=\"organization-form\"]/div[2]/div/div/div/input");
+            shopNameInput = new By.ByXPath("//*[@id=\"organization_mainShop_shopName\"]"),
+            shopPoneInput = new By.ByXPath("//*[@id=\"organization_mainShop_shopPhones_1_shopPhone\"]"),
+            shopEmailInput = new By.ByXPath("//*[@id=\"organization_mainShop_shopEmail\"]"),
+            shopWebSiteInput = new By.ByXPath("//*[@id=\"organization_mainShop_shopSite\"]"),
+            shopCitySelect = new By.ByXPath("//*[@id=\"formSave\"]/div[13]/div[1]/div[1]/div/div/div[1]/input"),
+            shopFirstCity = new By.ByXPath("//*[@id=\"formSave\"]/div[13]/div[1]/div[1]/div/div/div[2]/ul/li[1]/label"),
+            shopAdress1 = new By.ByXPath("//*[@id=\"organization_mainShop_street\"]"),
+            shopAdress2 = new By.ByXPath("//*[@id=\"organization_mainShop_building\"]"),
+            shopAdress3 = new By.ByXPath("//*[@id=\"organization_mainShop_office\"]"),
+            addShopButton = new By.ByXPath("//*[@id=\"btn_addFilial\"]"),
+            newShopNameInput = new By.ByXPath("//*[@id=\"shop_shopName\"]"),
+            newShopPhoneInput = new By.ByXPath("//*[@id=\"shop_shopPhones_1_shopPhone\"]"),
+            newShopEmailInput = new By.ByXPath("//*[@id=\"shop_shopEmail\"]"),
+            newShopAdressSelect = new By.ByXPath("//*[@id=\"modalAddAddress\"]/div[2]/form/div[1]/div[2]/div[1]/div/div/div[1]/div[2]"),
+            newShopFirstCity = new By.ByXPath("//*[@id=\"modalAddAddress\"]/div[2]/form/div[1]/div[2]/div[1]/div/div/div[2]/ul/li[1]/label/span"),
+            saveNewShopButton = new By.ByXPath("//*[@id=\"saveShop\"]"),
+            saveButton = new By.ByXPath("//*[@id=\"organization-form\"]/div[2]/div/div/div/input");
 
-    public OrganizationInfo typeInn(String inn){
+    public OrganizationInfo typeInn(String inn) {
         inputText(getElement(innInput), inn);
         return this;
     }
 
-    public OrganizationInfo typeShopName(String shopName){
+    public OrganizationInfo typeShopName(String shopName) {
         inputText(getElement(shopNameInput), shopName);
         return this;
     }
 
-    public OrganizationInfo typeShopPhone(String phone){
+    public OrganizationInfo typeShopPhone(String phone) {
         inputText(getElement(shopPoneInput), phone);
         return this;
     }
 
-    public OrganizationInfo typeShopEmail(String mail){
+    public OrganizationInfo typeShopEmail(String mail) {
         inputText(getElement(shopEmailInput), mail);
         return this;
     }
 
-    public OrganizationInfo typeShopWebSite(String site){
+    public OrganizationInfo typeShopWebSite(String site) {
         inputText(getElement(shopWebSiteInput), site);
         return this;
     }
 
-
-    public OrganizationInfo typeShopStreet(String street){
+    public OrganizationInfo typeShopStreet(String street) {
         inputText(getElement(shopAdress1), street);
         return this;
     }
 
-    public OrganizationInfo typeShopHouse(String house){
+    public OrganizationInfo typeShopHouse(String house) {
         inputText(getElement(shopAdress2), house);
         return this;
     }
 
-    public OrganizationInfo typeShopFlat(String flat){
+    public OrganizationInfo typeShopFlat(String flat) {
         inputText(getElement(shopAdress3), flat);
         return this;
     }
 
-    public OrganizationInfo clickOnSelectShopCity(){
+    public OrganizationInfo clickOnSelectShopCity() {
         getElement(shopCitySelect).click();
         return this;
     }
 
-    public OrganizationInfo clickOnFirstCity(){
+    public OrganizationInfo clickOnFirstCity() {
         getElement(shopFirstCity).click();
         return this;
     }
 
-    public OrganizationInfo clickOnSaveButton(){
+    public OrganizationInfo clickOnSaveButton() {
         getElement(saveButton).click();
         return this;
     }
 
-    public OrganizationInfo chooseCityFromSelect(String cityName){
+    public OrganizationInfo chooseCityFromSelect(String cityName) {
         getCityFromMultiSelect(cityName).click();
         return this;
     }
@@ -89,4 +97,51 @@ public class OrganizationInfo extends Profile {
         while (element.getText().equals(city));
         return element;
     }
+
+    public OrganizationInfo clickOnAddShop() {
+        getElement(addShopButton).click();
+        return this;
+    }
+
+    public OrganizationInfo typeNewShopName(String shopName) {
+        inputText(getElement(newShopNameInput), shopName);
+        return this;
+    }
+
+    public OrganizationInfo typeNewShopPhone(String phoneNumber) {
+        inputText(getElement(newShopPhoneInput), phoneNumber);
+        return this;
+    }
+
+    public OrganizationInfo typeNewShopEmail(String email) {
+        inputText(getElement(newShopEmailInput), email);
+        return this;
+    }
+
+    public OrganizationInfo clickOnNewShopAdress() {
+        getElement(newShopAdressSelect).click();
+        getElement(newShopFirstCity).click();
+        return this;
+    }
+
+    public OrganizationInfo clickOnSaveNewShopButton() {
+        getElement(saveNewShopButton).click();
+        return this;
+    }
+
+    String[] fileTypes = {"csv", "txt", "xls", "xlsx", "xlsm", "csv.rar", "txt.rar", "xls.rar", "xlsx.rar",
+            "xlsm.rar", "csv.zip", "txt.zip", "xls.zip", "xlsx.zip", "xlsm.zip"};
+
+    public OrganizationInfo createShopsForAutoUpload(int shopCount) {
+        for (int i = 0; i < shopCount; i++) {
+            clickOnAddShop()
+                    .typeNewShopName("Автозагрузка - " + fileTypes[i])
+                    .typeNewShopPhone(UF.getUser(LegalEntity.class).getPhoneNumber())
+                    .typeNewShopEmail(UF.getUser(LegalEntity.class).generateAnotherOneEmail())
+                    .clickOnNewShopAdress()
+                    .clickOnSaveNewShopButton();
+        }
+        return this;
+    }
+
 }

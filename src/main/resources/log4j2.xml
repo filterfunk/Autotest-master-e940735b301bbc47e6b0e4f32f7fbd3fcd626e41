@@ -12,7 +12,7 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="com.gisauto.users.User" level="info" additivity="false">
+        <Logger name="UserFactoryLogger" level="info" additivity="false">
             <AppenderRef ref="File1"/>
             <AppenderRef ref="Console"/>
         </Logger>

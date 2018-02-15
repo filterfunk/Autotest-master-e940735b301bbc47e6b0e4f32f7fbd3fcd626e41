@@ -5,7 +5,7 @@
 * Для успешной установки проекта и его использования необходимо установить:
     * [MVN](https://maven.apache.org/install.html)
     * [Java (минимум 8 версия)](https://java.com/ru/download/)
-    * [FireFox driver](https://github.com/mozilla/geckodriver/releases)
+    * [FireFox driver](https://github.com/mozilla/geckodriver/releases) или [Chrome driver](https://sites.google.com/a/chromium.org/chromedriver/)
     
 * ## Компоненты:
 * Тестовый фреймворк - [JUnit4](https://github.com/junit-team/junit4)
@@ -22,6 +22,8 @@
     * Создать Maven-конфигурацию - clean test, задать переменные среды jvm: <br>
         * HOMEPAGE - адрес домашней страницы (beta или бой) <br>
         * PRICEFOLDER - каталог, в котором лежат прайсы
+        * TARGET_BROWSER - браузер, в котором будут запускаться тесты
+        * FIREFOX/CHROME_PATH - путь к FireFox/Chrome драйверу
     * Запустить проект в IDE либо выыполнив команду: `mvn clean test` в директории проекта
 
 ## Генерация отчетов

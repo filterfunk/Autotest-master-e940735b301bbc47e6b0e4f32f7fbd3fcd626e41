@@ -1,7 +1,6 @@
 package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.Profile;
-import com.gisauto.pageObjects.SearchByNumberPage;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;

@@ -18,37 +18,40 @@ public final class Driver {
     private static WebDriver driver = null;
 
     private static WebDriver initDriver() {
+        if (System.getenv("TARGET_BROWSER").equals("FireFox")) {
 
-        System.setProperty("webdriver.gecko.driver",
-                System.getProperty("os.name")
-                        .equals("Linux")
-                        ? "/usr/bin/geckodriver"
-                        : "C:/WD/geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver",
+                    System.getenv("FIREFOX_PATH"));
 
-        FirefoxOptions options = new FirefoxOptions();
-        driver = new FirefoxDriver(options);
+            FirefoxOptions options = new FirefoxOptions();
+            driver = new FirefoxDriver(options);
 
-//        System.setProperty("webdriver.chrome.driver",
-//                System.getProperty("os.name")
-//                        .equals("Linux")
-//                        ? "/home/artsiom/chromedriver"
-//                        : "C:/WD/chromedriver.exe");
-//
-//        ChromeOptions options = new ChromeOptions();
-//        driver = new ChromeDriver(options);
+        } else if (System.getenv("TARGET_BROWSER").equals("Chrome")) {
+
+            System.setProperty("webdriver.chrome.driver",
+                    System.getenv("CHROME_PATH"));
+
+            ChromeOptions options = new ChromeOptions();
+            driver = new ChromeDriver(options);
+
+        } else {
+            throw new RuntimeException("Не удалось инициализировать WebDriver.\n" +
+                    "Неверное значение у TARGET_BROWSER! Ожидалось FireFox или Chrome, но оказалось "
+                    + System.getenv("TARGET_BROWSER"));
+        }
 
         driver.manage().window().maximize();
         return driver;
     }
 
     public static WebDriver getDriver() {
-        if (driver == null){
+        if (driver == null) {
             return initDriver();
         }
         return driver;
     }
 
-    public static void kill(){
+    public static void kill() {
         driver.quit();
         driver = null;
         System.gc();
@@ -78,7 +81,7 @@ public final class Driver {
         return out;
     }
 
-    public static void refreshPage(){
+    public static void refreshPage() {
         driver.navigate().refresh();
     }
 

@@ -80,7 +80,7 @@ public class OrganizationInfo extends BasePage {
 
     private WebElement getCityFromMultiSelect(String city) {
         int i = 0;
-        WebElement element = null;
+        WebElement element;
         do {
             i++;
             element = getElement(new By.ByXPath("\n" +

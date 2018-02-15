@@ -46,7 +46,8 @@ public abstract class User {
                 "\n city - " + city +
                 "\n name - " + name +
                 "\n phoneNumber - " + phoneNumber +
-                (this instanceof LegalEntity ? "\n shop - " + ((LegalEntity) this).getShopName() : ""));
+                (this instanceof LegalEntity ? "\n shop - " + ((LegalEntity) this).getShopName() : "") +
+                "\n inn - " + ((LegalEntity) this).getInn());
     }
 
 }

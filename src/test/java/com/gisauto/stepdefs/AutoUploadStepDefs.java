@@ -46,12 +46,12 @@ public class AutoUploadStepDefs {
                         refreshRate);
     }
 
-    @Если("^пользователь выбирает магазин \"([^\"]*)\"$")
+    @Если("^пользователь выбирает магазин \"([^\"]*)\" автозагрзуки$")
     public void пользовательВыбираетМагазин(String shopName) {
         PF.getPage(PriceUpload.AutoUpload.class).clickOnShopSelect(shopName);
     }
 
-    @Если("^пользователь выбирает шаблон \"([^\"]*)\"$")
+    @Если("^пользователь выбирает шаблон \"([^\"]*)\" автозагрузки$")
     public void пользовательВыбираетШаблон(String templateName) {
         PF.getPage(PriceUpload.AutoUpload.class).clickOnTemplateSelect(templateName);
     }

@@ -3,7 +3,7 @@ package com.gisauto.pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class OrganizationInfo extends BasePage {
+public class OrganizationInfo extends Profile {
 
     private By innInput = new By.ByXPath("//*[@id=\"organization_inn\"]"),
     shopNameInput = new By.ByXPath("//*[@id=\"organization_mainShop_shopName\"]"),

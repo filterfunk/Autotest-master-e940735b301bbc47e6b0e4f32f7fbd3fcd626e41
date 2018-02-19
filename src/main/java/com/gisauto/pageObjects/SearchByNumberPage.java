@@ -94,10 +94,8 @@ public class SearchByNumberPage extends BasePage {
         do {
             tr++;
             try {
-                System.out.println("Try to find a shop with tr = " + tr);
                 a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
                         + tr + "]/td[7]/div[" + (1 + tr) + "]/span/a/span[1]"));
-                System.out.println("Shop name with tr = " + tr + "is " + a.getText());
             } catch (Exception e) {
                 e.printStackTrace();
                 return -1;

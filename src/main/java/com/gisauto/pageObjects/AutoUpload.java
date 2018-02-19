@@ -40,15 +40,7 @@ public class AutoUpload extends PriceUpload {
     }
 
     private WebElement getRefreshRate(String id, String rate) {
-        int li = 0;
-
-        do {
-            li++;
-            WebElement a = getElement(new By.ByXPath("//*[@id=\"" + id + "\"]/div[2]/div/div/div[2]/ul/li[" + li + "]/label/span"));
-            if (a.getText().equals(rate)) return a;
-        } while (li <= 3);
-
-        throw new RuntimeException("Невозможно найти частоту обновления " + rate);
+        return getElementFromSelect("//*[@id=\"" + id + "\"]/div[2]/div/div/div[2]/ul/li[", "]/label/span", rate);
     }
 
     public AutoUpload clickOnShopSelect(String shopName) {
@@ -58,15 +50,7 @@ public class AutoUpload extends PriceUpload {
     }
 
     private WebElement getShopFromSelect(String shopName) {
-        int li = 0;
-
-        do {
-            li++;
-            WebElement a = getElement(new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[1]/div/div/div[2]/ul/li[" + li + "]/label/span"));
-            if (a.getText().equals(shopName)) return a;
-        } while (li <= 15);
-
-        throw new RuntimeException("Невозможно найти магазин " + shopName);
+        return getElementFromSelect("//*[@id=\"item-autoload-form\"]/div[6]/div[1]/div/div/div[2]/ul/li[", "]/label/span", shopName);
     }
 
     public AutoUpload clickOnTemplateSelect(String templateName) {
@@ -76,15 +60,7 @@ public class AutoUpload extends PriceUpload {
     }
 
     private WebElement getTemplateFromSelect(String templateName) {
-        int li = 0;
-
-        do {
-            li++;
-            WebElement a = getElement(new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/div/div/div[2]/ul/li[" + li + "]/label/span"));
-            if (a.getText().equals(templateName)) return a;
-        } while (li <= 2);
-
-        throw new RuntimeException("Невозможно найти шаблон " + templateName);
+        return getElementFromSelect("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/div/div/div[2]/ul/li[", "]/label/span", templateName);
     }
 
     public AutoUpload typeLinkAdress(String url) {

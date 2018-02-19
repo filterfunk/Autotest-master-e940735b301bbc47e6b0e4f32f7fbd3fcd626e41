@@ -101,14 +101,7 @@ public class PriceUpload extends BasePage {
     }
 
     private WebElement getShopFromSelector(String shopName) {
-        int i = 0;
-        WebElement element = null;
-        do {
-            i++;
-            element = getElement(new By.ByXPath("\"//*[@id=\\\"parts-hand\\\"]/div/form/div[2]/div/div[1]/div[2]/ul/li[" + i + "]\""));
-        }
-        while (element.getText().equals(shopName));
-        return element;
+        return getElementFromSelect("\"//*[@id=\\\"parts-hand\\\"]/div/form/div[2]/div/div[1]/div[2]/ul/li[", "]\"", shopName);
     }
 
     public TemplateSettings clickOnTemplateSettings() {

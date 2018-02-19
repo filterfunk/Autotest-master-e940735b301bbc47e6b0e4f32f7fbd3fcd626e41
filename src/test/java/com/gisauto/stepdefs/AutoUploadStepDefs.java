@@ -62,4 +62,14 @@ public class AutoUploadStepDefs {
         PF.getPage(AutoUpload.class).clickOnCreateButton();
     }
 
+    @Если("^пользователь создает шаблон для шин$")
+    public void пользовательСоздаетШаблонДляШин(){
+
+    }
+
+    @Если("^пользователь создает шаблон для запчастей")
+    public void пользовательСоздаетШаблонДляЗапчастей(){
+
+    }
+
 }

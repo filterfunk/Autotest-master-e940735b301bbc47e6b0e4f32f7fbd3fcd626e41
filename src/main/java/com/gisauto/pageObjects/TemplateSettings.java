@@ -29,7 +29,9 @@ public class TemplateSettings extends BasePage {
             tyresOptPrice = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[8]/div/div[1]/div[1]/div[2]"),
             tyresRoznicaPrice = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[11]/div/div[1]/div[1]/div[2]"),
             tyresCount = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[13]/div/div/div[1]/div[2]"),
-            tyresSaveButton = new By.ByXPath("//*[@id=\"tyreTab\"]/form/button");
+            tyresSaveButton = new By.ByXPath("//*[@id=\"tyreTab\"]/form/button"),
+            tyresCloseMoreInfo = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[1]/label"),
+            closeModal = new By.ByXPath("//*[@id=\"newUploadTemplateItem\"]/div/div/div[1]/div");
 
     public TemplateSettings typeTemplateName(String name) {
         inputText(getElement(templateNameInput), name);
@@ -232,6 +234,16 @@ public class TemplateSettings extends BasePage {
 
     public TemplateSettings clickOnTyresSaveButton() {
         getElement(tyresSaveButton).click();
+        return this;
+    }
+
+    public TemplateSettings closeMoreInfo(){
+        getElement(tyresCloseMoreInfo).click();
+        return this;
+    }
+
+    public TemplateSettings closeModal(){
+        getElement(closeModal).click();
         return this;
     }
 

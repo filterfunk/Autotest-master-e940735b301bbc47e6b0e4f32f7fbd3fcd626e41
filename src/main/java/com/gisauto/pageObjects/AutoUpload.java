@@ -1,5 +1,6 @@
 package com.gisauto.pageObjects;
 
+import com.gisauto.utils.PF;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -14,7 +15,8 @@ public class AutoUpload extends PriceUpload {
             shopSelect = new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[1]/div/div/div[1]/div[2]"),
             templateSelect = new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/div/div/div[1]/div[2]"),
             linkAdressInput = new By.ByXPath("//*[@id=\"item_autoload_sourceLink\"]"),
-            createButton = new By.ByXPath("//*[@id=\"save-autoload-button\"]");
+            createButton = new By.ByXPath("//*[@id=\"save-autoload-button\"]"),
+            createTemplate = new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/button");
 
     public AutoUpload typeEmailFileName(String fileName) {
         inputText(getElement(emailFileNameInput), fileName);
@@ -84,6 +86,11 @@ public class AutoUpload extends PriceUpload {
     public AutoUpload clickOnCreateButton() {
         getElement(createButton).click();
         return this;
+    }
+
+    public TemplateSettings clickOnTemplateCreateButton(){
+        getElement(createTemplate).click();
+        return PF.getPage(TemplateSettings.class);
     }
 
 }

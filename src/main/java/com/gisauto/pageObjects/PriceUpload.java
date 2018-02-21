@@ -21,7 +21,8 @@ public class PriceUpload extends BasePage {
             currencySelect = new By.ByXPath("//*[@id=\"parts-hand\"]/div/form/div[4]/div[2]/div[1]/div[1]/div[1]/input"),
             saveButton = new By.ByXPath("//*[@id=\"parts-hand\"]/div/form/button"),
             createUpolad = new By.ByXPath("//*[@id=\"mainWin\"]/div[2]/div[1]/div/button[1]"),
-            templateSettings = new By.ByXPath("//*[@id=\"mainWin\"]/div[2]/div[1]/div/button[2]");
+            templateSettings = new By.ByXPath("//*[@id=\"mainWin\"]/div[2]/div[1]/div/button[2]"),
+            uploadHistory = new By.ByXPath("//*[@id=\"mainWin\"]/div[1]/ul/li[2]/a");
 
     public AutoUpload clickOnCreateUpload() {
         getElement(createUpolad).click();
@@ -107,6 +108,11 @@ public class PriceUpload extends BasePage {
     public TemplateSettings clickOnTemplateSettings() {
         getElement(templateSettings).click();
         return PF.getPage(TemplateSettings.class);
+    }
+
+    public UploadHistory clickOnUploadHistory(){
+        getElement(uploadHistory).click();
+        return PF.getPage(UploadHistory.class);
     }
 
 }

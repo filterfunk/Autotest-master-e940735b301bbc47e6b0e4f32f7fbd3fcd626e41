@@ -19,6 +19,7 @@ public class HomePage extends BasePage {
     private final By searchByNumber = new By.ByXPath("/html/body/div[2]/nav/ul/li[1]/a");
 
     public HomePage() {
+        super();
         openPage(System.getenv("HOMEPAGE"));
         if (!checkTitle("Поиск автозапчастей по всей России")) {
             throw new IllegalStateException("Открытая страница не является главной страницей");

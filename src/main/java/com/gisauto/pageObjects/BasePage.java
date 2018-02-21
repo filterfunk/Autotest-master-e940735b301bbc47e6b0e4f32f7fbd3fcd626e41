@@ -35,7 +35,7 @@ public abstract class BasePage extends Page {
             wareHouse = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[4]/div/a"),
             profile = new By.ByXPath("//*[@id=\"login-menu-block\"]/div/div[2]");
 
-    public BasePage(){
+    public BasePage() {
         await(500);
     }
 

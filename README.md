@@ -7,6 +7,7 @@
     * [MVN](https://maven.apache.org/install.html)
     * [Java (минимум 8 версия)](https://java.com/ru/download/)
     * [FireFox driver](https://github.com/mozilla/geckodriver/releases) или [Chrome driver](https://sites.google.com/a/chromium.org/chromedriver/)
+    * [Docker](https://docs.docker.com/get-started/)
     
 * ## Компоненты:
 * Тестовый фреймворк - [JUnit4](https://github.com/junit-team/junit4)

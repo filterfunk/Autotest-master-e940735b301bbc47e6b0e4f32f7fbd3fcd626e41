@@ -91,8 +91,8 @@ public class OrganizationInfo extends Profile {
         WebElement element;
         do {
             i++;
-            element = getElement(new By.ByXPath("\n" +
-                    "        //*[@id=\"formSave\"]/div[13]/div[1]/div[1]/div/div/div[2]/ul/li[" + i + "]/label"));
+            element = getElementFromSelect("//*[@id=\\\"formSave\\\"]/div[13]/div[1]/div[1]/div/div/div[2]/ul/li[",
+                    "]/label", city );
         }
         while (element.getText().equals(city));
         return element;
@@ -126,21 +126,6 @@ public class OrganizationInfo extends Profile {
 
     public OrganizationInfo clickOnSaveNewShopButton() {
         getElement(saveNewShopButton).click();
-        return this;
-    }
-
-    String[] fileTypes = {"csv", "txt", "xls", "xlsx", "xlsm", "csv.rar", "txt.rar", "xls.rar", "xlsx.rar",
-            "xlsm.rar", "csv.zip", "txt.zip", "xls.zip", "xlsx.zip", "xlsm.zip"};
-
-    public OrganizationInfo createShopsForAutoUpload(int shopCount) {
-        for (int i = 0; i < shopCount; i++) {
-            clickOnAddShop()
-                    .typeNewShopName("Автозагрузка - " + fileTypes[i])
-                    .typeNewShopPhone(UF.getUser(LegalEntity.class).getPhoneNumber())
-                    .typeNewShopEmail(UF.getUser(LegalEntity.class).generateAnotherOneEmail())
-                    .clickOnNewShopAdress()
-                    .clickOnSaveNewShopButton();
-        }
         return this;
     }
 

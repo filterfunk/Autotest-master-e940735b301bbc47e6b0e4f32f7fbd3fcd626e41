@@ -1,5 +1,6 @@
 package com.gisauto.pageObjects;
 
+import com.gisauto.utils.PF;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -14,7 +15,8 @@ public class AutoUpload extends PriceUpload {
             shopSelect = new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[1]/div/div/div[1]/div[2]"),
             templateSelect = new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/div/div/div[1]/div[2]"),
             linkAdressInput = new By.ByXPath("//*[@id=\"item_autoload_sourceLink\"]"),
-            createButton = new By.ByXPath("//*[@id=\"save-autoload-button\"]");
+            createButton = new By.ByXPath("//*[@id=\"save-autoload-button\"]"),
+            createTemplate = new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/button");
 
     public AutoUpload typeEmailFileName(String fileName) {
         inputText(getElement(emailFileNameInput), fileName);
@@ -40,15 +42,7 @@ public class AutoUpload extends PriceUpload {
     }
 
     private WebElement getRefreshRate(String id, String rate) {
-        int li = 0;
-
-        do {
-            li++;
-            WebElement a = getElement(new By.ByXPath("//*[@id=\"" + id + "\"]/div[2]/div/div/div[2]/ul/li[" + li + "]/label/span"));
-            if (a.getText().equals(rate)) return a;
-        } while (li <= 3);
-
-        throw new RuntimeException("Невозможно найти частоту обновления " + rate);
+        return getElementFromSelect("//*[@id=\"" + id + "\"]/div[2]/div/div/div[2]/ul/li[", "]/label/span", rate);
     }
 
     public AutoUpload clickOnShopSelect(String shopName) {
@@ -58,15 +52,7 @@ public class AutoUpload extends PriceUpload {
     }
 
     private WebElement getShopFromSelect(String shopName) {
-        int li = 0;
-
-        do {
-            li++;
-            WebElement a = getElement(new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[1]/div/div/div[2]/ul/li[" + li + "]/label/span"));
-            if (a.getText().equals(shopName)) return a;
-        } while (li <= 15);
-
-        throw new RuntimeException("Невозможно найти магазин " + shopName);
+        return getElementFromSelect("//*[@id=\"item-autoload-form\"]/div[6]/div[1]/div/div/div[2]/ul/li[", "]/label/span", shopName);
     }
 
     public AutoUpload clickOnTemplateSelect(String templateName) {
@@ -76,15 +62,7 @@ public class AutoUpload extends PriceUpload {
     }
 
     private WebElement getTemplateFromSelect(String templateName) {
-        int li = 0;
-
-        do {
-            li++;
-            WebElement a = getElement(new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/div/div/div[2]/ul/li[" + li + "]/label/span"));
-            if (a.getText().equals(templateName)) return a;
-        } while (li <= 2);
-
-        throw new RuntimeException("Невозможно найти шаблон " + templateName);
+        return getElementFromSelect("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/div/div/div[2]/ul/li[", "]/label/span", templateName);
     }
 
     public AutoUpload typeLinkAdress(String url) {
@@ -108,6 +86,11 @@ public class AutoUpload extends PriceUpload {
     public AutoUpload clickOnCreateButton() {
         getElement(createButton).click();
         return this;
+    }
+
+    public TemplateSettings clickOnTemplateCreateButton(){
+        getElement(createTemplate).click();
+        return PF.getPage(TemplateSettings.class);
     }
 
 }

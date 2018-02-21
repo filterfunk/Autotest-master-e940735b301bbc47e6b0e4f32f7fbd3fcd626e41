@@ -110,4 +110,14 @@ public abstract class Page {
             e.printStackTrace();
         }
     }
+
+    public static WebElement getElementFromSelect(String firstPart, String secondPart, String expectedText) {
+        int i = 0;
+        WebElement a;
+        do {
+            a = getElement(new By.ByXPath((firstPart + i + secondPart)));
+        } while (a.getText().equals(expectedText));
+        return a;
+    }
+
 }

@@ -2,6 +2,7 @@ package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.AutoUpload;
 import com.gisauto.pageObjects.PriceUpload;
+import com.gisauto.pageObjects.TemplateSettings;
 import com.gisauto.utils.PF;
 import cucumber.api.java.ru.Если;
 
@@ -60,6 +61,44 @@ public class AutoUploadStepDefs {
     @Если("^пользователь нажимает создать$")
     public void пользовательНажимаетСоздать() {
         PF.getPage(AutoUpload.class).clickOnCreateButton();
+    }
+
+    @Если("^пользователь создает шаблон для шин$")
+    public void пользовательСоздаетШаблонДляШин() {
+        PF.getPage(AutoUpload.class).clickOnTemplateCreateButton();
+        PF.getPage(TemplateSettings.class)
+                .clickOnTyreType()
+                .typeTyresTemplateName("TyresTemplate")
+                .clickOnTyresFirstLine(2)
+                .chooseTyresNumber("C(3)")
+                .chooseTyresManufacturer("D(4)")
+                .chooseTyresModel("B(2)")
+                .chooseTyresNameInLine("A(1)")
+                .clickOnMoreInfo()
+                .chooseTyresShirina("E(5)")
+                .chooseTyresProfile("F(6)")
+                .chooseTyresDiameter("G(7)")
+                .closeMoreInfo()
+                .chooseTyresOptPrice("J(10)")
+                .chooseTyresRoznicaPrice("I(9)")
+                .chooseTyresCount("H(8)")
+                .clickOnTyresSaveButton()
+                .closeModal();
+    }
+
+    @Если("^пользователь создает шаблон для запчастей")
+    public void пользовательСоздаетШаблонДляЗапчастей() {
+        PF.getPage(AutoUpload.class).clickOnTemplateCreateButton();
+        PF.getPage(TemplateSettings.class)
+                .typeTemplateName("PartsTemplate")
+                .clickOnFirstLinePlus(2)
+                .chooseNumber("F(6)")
+                .chooseManufacturer("A(1)")
+                .choosePartName("C(3)")
+                .choosePriceForUr("D(4)")
+                .chooseCount("E(5)")
+                .clickOnSaveButton()
+                .closeModal();
     }
 
 }

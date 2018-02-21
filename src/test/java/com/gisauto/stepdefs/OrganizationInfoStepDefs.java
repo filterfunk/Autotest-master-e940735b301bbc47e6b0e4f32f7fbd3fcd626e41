@@ -13,9 +13,9 @@ public class OrganizationInfoStepDefs {
         PF.getPage(OrganizationInfo.class).typeInn(UF.getUser(LegalEntity.class).getInn() + "");
     }
 
-    @Если("^пользователь вводит название магазина$")
-    public void пользовательВводитНазваниеМагазина() {
-        PF.getPage(OrganizationInfo.class).typeShopName(UF.getUser(LegalEntity.class).getShopName());
+    @Если("^пользователь вводит название магазина \"([^\"]*)\"$")
+    public void пользовательВводитНазваниеМагазина(String shopName) {
+        PF.getPage(OrganizationInfo.class).typeShopName(shopName);
     }
 
     @Если("^пользователь вводит телефон магазина$")
@@ -51,11 +51,6 @@ public class OrganizationInfoStepDefs {
     @Если("^пользователь нажимает на выбор города магазина")
     public void пользовательНажимаетНаВыборГородаМагазина() {
         PF.getPage(OrganizationInfo.class).clickOnSelectShopCity().clickOnFirstCity();
-    }
-
-    @Если("^пользователь создает (\\d+) магазинов для автозагрузок")
-    public void пользовательСоздаетМагазиновДляАвтозагрузок(int count){
-        PF.getPage(OrganizationInfo.class).createShopsForAutoUpload(count);
     }
 
     @Если("^пользователь нажимает сохранить данные$")

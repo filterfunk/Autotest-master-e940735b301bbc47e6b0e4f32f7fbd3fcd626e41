@@ -4,8 +4,6 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -18,27 +16,12 @@ public final class Driver {
     private static WebDriver driver = null;
 
     private static WebDriver initDriver() {
-        if (System.getenv("TARGET_BROWSER").equals("FireFox")) {
+        System.setProperty("webdriver.chrome.driver",
+                System.getenv("CHROME_PATH"));
 
-            System.setProperty("webdriver.gecko.driver",
-                    System.getenv("FIREFOX_PATH"));
+        ChromeOptions options = new ChromeOptions();
+        driver = new ChromeDriver(options);
 
-            FirefoxOptions options = new FirefoxOptions();
-            driver = new FirefoxDriver(options);
-
-        } else if (System.getenv("TARGET_BROWSER").equals("Chrome")) {
-
-            System.setProperty("webdriver.chrome.driver",
-                    System.getenv("CHROME_PATH"));
-
-            ChromeOptions options = new ChromeOptions();
-            driver = new ChromeDriver(options);
-
-        } else {
-            throw new RuntimeException("Не удалось инициализировать WebDriver.\n" +
-                    "Неверное значение у TARGET_BROWSER! Ожидалось FireFox или Chrome, но оказалось "
-                    + System.getenv("TARGET_BROWSER"));
-        }
 
         driver.manage().window().maximize();
         return driver;

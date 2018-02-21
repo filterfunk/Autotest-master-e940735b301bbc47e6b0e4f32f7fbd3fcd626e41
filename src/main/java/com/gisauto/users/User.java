@@ -9,7 +9,7 @@ import java.util.Locale;
 public abstract class User {
 
     String login, password, city, phoneNumber, name;
-    static final Logger userLogger = LogManager.getLogger(User.class);
+    static final Logger userLogger = LogManager.getLogger("UserFactoryLogger");
     final Faker faker = Faker.instance(new Locale("Ru"));
 
     public User() {

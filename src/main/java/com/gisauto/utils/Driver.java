@@ -1,9 +1,12 @@
 package com.gisauto.utils;
 
 import io.qameta.allure.Attachment;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -24,6 +27,7 @@ public final class Driver {
 
 
         driver.manage().window().maximize();
+        waitForLoad(driver);
         return driver;
     }
 
@@ -62,6 +66,11 @@ public final class Driver {
             e.printStackTrace();
         }
         return out;
+    }
+
+    private static void waitForLoad(WebDriver driver) {
+        new WebDriverWait(driver, 30).until((ExpectedCondition<Boolean>) wd ->
+                ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
     }
 
     public static void refreshPage() {

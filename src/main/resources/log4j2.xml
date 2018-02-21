@@ -9,11 +9,20 @@
         <File name="File1" fileName="logs/users.log">
             <PatternLayout pattern="%d{dd.MMM.yyyy-HH:mm:ss} - %msg%n"/>
         </File>
+
+        <File name="PageFactory" fileName="logs/PF.log">
+            <PatternLayout pattern="%d{dd.MMM.yyyy-HH:mm:ss} - %msg%n"/>
+        </File>
     </Appenders>
 
     <Loggers>
         <Logger name="UserFactoryLogger" level="info" additivity="false">
             <AppenderRef ref="File1"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="PageFactoryLogger" level="info" additivity="false">
+            <AppenderRef ref="PageFactory"/>
             <AppenderRef ref="Console"/>
         </Logger>
 

@@ -47,43 +47,43 @@ public class TemplateSettings extends BasePage {
 
     public TemplateSettings chooseNumber(String text) {
         getElement(numberSelect).click();
-        clickOnNumber(text);
+        clickOnNumber(text, getElement(numberSelect));
         return this;
     }
 
     public TemplateSettings chooseManufacturer(String text) {
         getElement(manufacturerSelect).click();
-        clickOnManufacturer(text);
+        clickOnManufacturer(text, getElement(manufacturerSelect));
         return this;
     }
 
     public TemplateSettings choosePartName(String text) {
         getElement(partNameSelect).click();
-        clickOnPartName(text);
+        clickOnPartName(text, getElement(partNameSelect));
         return this;
     }
 
     public TemplateSettings choosePriceForUr(String text) {
         getElement(priceForUrSelect).click();
-        clickOnPriceForUr(text);
+        clickOnPriceForUr(text, getElement(priceForUrSelect));
         return this;
     }
 
     public TemplateSettings choosePriceForFiz(String text) {
         getElement(priceForFizSelect).click();
-        clickOnPriceForFiz(text);
+        clickOnPriceForFiz(text, getElement(priceForFizSelect));
         return this;
     }
 
     public TemplateSettings chooseCount(String text) {
         getElement(countSelect).click();
-        clickOnCount(text);
+        clickOnCount(text, getElement(countSelect));
         return this;
     }
 
     public TemplateSettings chooseDelivery(String text) {
         getElement(deliverySelect).click();
-        clickOnDelivery(text);
+        clickOnDelivery(text, getElement(deliverySelect));
         return this;
     }
 
@@ -92,55 +92,43 @@ public class TemplateSettings extends BasePage {
         return this;
     }
 
-    private void clickOnNumber(String text) {
-        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[3]/div/div/div[1]/div[2]/ul/li[", "]", text);
+    private void clickOnNumber(String text, WebElement select) {
+        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[3]//span[text()=\"", "\"]", text, select);
         element.click();
     }
 
-    private void clickOnManufacturer(String text) {
-        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[4]/div/div/div[1]/div[2]/ul/li[", "]", text);
+    private void clickOnManufacturer(String text, WebElement select) {
+        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[4]//span[text()=\"", "\"]", text, select);
         element.click();
     }
 
-    private void clickOnPartName(String text) {
-        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[5]/div/div[1]/div[1]/div[2]/ul/li[", "]", text);
+    private void clickOnPartName(String text, WebElement select) {
+        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[5]//span[text()=\"", "\"]", text, select);
         element.click();
     }
 
-    private void clickOnPriceForUr(String text) {
-        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[6]/div/div[1]/div[2]/ul/li[", "]", text);
+    private void clickOnPriceForUr(String text, WebElement select) {
+        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[6]//span[text()=\"", "\"]", text, select);
         element.click();
     }
 
-    private void clickOnPriceForFiz(String text) {
-        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[9]/div/div[1]/div[2]/ul/li[", "]", text);
+    private void clickOnPriceForFiz(String text, WebElement select) {
+        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[9]//span[text()=\"", "\"]", text, select);
         element.click();
     }
 
-    private void clickOnCount(String text) {
-        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[11]/div/div/div[2]/ul/li[", "]", text);
+    private void clickOnCount(String text, WebElement select) {
+        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[11]//span[text()=\"", "\"]", text, select);
         element.click();
     }
 
-    private void clickOnDelivery(String text) {
-        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[12]/div[1]/div/div[2]/ul/li[", "]", text);
+    private void clickOnDelivery(String text, WebElement select) {
+        WebElement element = getElementFromSelect("//*[@id=\"partTab\"]/form/div[9]//span[text()=\"", "\"]", text, select);
         element.click();
     }
 
     public TemplateSettings typeDelivery(String text) {
         inputText(getElement(deliverySelect), text);
-        return this;
-    }
-
-    public TemplateSettings clickOnEditTemplate(String templateName) {
-        WebElement element = getElementFromSelect("//*[@id=\"newUploadTemplateItem\"]/div/div/div[2]/div[1]/div/div[2]/table/tbody/tr[", "]/td[1]/div[2]", templateName);
-        element.click();
-        return this;
-    }
-
-    public TemplateSettings clickOnDeleteTemplate(String templateName) {
-        WebElement element = getElementFromSelect("//*[@id=\"newUploadTemplateItem\"]/div/div/div[2]/div[1]/div/div[2]/table/tbody/tr[", "]/td[1]/div[2]", templateName);
-        element.click();
         return this;
     }
 
@@ -162,26 +150,30 @@ public class TemplateSettings extends BasePage {
     }
 
     public TemplateSettings chooseTyresNumber(String text) {
-        getElement(tyresNumberSelect).click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[3]/div/div/div[2]/ul/li[", "]/label", text).click();
+        WebElement select = getElement(tyresNumberSelect);
+        select.click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[3]/div/div/div[2]/ul/li[", "]/label", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresManufacturer(String text) {
-        getElement(tyresManufacturerSelect).click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[4]/div/div/div[2]/ul/li[", "]/label", text).click();
+        WebElement select = getElement(tyresManufacturerSelect);
+        select.click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[4]/div/div/div[2]/ul/li[", "]/label", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresModel(String text) {
-        getElement(tyresModelSelect).click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[5]/div/div/div[2]/ul/li[", "]/label", text).click();
+        WebElement select = getElement(tyresModelSelect);
+        select.click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[5]/div/div/div[2]/ul/li[", "]/label", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresNameInLine(String text) {
-        getElement(tyresNameInLineSelect).click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div/div/div[2]/ul/li[", "]/label", text).click();
+        WebElement select = getElement(tyresNameInLineSelect);
+        select.click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div/div/div[2]/ul/li[", "]/label", text, select).click();
         return this;
     }
 
@@ -191,20 +183,23 @@ public class TemplateSettings extends BasePage {
     }
 
     public TemplateSettings chooseTyresShirina(String text) {
-        getElement(tyresShirina).click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[1]/div/div/div[1]/div[2]/ul/li[", "]/label", text).click();
+        WebElement select = getElement(tyresShirina);
+        select.click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[1]/div/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresProfile(String text) {
-        getElement(tyresProfile).click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[2]/div/div/div[1]/div[2]/ul/li[", "]/label", text).click();
+        WebElement select = getElement(tyresProfile);
+        select.click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[2]/div/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresDiameter(String text) {
-        getElement(tyresDiameter).click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[3]/div/div/div[1]/div[2]/ul/li[", "]/label", text).click();
+        WebElement select = getElement(tyresDiameter);
+        select.click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[3]/div/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
         return this;
     }
 
@@ -215,20 +210,23 @@ public class TemplateSettings extends BasePage {
 
     public TemplateSettings chooseTyresOptPrice(String text) {
         sykaYaEbalKostil();
-        getElement(tyresOptPrice).click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[8]/div/div[1]/div[2]/ul/li[", "]/label", text).click();
+        WebElement select = getElement(tyresOptPrice);
+        select.click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[8]/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresRoznicaPrice(String text) {
-        getElement(tyresRoznicaPrice).click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[11]/div/div[1]/div[2]/ul/li[", "]/label", text).click();
+        WebElement select = getElement(tyresRoznicaPrice);
+        select.click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[11]/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresCount(String text) {
-        getElement(tyresCount).click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[13]/div/div/div[2]/ul/li[", "]/label", text).click();
+        WebElement select = getElement(tyresCount);
+        select.click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[13]/div/div/div[2]/ul/li[", "]/label", text, select).click();
         return this;
     }
 
@@ -237,12 +235,12 @@ public class TemplateSettings extends BasePage {
         return this;
     }
 
-    public TemplateSettings closeMoreInfo(){
+    public TemplateSettings closeMoreInfo() {
         getElement(tyresCloseMoreInfo).click();
         return this;
     }
 
-    public TemplateSettings closeModal(){
+    public TemplateSettings closeModal() {
         getElement(closeModal).click();
         return this;
     }

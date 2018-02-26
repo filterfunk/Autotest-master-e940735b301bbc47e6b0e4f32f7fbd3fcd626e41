@@ -17,7 +17,7 @@ public class YandexMailPage extends Page {
             sendButton = new By.ByXPath("//*[@id=\"nb-31\"]");
 
     public YandexMailPage() {
-        openPage("https://passport.yandex.ru/auth?retpath=https%3A%2F%2Fmail.yandex.ru%2F%3Fconnection_id%3Diface-1513054766675-02035703&backpath=https%3A%2F%2Fmail.yandex.ru%2F%3Fnoretpath%3D1");
+        openPage("https://passport.yandex.ru/passport?mode=auth&from=mail&retpath=https%3A%2F%2Fmail.yandex.ru&origin=hostroot_ru_nol_mobile_enter");
     }
 
     public YandexMailPage clickOnLastMessage() {

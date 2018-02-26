@@ -1,12 +1,16 @@
-FROM maven:3.5-jdk-8
+FROM maven:latest
 COPY . /opt/app
 WORKDIR /opt/app
 
 ENV HOMEPAGE https://beta.gisauto.ru
-ENV CHROME_PATH /opt/app/chromedriver
+ENV CHROME_PATH chromedriver
 
-RUN chmod -R +x /opt/app/.allure/allure-2.0.1/bin \
-    && apt-get update \
-    && apt-get install -y chromium
+RUN apt-get -qq update \
+    && apt-get -qq install -y software-properties-common
+
+RUN apt-add-repository ppa:yandex-qatools/allure-framework \
+    && apt-get -qq update \
+    && apt-get -y install allure-commandline
 
 CMD ["mvn", "clean", "test"]
+CMD ["allure", "serve", "/opt/app/target/allure-results"]

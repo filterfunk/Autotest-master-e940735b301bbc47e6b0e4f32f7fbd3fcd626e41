@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -47,7 +48,7 @@ public abstract class Page {
             for (int i = 0; i < string.length(); i++) {
                 textField.sendKeys(string.charAt(i) + "");
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -71,24 +72,23 @@ public abstract class Page {
     }
 
     public static WebElement tryFindElement(By xPath) {
-        if (System.currentTimeMillis() - startTime > WAIT_TIME) {
-            throw new RuntimeException("Не удалось найти элемент по XPath: " + xPath);
+
+        while (!tryGetElement(xPath)) {
+
+            if (System.currentTimeMillis() - startTime > WAIT_TIME) {
+                throw new RuntimeException("Не удалось найти элемент по " + xPath
+                        + "\nИстекло время ожидания равное " + WAIT_TIME / 1000 + " сек.");
+            }
+
+            await(1000);
         }
 
-        if (tryGetElement(xPath)) {
-            return Driver.getDriver().findElement(xPath);
-        } else {
-            await(1000);
-            tryFindElement(xPath);
-        }
-        await(500);
-        return Driver.getDriver().findElement(xPath); //временное решение
+        return Driver.getDriver().findElement(xPath);
     }
 
     private static boolean tryGetElement(By xPath) {
         try {
-            Driver.getDriver().findElement(xPath);
-            return true;
+            return Driver.getDriver().findElement(xPath).isDisplayed();
         } catch (Exception ex) {
             return false;
         }
@@ -102,13 +102,26 @@ public abstract class Page {
         }
     }
 
-    public static WebElement getElementFromSelect(String firstPart, String secondPart, String expectedText) {
-        int i = 0;
-        WebElement a;
-        do {
-            a = getElement(new By.ByXPath((firstPart + i + secondPart)));
-        } while (a.getText().equals(expectedText));
+    public static WebElement getElementFromSelect(String firstPart, String secondPart, String expectedText, WebElement select) {
+        WebElement a = getElementUnsafe(new By.ByXPath(firstPart + expectedText + secondPart));
+
+        if (a != null) {
+            do {
+                select.sendKeys(Keys.DOWN);
+                await(100);
+            } while (!a.isDisplayed());
+        }
+
         return a;
+    }
+
+    public static WebElement getElementUnsafe(By by) {
+        try {
+            return Driver.getDriver().findElement(by);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static WebElement getElement(By by) {
@@ -118,12 +131,13 @@ public abstract class Page {
 
         startTime = System.currentTimeMillis();
         WebElement wb;
-        do {
-            wb = tryFindElement(by);
-        } while (wb == null && System.currentTimeMillis() - startTime < WAIT_TIME);
+        long spentTime = System.currentTimeMillis() - startTime;
 
-        LOGGER.info("Веб элемент " + by.toString() + " был найден за "
-                + (System.currentTimeMillis() - startTime) / 1000 + " сек. \n");
+        wb = tryFindElement(by);
+
+        if (spentTime / 1000 > 1)
+            LOGGER.info("Веб элемент " + by.toString() + " был найден за "
+                    + (System.currentTimeMillis() - startTime) / 1000 + " сек. \n");
         return wb;
     }
 

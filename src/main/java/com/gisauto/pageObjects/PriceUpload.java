@@ -21,8 +21,7 @@ public class PriceUpload extends BasePage {
             currencySelect = new By.ByXPath("//*[@id=\"parts-hand\"]/div/form/div[4]/div[2]/div[1]/div[1]/div[1]/input"),
             saveButton = new By.ByXPath("//*[@id=\"parts-hand\"]/div/form/button"),
             createUpolad = new By.ByXPath("//*[@id=\"mainWin\"]/div[2]/div[1]/div/button[1]"),
-            templateSettings = new By.ByXPath("//*[@id=\"mainWin\"]/div[2]/div[1]/div/button[2]"),
-            uploadHistory = new By.ByXPath("//*[@id=\"mainWin\"]/div[1]/ul/li[2]/a");
+            templateSettings = new By.ByXPath("//*[@id=\"mainWin\"]/div[2]/div[1]/div/button[2]");
 
     public AutoUpload clickOnCreateUpload() {
         getElement(createUpolad).click();
@@ -42,11 +41,6 @@ public class PriceUpload extends BasePage {
 
     public PriceUpload clickOnShopSelect() {
         getElement(shopSelect).click();
-        return this;
-    }
-
-    public PriceUpload clickOnShop(String shopName) {
-        getShopFromSelector(shopName).click();
         return this;
     }
 
@@ -101,18 +95,9 @@ public class PriceUpload extends BasePage {
         return this;
     }
 
-    private WebElement getShopFromSelector(String shopName) {
-        return getElementFromSelect("\"//*[@id=\\\"parts-hand\\\"]/div/form/div[2]/div/div[1]/div[2]/ul/li[", "]\"", shopName);
-    }
-
     public TemplateSettings clickOnTemplateSettings() {
         getElement(templateSettings).click();
         return PF.getPage(TemplateSettings.class);
-    }
-
-    public UploadHistory clickOnUploadHistory(){
-        getElement(uploadHistory).click();
-        return PF.getPage(UploadHistory.class);
     }
 
 }

@@ -82,21 +82,21 @@ public class OrganizationInfo extends Profile {
     }
 
     public OrganizationInfo chooseCityFromSelect(String cityName) {
-        getCityFromMultiSelect(cityName).click();
+//        getCityFromMultiSelect(cityName).click();
         return this;
     }
 
-    private WebElement getCityFromMultiSelect(String city) {
-        int i = 0;
-        WebElement element;
-        do {
-            i++;
-            element = getElementFromSelect("//*[@id=\\\"formSave\\\"]/div[13]/div[1]/div[1]/div/div/div[2]/ul/li[",
-                    "]/label", city );
-        }
-        while (element.getText().equals(city));
-        return element;
-    }
+//    private WebElement getCityFromMultiSelect(String city) {
+//        int i = 0;
+//        WebElement element;
+//        do {
+//            i++;
+//            element = getElementFromSelect("//*[@id=\\\"formSave\\\"]/div[13]/div[1]/div[1]/div/div/div[2]/ul/li[",
+//                    "]/label", city );
+//        }
+//        while (element.getText().equals(city));
+//        return element;
+//    }
 
     public OrganizationInfo clickOnAddShop() {
         getElement(addShopButton).click();

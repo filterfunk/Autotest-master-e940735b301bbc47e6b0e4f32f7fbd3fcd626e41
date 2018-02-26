@@ -12,7 +12,7 @@ public class AutoUpload extends PriceUpload {
             emailFileNameInput = new By.ByXPath("//*[@id=\"item_autoload_emailFileName\"]"),
             ftpFileNameInput = new By.ByXPath("//*[@id=\"item_autoload_ftpFileName\"]"),
             emailInput = new By.ByXPath("//*[@id=\"item_autoload_email\"]"),
-            shopSelect = new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[1]/div/div/div[1]/div[2]"),
+            shopSelect = new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/div/div"),
             templateSelect = new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/div/div/div[1]/div[2]"),
             linkAdressInput = new By.ByXPath("//*[@id=\"item_autoload_sourceLink\"]"),
             createButton = new By.ByXPath("//*[@id=\"save-autoload-button\"]"),
@@ -36,33 +36,35 @@ public class AutoUpload extends PriceUpload {
 
     public AutoUpload clickOnRefreshRateSelect(boolean isFTP, String refreshRate) {
         String id = isFTP ? "up-by-ftp" : "up-by-link";
-        getElement(new By.ByXPath("//*[@id=\"" + id + "\"]/div[2]/div/div/div[1]/input")).click();
-        getRefreshRate(id, refreshRate).click();
+        WebElement a = getElement(new By.ByXPath("//*[@id=\"" + id + "\"]/div[2]/div/div/div[1]/input"));
+        a.click();
+        getRefreshRate(id, refreshRate, a).click();
         return this;
     }
 
-    private WebElement getRefreshRate(String id, String rate) {
-        return getElementFromSelect("//*[@id=\"" + id + "\"]/div[2]/div/div/div[2]/ul/li[", "]/label/span", rate);
+    private WebElement getRefreshRate(String id, String rate, WebElement select) {
+        return getElementFromSelect("//*[@id=\"" + id + "\"]/div[2]/div/div/div[2]/ul/li[", "]/label/span", rate, select);
     }
 
     public AutoUpload clickOnShopSelect(String shopName) {
         getElement(shopSelect).click();
-        getShopFromSelect(shopName).click();
+        getShopFromSelect(shopName, getElement(shopSelect)).click();
         return this;
     }
 
-    private WebElement getShopFromSelect(String shopName) {
-        return getElementFromSelect("//*[@id=\"item-autoload-form\"]/div[6]/div[1]/div/div/div[2]/ul/li[", "]/label/span", shopName);
+    private WebElement getShopFromSelect(String shopName, WebElement select) {
+        return getElementFromSelect("//*[@id=\"item-autoload-form\"]/div[6]/div[1]/div/div/div[2]/ul/li[", "]/label/span", shopName, select);
     }
 
     public AutoUpload clickOnTemplateSelect(String templateName) {
+        await(1000);
         getElement(templateSelect).click();
-        getTemplateFromSelect(templateName).click();
+        getElement(new By.ByXPath("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/div/div/div[2]/ul/li")).click();
         return this;
     }
 
-    private WebElement getTemplateFromSelect(String templateName) {
-        return getElementFromSelect("//*[@id=\"item-autoload-form\"]/div[6]/div[2]/div/div/div[2]/ul/li[", "]/label/span", templateName);
+    private WebElement getTemplateFromSelect(String templateName, WebElement select) {
+        return getElementFromSelect("//*[@id=\"item-autoload-form\"]//span[text()=\"", "\"]", templateName, select);
     }
 
     public AutoUpload typeLinkAdress(String url) {
@@ -80,6 +82,7 @@ public class AutoUpload extends PriceUpload {
         } else {
             throw new RuntimeException("Неизвестный тип загрузки - " + uploadType);
         }
+        await(500);
         return this;
     }
 

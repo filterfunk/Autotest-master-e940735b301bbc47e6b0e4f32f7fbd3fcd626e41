@@ -15,7 +15,8 @@ public class Profile extends BasePage {
             firstCity = new By.ByXPath("//*[@id=\"formSaveReg\"]/div[1]/div[1]/fieldset/div[5]/div/div/div[1]/div[2]/ul/li[1]/label/span"),
             saveButton = new By.ByXPath("//*[@id=\"submit-btn\"]"),
             orgInfo = new By.ByXPath("//*[@id=\"mainWin\"]/div[1]/ul/li[2]/a"),
-            incomingRequests = new By.ByXPath("//*[@id=\"topBlock\"]/nav/ul/li[3]/a");
+            incomingRequests = new By.ByXPath("//*[@id=\"topBlock\"]/nav/ul/li[3]/a"),
+            warehouse = new By.ByXPath("//*[@id=\"topBlock\"]/nav/ul/li[6]/a");
 
     @Override
     public SearchByNumberPage clickOnSearchByNumber() {
@@ -66,6 +67,11 @@ public class Profile extends BasePage {
     public OrganizationInfo clickOnOrgInfo() {
         getElement(orgInfo).click();
         return PF.getPage(OrganizationInfo.class);
+    }
+
+    public Warehouse clickOnWarehouse(){
+        getElement(warehouse).click();
+        return PF.getPage(Warehouse.class);
     }
 
 }

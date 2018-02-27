@@ -2,6 +2,7 @@ package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.SearchByNumberPage;
 import com.gisauto.users.Individual;
+import com.gisauto.users.LegalEntity;
 import com.gisauto.users.User;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
@@ -127,6 +128,15 @@ public class SearchByNumberStepDefs {
     @Если("^пользователь нажимает на исходящие запросы")
     public void пользовательНажимаетНаИсходящиеЗапросы() {
         PF.getPage(SearchByNumberPage.class).clickOnOutgoingRequestsUr();
+    }
+
+    @То("^в таблице появилось предложение на запчасть \"([^\"]*)\" от \"([^\"]*)\"$")
+    public void вТаблицеПоявилосьПредложениеНаЗапчасть(String partNumber, String shopName){
+        Assert.assertEquals(
+                "Предложение для " + partNumber + "не появилось.",
+                true,
+                PF.getPage(SearchByNumberPage.class)
+                        .checkOrder(UF.getUser(LegalEntity.class).getShopName() + " - " + shopName));
     }
 
 }

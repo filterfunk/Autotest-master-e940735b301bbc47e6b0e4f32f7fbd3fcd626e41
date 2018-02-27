@@ -21,7 +21,7 @@ public class HomePageStepDefs {
 
     @Дано("^пользователь открывает главную страницу")
     public void пользовательОткрываетГлавнуюСтраницу() {
-        PF.getPage(HomePage.class);
+        PF.getPageForce(HomePage.class);
     }
 
     @Если("^пользователь нажимает войти")

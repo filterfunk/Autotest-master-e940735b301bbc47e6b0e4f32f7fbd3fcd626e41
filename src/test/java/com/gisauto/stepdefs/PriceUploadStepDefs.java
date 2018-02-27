@@ -97,4 +97,9 @@ public class PriceUploadStepDefs {
         PF.getPage(TemplateSettings.class).clickOnSaveButton();
     }
 
+    @Если("^пользователь нажимает история$")
+    public void пользовательНажимаетИстория(){
+        PF.getPage(PriceUpload.class).clickOnUploadHistory();
+    }
+
 }

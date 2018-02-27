@@ -15,7 +15,8 @@ public class OrganizationInfoStepDefs {
 
     @Если("^пользователь вводит название магазина \"([^\"]*)\"$")
     public void пользовательВводитНазваниеМагазина(String shopName) {
-        PF.getPage(OrganizationInfo.class).typeShopName(shopName);
+        PF.getPage(OrganizationInfo.class).typeShopName(shopName
+         + " - " +UF.getUser(LegalEntity.class).getShopName());
     }
 
     @Если("^пользователь вводит телефон магазина$")

@@ -33,7 +33,7 @@ public abstract class BasePage extends Page {
             cart = new By.ByXPath("//*[@id=\"openCart\"]"),
             register = new By.ByXPath("//*[@id=\"loginModal\"]/div/div/div[2]/div"),
             wareHouse = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[4]/div/a"),
-            profile = new By.ByXPath("//*[@id=\"login-menu-block\"]/div/div[2]");
+            profile = new By.ByXPath("//*[@id=\"login-menu-block\"]/*[@class=\"user-btn\"]");
 
     public BasePage() {
         await(500);

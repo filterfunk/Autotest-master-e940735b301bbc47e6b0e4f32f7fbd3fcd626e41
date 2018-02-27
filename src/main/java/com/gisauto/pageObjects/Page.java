@@ -9,6 +9,8 @@ import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 /**
  * Базовый клас PageObject'ов, от которого наследуются все прочие Page.
  * <p>
@@ -48,7 +50,7 @@ public abstract class Page {
             for (int i = 0; i < string.length(); i++) {
                 textField.sendKeys(string.charAt(i) + "");
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -94,6 +96,10 @@ public abstract class Page {
         }
     }
 
+    public static List<WebElement> getElements(By by) {
+        return Driver.getDriver().findElements(by);
+    }
+
     public static void await(long waitTime) {
         try {
             Thread.sleep(waitTime);
@@ -103,13 +109,14 @@ public abstract class Page {
     }
 
     public static WebElement getElementFromSelect(String firstPart, String secondPart, String expectedText, WebElement select) {
+        await(100);
         WebElement a = getElementUnsafe(new By.ByXPath(firstPart + expectedText + secondPart));
 
         if (a != null) {
-            do {
+            while (!a.isDisplayed()) {
                 select.sendKeys(Keys.DOWN);
                 await(100);
-            } while (!a.isDisplayed());
+            }
         }
 
         return a;

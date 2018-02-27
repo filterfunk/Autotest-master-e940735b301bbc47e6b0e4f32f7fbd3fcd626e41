@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 /**
  * PageObject страницы поиска по номеру
  * <p>
@@ -188,4 +190,18 @@ public class SearchByNumberPage extends BasePage {
     public boolean isOrderCartConfirmSentModalVisible() {
         return isVisible(getElement(orderConfirmSentModal));
     }
+
+    public boolean checkOrder(String shopName) {
+        return isOrderExist(shopName);
+    }
+
+    private boolean isOrderExist(String shopName) {
+        List<WebElement> list = getElements(new By.ByXPath("//*[@class=\"t-number__more aqualink seller-info\"]"));
+
+        for (WebElement we : list) {
+            if (we.getText().equals(shopName)) return true;
+        }
+        return false;
+    }
+
 }

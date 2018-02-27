@@ -46,48 +46,56 @@ public class TemplateSettings extends BasePage {
     }
 
     public TemplateSettings chooseNumber(String text) {
+        await(300);
         getElement(numberSelect).click();
         clickOnNumber(text, getElement(numberSelect));
         return this;
     }
 
     public TemplateSettings chooseManufacturer(String text) {
+        await(300);
         getElement(manufacturerSelect).click();
         clickOnManufacturer(text, getElement(manufacturerSelect));
         return this;
     }
 
     public TemplateSettings choosePartName(String text) {
+        await(300);
         getElement(partNameSelect).click();
         clickOnPartName(text, getElement(partNameSelect));
         return this;
     }
 
     public TemplateSettings choosePriceForUr(String text) {
+        await(300);
         getElement(priceForUrSelect).click();
         clickOnPriceForUr(text, getElement(priceForUrSelect));
         return this;
     }
 
     public TemplateSettings choosePriceForFiz(String text) {
+        await(300);
         getElement(priceForFizSelect).click();
         clickOnPriceForFiz(text, getElement(priceForFizSelect));
         return this;
     }
 
     public TemplateSettings chooseCount(String text) {
+        await(300);
         getElement(countSelect).click();
         clickOnCount(text, getElement(countSelect));
         return this;
     }
 
     public TemplateSettings chooseDelivery(String text) {
+        await(300);
         getElement(deliverySelect).click();
         clickOnDelivery(text, getElement(deliverySelect));
         return this;
     }
 
     public TemplateSettings clickOnSaveButton() {
+        await(300);
         getElement(saveButton).click();
         return this;
     }
@@ -133,11 +141,13 @@ public class TemplateSettings extends BasePage {
     }
 
     public TemplateSettings clickOnTyreType() {
+        await(300);
         getElement(tyresTemplate).click();
         return this;
     }
 
     public TemplateSettings typeTyresTemplateName(String templateName) {
+        await(300);
         inputText(getElement(tyresTemplateNameInput), templateName);
         return this;
     }
@@ -150,39 +160,45 @@ public class TemplateSettings extends BasePage {
     }
 
     public TemplateSettings chooseTyresNumber(String text) {
+        await(300);
         WebElement select = getElement(tyresNumberSelect);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[3]/div/div/div[2]/ul/li[", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[3]//span[text()=\"", "\"]", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresManufacturer(String text) {
+        await(300);
         WebElement select = getElement(tyresManufacturerSelect);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[4]/div/div/div[2]/ul/li[", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[4]//span[text()=\"", "\"]", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresModel(String text) {
+        await(300);
         WebElement select = getElement(tyresModelSelect);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[5]/div/div/div[2]/ul/li[", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[5]//span[text()=\"", "\"]", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresNameInLine(String text) {
+        await(300);
         WebElement select = getElement(tyresNameInLineSelect);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div/div/div[2]/ul/li[", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]//span[text()=\"", "\"]", text, select).click();
         return this;
     }
 
     public TemplateSettings clickOnMoreInfo() {
+        await(300);
         getElement(tyresMoreInfo).click();
         return this;
     }
 
     public TemplateSettings chooseTyresShirina(String text) {
+        await(300);
         WebElement select = getElement(tyresShirina);
         select.click();
         getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[1]/div/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
@@ -190,6 +206,7 @@ public class TemplateSettings extends BasePage {
     }
 
     public TemplateSettings chooseTyresProfile(String text) {
+        await(300);
         WebElement select = getElement(tyresProfile);
         select.click();
         getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[2]/div/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
@@ -197,6 +214,7 @@ public class TemplateSettings extends BasePage {
     }
 
     public TemplateSettings chooseTyresDiameter(String text) {
+        await(300);
         WebElement select = getElement(tyresDiameter);
         select.click();
         getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[3]/div/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
@@ -209,33 +227,38 @@ public class TemplateSettings extends BasePage {
     }
 
     public TemplateSettings chooseTyresOptPrice(String text) {
+        await(300);
         sykaYaEbalKostil();
         WebElement select = getElement(tyresOptPrice);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[8]/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[8]//span[text()=\"", "]/label", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresRoznicaPrice(String text) {
+        await(300);
         WebElement select = getElement(tyresRoznicaPrice);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[11]/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[11//span[text()=\"", "]/label", text, select).click();
         return this;
     }
 
     public TemplateSettings chooseTyresCount(String text) {
+        await(300);
         WebElement select = getElement(tyresCount);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[13]/div/div/div[2]/ul/li[", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[13]//span[text()=\"", "]/label", text, select).click();
         return this;
     }
 
     public TemplateSettings clickOnTyresSaveButton() {
+        await(300);
         getElement(tyresSaveButton).click();
         return this;
     }
 
     public TemplateSettings closeMoreInfo() {
+        await(300);
         getElement(tyresCloseMoreInfo).click();
         return this;
     }

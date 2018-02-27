@@ -1,11 +1,14 @@
 package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.Profile;
+import com.gisauto.pageObjects.Warehouse;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
 import cucumber.api.java.ru.Если;
+import cucumber.api.java.ru.То;
+import org.junit.Assert;
 
 public class ProfileStepDefs {
 
@@ -67,5 +70,17 @@ public class ProfileStepDefs {
     @Если("^пользователь нажимает входящие запросы")
     public void пользовательНажимаетНаAВходящиеЗапросы() {
         PF.getPage(Profile.class).clickOnIncomingRequests();
+    }
+
+    @Если("^пользователь нажимает мои запчасти$")
+    public void пользовательНажимаетМоиЗапчасти() {
+        PF.getPage(Profile.class).clickOnWarehouse();
+    }
+
+    @То("^в таблице появлется производитель \"([^\"]*)\"$")
+    public void вТаблицеПоявляетсяПроизводитель(String manufacturer) {
+        Assert.assertEquals("Производитель " + manufacturer + " не обнаружен на складе.",
+                true,
+                PF.getPage(Warehouse.class).checkManufacturer(manufacturer));
     }
 }

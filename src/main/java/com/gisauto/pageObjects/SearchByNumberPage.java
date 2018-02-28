@@ -97,10 +97,11 @@ public class SearchByNumberPage extends BasePage {
             tr++;
             try {
                 a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
-                        + tr + "]/td[7]/div[" + (1 + tr) + "]/span/a/span[1]"));
+                        + tr + "]/td[7]/div[2]/span/a/span[1]"));
             } catch (Exception e) {
                 e.printStackTrace();
-                return -1;
+                return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[7]/div["
+                        + "3]/span/span[1]")).getText().equals(shopName) ? -1 : -2;
             }
         } while (!a.getText().equals(shopName));
         return tr;
@@ -110,9 +111,11 @@ public class SearchByNumberPage extends BasePage {
         int tr = getSellerTr(shopName);
         switch (tr) {
             case -1:
-                return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[6]/div/button"));
+                return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[6]/div[2]/button"));
+            case -2:
+                throw new RuntimeException("Не удалось найти продавца " + shopName);
             default:
-                return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/button"));
+                return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div[2]/button"));
         }
     }
 
@@ -121,6 +124,8 @@ public class SearchByNumberPage extends BasePage {
         switch (tr) {
             case -1:
                 return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[6]/div/div[1]"));
+            case -2:
+                throw new RuntimeException("Не удалось найти продавца " + shopName);
             default:
                 return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[6]/div/div[1]"));
         }
@@ -135,6 +140,7 @@ public class SearchByNumberPage extends BasePage {
     public SearchByNumberPage search(String number) {
         WebElement input = getElement(searchField);
         inputText(input, number);
+        await(500);
         input.sendKeys(Keys.ENTER);
         return this;
     }

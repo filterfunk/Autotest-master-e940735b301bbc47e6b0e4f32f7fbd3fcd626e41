@@ -18,17 +18,17 @@ public class TemplateSettings extends BasePage {
             tyresTemplate = new By.ByXPath("//*[@id=\"newUploadTemplateItem\"]/div/div/div[2]/div[2]/ul/li[2]/a"),
             tyresTemplateNameInput = new By.ByXPath("//*[@id=\"item_import_template_tyre_title\"]"),
             tyresFirstLinePlus = new By.ByXPath("//*[@id=\"item_import_template_tyre_firstLine-styler\"]/div[3]"),
-            tyresNumberSelect = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[3]/div/div/div[1]/div[2]"),
+            tyresNumberSelect = new By.ByXPath("//*[@id=\"tyreTab\"]//div/div[@class=\"multiselect-trigger-button\"]"),
             tyresManufacturerSelect = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[4]/div/div/div[1]/div[2]"),
             tyresModelSelect = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[5]/div/div/div[1]/div[1]/div[2]"),
             tyresNameInLineSelect = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[6]/div[1]/div/div/div[1]/div[1]/div[2]"),
-            tyresMoreInfo = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[2]/div/div/div"),
-            tyresShirina = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[1]/div/div/div[1]/div[1]/div[2]"),
-            tyresProfile = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[2]/div/div/div[1]/div[1]/div[2]"),
-            tyresDiameter = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[3]/div/div/div[1]/div[1]/div[2]"),
-            tyresOptPrice = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[8]/div/div[1]/div[1]/div[2]"),
-            tyresRoznicaPrice = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[11]/div/div[1]/div[1]/div[2]"),
-            tyresCount = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[13]/div/div/div[1]/div[2]"),
+            tyresMoreInfo = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[2]/div"),
+            tyresShirina = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[1]//div[@class=\"dropdown-select-search small-select single-select\"]/div/input"),
+            tyresProfile = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[2]//div[@class=\"dropdown-select-search small-select single-select\"]/div/input"),
+            tyresDiameter = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[3]//div[@class=\"dropdown-select-search small-select single-select\"]/div/input"),
+            tyresOptPrice = new By.ByXPath("//*[@id=\"tyreTab\"]//div[8]//div[@class=\"dropdown-select-search single-select\"]//input"),
+            tyresRoznicaPrice = new By.ByXPath("//*[@id=\"tyreTab\"]//div[11]//div[@class=\"dropdown-select-search single-select\"]//input"),
+            tyresCount = new By.ByXPath("//*[@id=\"tyreTab\"]//div[13]//div[@class=\"dropdown-select-search single-select\"]//input"),
             tyresSaveButton = new By.ByXPath("//*[@id=\"tyreTab\"]/form/button"),
             tyresCloseMoreInfo = new By.ByXPath("//*[@id=\"tyreTab\"]/form/div[1]/label"),
             closeModal = new By.ByXPath("//*[@id=\"newUploadTemplateItem\"]/div/div/div[1]/div");
@@ -201,7 +201,7 @@ public class TemplateSettings extends BasePage {
         await(300);
         WebElement select = getElement(tyresShirina);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[1]/div/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[1]//span[text()=\"", "\"]", text, select).click();
         return this;
     }
 
@@ -209,7 +209,7 @@ public class TemplateSettings extends BasePage {
         await(300);
         WebElement select = getElement(tyresProfile);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[2]/div/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[2]//span[text()=\"", "\"]", text, select).click();
         return this;
     }
 
@@ -217,7 +217,7 @@ public class TemplateSettings extends BasePage {
         await(300);
         WebElement select = getElement(tyresDiameter);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[3]/div/div/div[1]/div[2]/ul/li[", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[6]/div[3]/div[1]/div[3]/div[3]//span[text()=\"", "\"]", text, select).click();
         return this;
     }
 
@@ -231,7 +231,7 @@ public class TemplateSettings extends BasePage {
         sykaYaEbalKostil();
         WebElement select = getElement(tyresOptPrice);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[8]//span[text()=\"", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[8]//span[text()=\"", "\"]", text, select).click();
         return this;
     }
 
@@ -239,7 +239,7 @@ public class TemplateSettings extends BasePage {
         await(300);
         WebElement select = getElement(tyresRoznicaPrice);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[11//span[text()=\"", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[11]//span[text()=\"", "\"]", text, select).click();
         return this;
     }
 
@@ -247,7 +247,7 @@ public class TemplateSettings extends BasePage {
         await(300);
         WebElement select = getElement(tyresCount);
         select.click();
-        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[13]//span[text()=\"", "]/label", text, select).click();
+        getElementFromSelect("//*[@id=\"tyreTab\"]/form/div[13]//span[text()=\"", "\"]", text, select).click();
         return this;
     }
 

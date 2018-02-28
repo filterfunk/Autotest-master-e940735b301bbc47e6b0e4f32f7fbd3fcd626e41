@@ -43,7 +43,7 @@ public class AutoUpload extends PriceUpload {
     }
 
     private WebElement getRefreshRate(String id, String rate, WebElement select) {
-        return getElementFromSelect("//*[@id=\"" + id + "\"]/div[2]/div/div/div[2]/ul/li[", "]/label/span", rate, select);
+        return getElementFromSelect("//*[@id=\"" + id + "\"]/div[2]/div/div/div[2]/ul//span[text()=\"", "\"]", rate, select);
     }
 
     public AutoUpload clickOnShopSelect(String shopName) {

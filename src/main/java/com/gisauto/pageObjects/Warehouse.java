@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Warehouse extends BasePage {
 
-    private final long waitTime = 360000;
+    private final long waitTime = 620000;
 
     public boolean checkManufacturer(String manufacturer) {
         long startTime = System.currentTimeMillis();

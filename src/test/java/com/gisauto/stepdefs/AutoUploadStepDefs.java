@@ -38,7 +38,7 @@ public class AutoUploadStepDefs {
         PF.getPage(AutoUpload.class).typeLinkAdress(url);
     }
 
-    @Если("^пользотвалье выбирает частоту обновления \"([^\"]*)\" для \"([^\"]*)\" типа загрузки^")
+    @Если("^пользователь выбирает частоту обновления \"([^\"]*)\" для \"([^\"]*)\" типа загрузки$")
     public void пользовательВыбраетЧастотуОбновления(String refreshRate, String uploadType) {
         PF.getPage(AutoUpload.class)
                 .clickOnRefreshRateSelect(

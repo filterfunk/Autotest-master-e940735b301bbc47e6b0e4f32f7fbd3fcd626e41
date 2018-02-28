@@ -6,7 +6,8 @@ import com.gisauto.utils.UF;
 import cucumber.api.java.After;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import static java.lang.System.*;
+
+import static java.lang.System.gc;
 
 
 @RunWith(Suite.class)

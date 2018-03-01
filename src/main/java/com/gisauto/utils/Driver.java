@@ -1,18 +1,11 @@
 package com.gisauto.utils;
 
-import io.qameta.allure.Attachment;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
 public final class Driver {
 
@@ -42,30 +35,6 @@ public final class Driver {
         driver.quit();
         driver = null;
         System.gc();
-    }
-
-    /**
-     * Делает скриншот и прикрепляет к отчёту Yandex.allure
-     *
-     * @return массив байт с изображением
-     */
-    @Attachment
-    public static byte[] screenShot() {
-        byte[] out = null;
-
-        try {
-            BufferedImage screenShot = new Robot().createScreenCapture(
-                    new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-            ByteArrayOutputStream bo = new ByteArrayOutputStream();
-            ImageIO.write(screenShot, "png", bo);
-            out = bo.toByteArray();
-            bo.close();
-        } catch (AWTException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return out;
     }
 
     private static void waitForLoad(WebDriver driver) {

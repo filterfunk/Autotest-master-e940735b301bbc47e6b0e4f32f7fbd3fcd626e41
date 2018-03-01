@@ -34,13 +34,14 @@ public class SearchByNumberPage extends BasePage {
             orderConfirmCity = new By.ByXPath("//*[@id=\"confirmOrderForm\"]/div[2]/div[2]/div/div[1]/div[1]/input"),
             orderConfirmMail = new By.ByXPath("//*[@id=\"confirm_order_email\"]"),
             orderConfirmPhone = new By.ByXPath("//*[@id=\"confirm_order_phone\"]"),
-            orderConfirmCheckBox = new By.ByXPath("//*[@id=\"confirmOrderModalCeckbox\"]"),
+            orderConfirmCheckBox = new By.ByXPath("//*[@class=\"__checkbox\"][@id=\"confirmOrderModalCeckbox\"]"),
             orderConfirmSendButton = new By.ByXPath("//*[@id=\"order_confirm_button\"]"),
             orderConfirmFirstCity = new By.ByXPath("//*[@id=\"confirmOrderForm\"]/div[2]/div[2]/div/div[1]/div[2]/ul/li[1]/label"),
             orderConfirmSentModal = new By.ByXPath("//*[@id=\"modalCartDone\"]/div/div/div"),
             closeModalButton = new By.ByXPath("//*[@id=\"modalOrderDone\"]/div/div/div[2]/button");
 
     public SearchByNumberPage clickOnBuyButton(String shopName) {
+        await(500);
         getSellerOrder(shopName).click();
         return this;
     }
@@ -133,6 +134,7 @@ public class SearchByNumberPage extends BasePage {
     }
 
     public SearchByNumberPage clickOnAddToCart(String shopName) {
+        await(500);
         getSellerCart(shopName).click();
         return this;
     }

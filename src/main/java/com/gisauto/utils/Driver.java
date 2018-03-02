@@ -17,7 +17,6 @@ public final class Driver {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless", "--disable-gpu");
-
         driver = new ChromeDriver(options);
 
 

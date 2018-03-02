@@ -121,6 +121,7 @@ public abstract class BasePage extends Page {
     }
 
     public BasePage clickOnPriceUpload() {
+        refreshPage();
         getElement(priceUpload).click();
         return this;
     }

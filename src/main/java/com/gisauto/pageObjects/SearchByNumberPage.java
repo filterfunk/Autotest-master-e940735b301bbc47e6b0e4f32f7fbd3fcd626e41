@@ -167,11 +167,11 @@ public class SearchByNumberPage extends BasePage {
     }
 
     public boolean isMakeOrderModalVisible() {
-        return isVisible(getElement(makeOrderModal));
+        return isVisible(makeOrderModal);
     }
 
     public boolean isOrderConfirmationModalVisible() {
-        return isVisible(getElement(orderConfirmationModal));
+        return isVisible(orderConfirmationModal);
     }
 
     public SearchByNumberPage typeName(String username) {
@@ -196,7 +196,7 @@ public class SearchByNumberPage extends BasePage {
     }
 
     public boolean isOrderCartConfirmSentModalVisible() {
-        return isVisible(getElement(orderConfirmSentModal));
+        return isVisible(orderConfirmSentModal);
     }
 
     public boolean checkOrder(String shopName) {

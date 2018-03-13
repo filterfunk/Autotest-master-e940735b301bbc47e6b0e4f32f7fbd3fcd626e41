@@ -41,8 +41,14 @@ public abstract class Page {
         } else return true;
     }
 
-    public boolean isVisible(WebElement webElement) {
-        return webElement.isDisplayed();
+    public boolean isVisible(By by) {
+        WebElement a;
+        try {
+            a = getElement(by);
+        } catch (Exception e) {
+            return false;
+        }
+        return a.isDisplayed();
     }
 
     public void inputText(WebElement textField, String string) {

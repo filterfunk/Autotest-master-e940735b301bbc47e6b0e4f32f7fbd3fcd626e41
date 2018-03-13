@@ -16,11 +16,9 @@ public final class Driver {
                 System.getenv("CHROME_PATH"));
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless", "--disable-gpu");
-        options.addArguments("disable-extensions");
 
         driver = new ChromeDriver(options);
-
+        driver.manage().window().maximize();
         waitForLoad(driver);
         return driver;
     }

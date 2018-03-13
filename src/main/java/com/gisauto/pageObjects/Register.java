@@ -50,18 +50,18 @@ public class Register extends BasePage {
     }
 
     public boolean isFizLicoElementsVisible(){
-        return isVisible(getElement(email))
-                && isVisible(getElement(password))
-                && isVisible(getElement(passwordConfirm))
-                && isVisible(getElement(submittButton));
+        return isVisible(email)
+                && isVisible(password)
+                && isVisible(passwordConfirm)
+                && isVisible(submittButton);
     }
 
     public boolean isOrgElementsVisible(){
-        return isVisible(getElement(email))
-                && isVisible(getElement(password))
-                && isVisible(getElement(passwordConfirm))
-                && isVisible(getElement(orgName))
-                && isVisible(getElement(submittButton));
+        return isVisible(email)
+                && isVisible(password)
+                && isVisible(passwordConfirm)
+                && isVisible(orgName)
+                && isVisible(submittButton);
     }
 
 }

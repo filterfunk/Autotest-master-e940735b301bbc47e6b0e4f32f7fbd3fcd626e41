@@ -137,15 +137,15 @@ public abstract class BasePage extends Page {
     }
 
     public boolean isModalVisible() {
-        return isVisible(getElement(register));
+        return isVisible(register);
     }
 
     public boolean isCityVisible() {
-        return isVisible(getElement(city));
+        return isVisible(city);
     }
 
     public boolean isLoggedIn() {
-        return !isVisible(getElement(dropDownToogle));
+        return !isVisible(dropDownToogle);
     }
 
     public BasePage clickOnIncomingRequests() {
@@ -187,7 +187,7 @@ public abstract class BasePage extends Page {
 
 
     public BasePage refreshPage() {
-        Driver.getDriver().navigate().refresh();
+        Driver.refreshPage();
         return this;
     }
 

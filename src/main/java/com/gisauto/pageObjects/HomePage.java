@@ -1,6 +1,8 @@
 package com.gisauto.pageObjects;
 
+import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -21,9 +23,9 @@ public class HomePage extends BasePage {
     public HomePage() {
         super();
         openPage(System.getenv("HOMEPAGE"));
-        if (!checkTitle("Поиск автозапчастей по всей России")) {
-            throw new IllegalStateException("Открытая страница не является главной страницей");
-        }
+        Assert.assertEquals("Открытая страница не является главной страницей",
+                "Поиск автозапчастей по всей России",
+                Driver.getDriver().getTitle());
     }
 
     public Profile loginAs(String username, String password) {

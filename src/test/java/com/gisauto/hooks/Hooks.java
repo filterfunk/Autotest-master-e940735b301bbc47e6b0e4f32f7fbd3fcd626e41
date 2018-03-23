@@ -15,7 +15,6 @@ public final class Hooks {
 
     @After
     public void quit() {
-//        Assert.assertEquals(false, PF.getPage(HomePage.class).isLoggedIn());
         PF.reset();
         UF.reset();
         gc();

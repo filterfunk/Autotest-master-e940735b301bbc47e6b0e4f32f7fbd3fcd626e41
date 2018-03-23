@@ -16,7 +16,7 @@ public class Profile extends BasePage {
             saveButton = new By.ByXPath("//*[@id=\"submit-btn\"]"),
             orgInfo = new By.ByXPath("//*[@id=\"mainWin\"]/div[1]/ul/li[2]/a"),
             incomingRequests = new By.ByXPath("//*[@id=\"topBlock\"]/nav/ul/li[3]/a"),
-            warehouse = new By.ByXPath("//*[@id=\"topBlock\"]/nav/ul/li[6]/a");
+            warehouse = new By.ByXPath("//*[@id=\"topBlock\"]/nav/ul/li[5]/a");
 
     @Override
     public SearchByNumberPage clickOnSearchByNumber() {

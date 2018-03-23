@@ -10,10 +10,10 @@ public class YandexMailPage extends Page {
             loginField = new By.ByXPath("//*[@id=\"root\"]//div[1]/label/input"),
             passwordField = new By.ByXPath("//*[@id=\"root\"]//div[2]/label/input"),
             messageField = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[3]/div[4]/div/div[2]/div[3]/div[2]/div[6]/div[1]/div/div[3]/div/p"),
-            writePost = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[3]/div[4]/div/div[1]/div[2]/div/div/a"),
-            recieverInput = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[3]/div[4]/div/div[2]/div[3]/div[2]/div[6]/div/div[1]/div[2]/div[1]/div/div[1]/label/div[3]/div"),
-            themeInput = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[3]/div[4]/div/div[2]/div[3]/div[2]/div[6]/div/div[1]/div[2]/div[1]/div/label/div[3]/input"),
-            attach = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[3]/div[4]/div/div[2]/div[3]/div[2]/div[6]/div/div[1]/div[2]/div[2]/div/div[3]/div[1]/div[1]/div[4]/div/label[1]"),
+            writePost = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[2]//a[@class=\"mail-ComposeButton js-left-col-toolbar-compose\"]"),
+            recieverInput = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[2]/div[4]/div/div[3]/div[3]/div[2]/div[5]/div/div[1]/div[2]/div[1]/div/div[1]/label/div[3]/div"),
+            themeInput = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[2]/div[4]/div/div[3]/div[3]/div[2]/div[5]/div/div[1]/div[2]/div[1]/div/label/div[3]/input"),
+            attach = new By.ByXPath("//*[@id=\"nb-1\"]/body/div[2]/div[4]/div/div[3]/div[3]/div[2]/div[5]/div/div[1]/div[2]/div[2]/div/div[3]/div[1]/div[1]/div[4]/div/label[1]"),
             sendButton = new By.ByXPath("//*[@id=\"nb-14\"]/span/span");
 
     public YandexMailPage() {

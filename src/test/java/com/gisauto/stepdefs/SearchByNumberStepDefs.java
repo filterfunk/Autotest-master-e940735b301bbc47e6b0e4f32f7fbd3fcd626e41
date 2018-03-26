@@ -27,6 +27,11 @@ public class SearchByNumberStepDefs {
         PF.getPage(SearchByNumberPage.class).clickOnBuyButton(seller);
     }
 
+    @Если("^пользователь нажимает заказать у первого продавца$")
+    public void пользовательНажимаетЗаказатьУПервогоПродавца(){
+        PF.getPage(SearchByNumberPage.class).clickOnFirstBuyButton();
+    }
+
     @То("^появляется модалка заказать")
     public void появляетсяМодалкаЗаказать() {
         Assert

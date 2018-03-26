@@ -4,9 +4,8 @@ import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import ru.yandex.qatools.allure.annotations.Step;
 
-import java.util.Map;
+import java.io.*;
 
 /**
  * PageObject главной страницы
@@ -31,6 +30,55 @@ public class HomePage extends BasePage {
     public Profile loginAs(String username, String password) {
         typeUsername(username).typePassword(password);
         return submitLogin();
+    }
+
+    public Profile loginFromSystemEnv() {
+        typeUsername(parseLogin()).typePassword(parsePswd());
+        return submitLogin();
+    }
+
+    private String parseLogin() {
+        String user = System.getenv("SELLER");
+
+        try {
+            FileInputStream io = new FileInputStream(System.getProperty("user.dir") + "/logs/users.log");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(io));
+            String currentLine, login;
+
+            while ((currentLine = reader.readLine()) != null) {
+                login = currentLine.startsWith("login") ? currentLine.substring(9, currentLine.length()) : "";
+                if (currentLine.equals("shop - " + user)) {
+                    return login;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private String parsePswd() {
+        String user = System.getenv("SELLER");
+
+        try {
+            FileInputStream io = new FileInputStream(System.getProperty("user.dir") + "/logs/users.log");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(io));
+            String currentLine, pswd;
+
+            while ((currentLine = reader.readLine()) != null) {
+                pswd = currentLine.startsWith("password") ? currentLine.substring(12, currentLine.length()) : "";
+                if (currentLine.equals("shop - " + user)) {
+                    return pswd;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public SearchByNumberPage clickOnSearchByNumber() {

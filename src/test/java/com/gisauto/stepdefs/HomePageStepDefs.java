@@ -24,6 +24,11 @@ public class HomePageStepDefs {
         PF.getPageForce(HomePage.class);
     }
 
+    @Если("^пользователь вводит логин и пароль из переменной$")
+    public void пользовательВводитЛогинИПарольИзПеременной(){
+        PF.getPage(HomePage.class).loginFromSystemEnv();
+    }
+
     @Если("^пользователь нажимает войти")
     public void пользовательНажимаетВойти() {
         PF.getPage(HomePage.class).clickOnDropDown();

@@ -46,6 +46,11 @@ public class SearchByNumberPage extends BasePage {
         return this;
     }
 
+    public SearchByNumberPage clickOnFirstBuyButton(){
+        System.setProperty("SELLER", clickFirstSellerBuyBtn());
+        return this;
+    }
+
     public SearchByNumberPage clickOnSendOrdersButton() {
         getElement(sendOrders).click();
         return this;
@@ -89,6 +94,20 @@ public class SearchByNumberPage extends BasePage {
     public SearchByNumberPage clickOnOrderConfirmCheckBox() {
         getElement(orderConfirmCheckBox).click();
         return this;
+    }
+
+    private String clickFirstSellerBuyBtn(){
+        try {
+            getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[1]/td[6]/div[2]/button")).click();
+            String s = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
+                    + "1]/td[7]/div[2]/span/a/span[1]")).getText();
+            return s.subSequence(21, s.length()).toString();
+        } catch (Exception e) {
+            getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[6]/div[2]/button")).click();
+            String s = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[7]/div["
+                    + "3]/span/span[1]")).getText();
+            return s.subSequence(21, s.length()).toString();
+        }
     }
 
     private int getSellerTr(String shopName) {
@@ -155,10 +174,6 @@ public class SearchByNumberPage extends BasePage {
     public SearchByNumberPage clickOnCloseModal() {
         getElement(closeModalButton).click();
         return this;
-    }
-
-    public String getConfirmMessage() {
-        return getElement(confirmMessage).getText() + getElement(goToCabinet).getText();
     }
 
     public SearchByNumberPage clickoOnCheckBox() {

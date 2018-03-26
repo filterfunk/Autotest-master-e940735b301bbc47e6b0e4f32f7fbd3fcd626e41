@@ -1,0 +1,25 @@
+system:
+  plugins:
+    gemini-xml-reporter:
+
+  sets:
+     chrome:
+       files:
+        - gemini/chrome
+       browsers:
+        - chrome-latest
+
+  system:
+    projectRoot: /home/neradko/IdeaProjects/Autotest
+    sourceRoot: /home/neradko/IdeaProjects/Autotest/src
+    tempDir: ./temp-images
+    exclude:
+      - node_modules/**
+    plugins:
+      teamcity: true
+    debug: true
+    parallelLimit: 3
+    diffColor: '#ff0000'
+    coverage:
+      enabled: true
+      html: false

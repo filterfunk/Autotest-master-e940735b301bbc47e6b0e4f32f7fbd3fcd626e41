@@ -9,7 +9,7 @@
     * [FireFox driver](https://github.com/mozilla/geckodriver/releases) или [Chrome driver](https://sites.google.com/a/chromium.org/chromedriver/)
     * [Docker](https://docs.docker.com/get-started/)
     
-* ## Компоненты:
+## Компоненты:
 * Тестовый фреймворк - [JUnit4](https://github.com/junit-team/junit4)
 * Фреймворк автотестов - [Selenium WebDriver](https://github.com/SeleniumHQ/selenium)
 * Логгер - [log4j](https://github.com/apache/logging-log4j2)

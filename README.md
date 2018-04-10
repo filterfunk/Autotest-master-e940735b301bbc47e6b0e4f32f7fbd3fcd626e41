@@ -5,7 +5,7 @@
 * Для успешной установки проекта и его использования необходимо установить:
     * [IntelliJ IDEA](https://www.jetbrains.com/help/idea/install-and-set-up-intellij-idea.html)
     * [MVN](https://maven.apache.org/install.html)
-    * [Java (минимум 8 версия)](https://java.com/ru/download/)
+    * [Java 8](https://java.com/ru/download/)
     * [FireFox driver](https://github.com/mozilla/geckodriver/releases) или [Chrome driver](https://sites.google.com/a/chromium.org/chromedriver/)
     * [Docker](https://docs.docker.com/get-started/)
     

@@ -60,8 +60,8 @@
     То в таблице появилось предложение на запчасть "1661840525" от "<shopName>"
 
     Примеры:
-      | file          | shopName                |
-      | price.csv     | Автозагрузка - csv      |
+      | file       | shopName           |
+      | price.csv  | Автозагрузка - csv |
 
   @Correct
   Структура сценария: Юр.Лицо - регистрация, автозагрузка шин по почте "<file>"
@@ -106,5 +106,5 @@
     То в таблице появлется производитель "KUMHO"
 
     Примеры:
-      | file              | shopName                |
-      | test_podkova.csv  | Автозагрузка - csv      |
+      | file             | shopName           |
+      | test_podkova.csv | Автозагрузка - csv |

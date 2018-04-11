@@ -85,7 +85,7 @@ public class HomePageStepDefs {
     }
     @Если("^пользователь нажимает на запрос по vin")
     public void пользовательНажимаетНаЗапросПоVin() {
-        PF.getPage(HomePage.class).vinRequestButton();
+        PF.getPage(HomePage.class).clickOnVinRequestButton();
     }
 
 }

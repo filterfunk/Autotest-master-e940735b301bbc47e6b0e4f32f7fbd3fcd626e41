@@ -17,7 +17,8 @@ import java.io.*;
  */
 public class HomePage extends BasePage {
 
-    private final By searchByNumber = new By.ByXPath("/html/body/div[2]/nav/ul/li[1]/a");
+    private final By searchByNumber = new By.ByXPath("/html/body/div[2]/nav/ul/li[1]/a"),
+            vinRequestButton = new By.ByXPath("/html/body/div[2]/nav/ul/li[3]/a/div[1]/div");
 
     public HomePage() {
         super();
@@ -96,6 +97,11 @@ public class HomePage extends BasePage {
         }
         await(2000);
         return PF.getPage(Profile.class);
+    }
+
+    public VIN clickOnVinRequestButton() {
+        getElement(vinRequestButton).click();
+        return PF.getPage(VIN.class);
     }
 
 }

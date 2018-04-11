@@ -83,5 +83,9 @@ public class HomePageStepDefs {
     public void пользовательВводитЛогинПароль(String login, String password) {
         PF.getPage(HomePage.class).loginAs(login, password);
     }
+    @Если("^пользователь нажимает на запрос по vin")
+    public void пользовательНажимаетНаЗапросПоVin() {
+        PF.getPage(HomePage.class).vinRequestButton();
+    }
 
 }

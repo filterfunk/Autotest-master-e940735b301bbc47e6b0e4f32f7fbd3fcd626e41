@@ -1,7 +1,9 @@
 package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.VIN;
+import com.gisauto.users.Individual;
 import com.gisauto.utils.PF;
+import com.gisauto.utils.UF;
 import cucumber.api.java.ru.Если;
 
 public class VINRequestStepDefs {
@@ -44,6 +46,11 @@ public class VINRequestStepDefs {
     @Если("^пользователь выбирает город \"([^\"]*)\"$")
     public void пользовательВыбираетГород(String cityInput) {
         PF.getPage(VIN.class).chooseCity(cityInput);
+    }
+
+    @Если("^пользователь вводит случайную электронную почту")
+    public void пользовательВводитСлучайнуюЭлектроннуюПочту() {
+        PF.getPage(VIN.class).typeEmail(UF.getUser(Individual.class).getLogin());
     }
 
 }

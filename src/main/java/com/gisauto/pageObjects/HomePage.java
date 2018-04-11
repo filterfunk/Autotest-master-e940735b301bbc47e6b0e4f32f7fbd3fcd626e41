@@ -99,7 +99,7 @@ public class HomePage extends BasePage {
         return PF.getPage(Profile.class);
     }
 
-    public VIN vinRequestButton() {
+    public VIN clickOnVinRequestButton() {
         getElement(vinRequestButton).click();
         return PF.getPage(VIN.class);
     }

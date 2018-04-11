@@ -14,7 +14,7 @@ public class VIN extends BasePage {
             cityInput = new By.ByXPath("//*[@id=\"step-3\"]/div/div[1]/div[2]/div/div[1]/div[1]/input\"]");
 
 
-    public VIN inputVIN(String vin) {
+    public VIN typeVIN(String vin) {
         inputText(getElement(vinInput), vin);
         return this;
     }
@@ -32,29 +32,29 @@ public class VIN extends BasePage {
         return this;
     }
 
-    public VIN nextButton() {
+    public VIN clickOnNextButton() {
         getElement(nextButton).click();
         return this;
-    }
+}
 
-    public VIN partNameInput(String text) {
+    public VIN typePartName(String text) {
         inputText(getElement(partNameInput), text);
         return this;
 
     }
 
-    public VIN nameInput(String text) {
+    public VIN typeName(String text) {
         inputText(getElement(nameInput), text);
         return this;
 
     }
 
-    public VIN emailInput(String text) {
+    public VIN typeEmail(String text) {
         inputText(getElement(emailInput), text);
         return this;
     }
 
-    public VIN cityInput(String text) {
+    public VIN chooseCity(String text) {
         getElementFromSelect("//*[@id=\"step-3\"]/div/div[1]/div[2]/div/div[1]/div[2]/ul/li[3]/label[text()=\"", "\"]", text, getElement(cityInput)).click();
         return this;
     }

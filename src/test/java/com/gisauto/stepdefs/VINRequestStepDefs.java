@@ -5,6 +5,7 @@ import com.gisauto.utils.PF;
 import cucumber.api.java.ru.Если;
 
 public class VINRequestStepDefs {
+
     @Если("^пользователь вводит в строку vin \"([^\"]*)\"$")
     public void пользовательВводитВСтрокуVin(String vin) {
         PF.getPage(VIN.class).typeVIN(vin);
@@ -44,7 +45,6 @@ public class VINRequestStepDefs {
     public void пользовательВыбираетГород(String cityInput) {
         PF.getPage(VIN.class).chooseCity(cityInput);
     }
-
 
 }
 

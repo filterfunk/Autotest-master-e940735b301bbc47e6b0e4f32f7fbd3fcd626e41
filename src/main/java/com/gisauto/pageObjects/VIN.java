@@ -1,21 +1,27 @@
 package com.gisauto.pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class VIN extends BasePage {
 
     private By vinInput = new By.ByXPath("//*[@id=\"customer_request_vin\"]"),
             checkVINButton = new By.ByXPath("//*[@id=\"vin-check\"]"),
-            nextButton = new By.ByXPath("//*a[@class=\"btn btn-next nav-btn\"]"),
+            nextButton = new By.ByXPath("//a[@class=\"btn btn-next nav-btn disabled\"]"),
             partNameInput = new By.ByXPath("//*[@id=\"customer_request_customerRequestElements_0_partName\"]"),
-            typeButton = new By.ByXPath("//*[@id=\"part-container/div/div[3]/div[1]/div[1]/input\"]"),
+            typeButton = new By.ByXPath("//*[@id=\"part-container\"]/div/div[3]/div[1]/div[1]/input"),
             nameInput = new By.ByXPath("//*[@id=\"customer_request_customerName\"]"),
             emailInput = new By.ByXPath("//*[@id=\"customer_request_customerEmail\"]"),
-            cityInput = new By.ByXPath("//*[@id=\"step-3\"]/div/div[1]/div[2]/div/div[1]/div[1]/input\"]");
+            cityInput = new By.ByXPath("//*[@id=\"step-3\"]/div/div[1]/div[2]/div/div[1]/div[1]/input");
 
+
+    List<WebElement> a;
 
     public VIN typeVIN(String vin) {
         inputText(getElement(vinInput), vin);
+        a = getElements(nextButton);
         return this;
     }
 
@@ -25,7 +31,7 @@ public class VIN extends BasePage {
     }
 
     public VIN clickOnPartType(String text) {
-        getElementFromSelect("//*[@id=\"part-container\"]/div/div[3]/div[1]/div[2]/ul/li[2]/label/span[text()=\"",
+        getElementFromSelect("//*[@id=\"part-container\"]//span[text()=\"",
                 "\"]",
                 text,
                 getElement(typeButton)).click();
@@ -33,7 +39,9 @@ public class VIN extends BasePage {
     }
 
     public VIN clickOnNextButton() {
-        getElement(nextButton).click();
+        await(500);
+        a.get(0).click();
+        a.remove(0);
         return this;
 }
 
@@ -55,7 +63,8 @@ public class VIN extends BasePage {
     }
 
     public VIN chooseCity(String text) {
-        getElementFromSelect("//*[@id=\"step-3\"]/div/div[1]/div[2]/div/div[1]/div[2]/ul/li[3]/label[text()=\"", "\"]", text, getElement(cityInput)).click();
+        await(1000);
+        getElementFromSelect("//*[@id=\"step-3\"]//span[text()=\"", "\"]", text, getElement(cityInput)).click();
         return this;
     }
 }

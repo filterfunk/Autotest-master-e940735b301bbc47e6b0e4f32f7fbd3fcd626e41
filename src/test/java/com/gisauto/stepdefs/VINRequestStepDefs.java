@@ -43,7 +43,7 @@ public class VINRequestStepDefs {
         PF.getPage(VIN.class).typeEmail(emailInput);
     }
 
-    @Если("^пользователь выбирает город \"([^\"]*)\"$")
+    @Если("^пользователь выбирает VIN город \"([^\"]*)\"$")
     public void пользовательВыбираетГород(String cityInput) {
         PF.getPage(VIN.class).chooseCity(cityInput);
     }

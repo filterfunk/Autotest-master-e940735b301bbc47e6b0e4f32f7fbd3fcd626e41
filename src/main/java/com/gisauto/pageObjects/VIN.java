@@ -14,7 +14,8 @@ public class VIN extends BasePage {
             typeButton = new By.ByXPath("//*[@id=\"part-container\"]/div/div[3]/div[1]/div[1]/input"),
             nameInput = new By.ByXPath("//*[@id=\"customer_request_customerName\"]"),
             emailInput = new By.ByXPath("//*[@id=\"customer_request_customerEmail\"]"),
-            cityInput = new By.ByXPath("//*[@id=\"step-3\"]/div/div[1]/div[2]/div/div[1]/div[1]/input");
+            cityInput = new By.ByXPath("//*[@id=\"step-3\"]/div/div[1]/div[2]/div/div[1]/div[1]/input"),
+            sendRequest = new By.ByXPath("//*[@id=\"form-submit\"]");
 
 
     List<WebElement> a;
@@ -43,7 +44,7 @@ public class VIN extends BasePage {
         a.get(0).click();
         a.remove(0);
         return this;
-}
+    }
 
     public VIN typePartName(String text) {
         inputText(getElement(partNameInput), text);
@@ -65,6 +66,10 @@ public class VIN extends BasePage {
     public VIN chooseCity(String text) {
         await(1000);
         getElementFromSelect("//*[@id=\"step-3\"]//span[text()=\"", "\"]", text, getElement(cityInput)).click();
+        return this;
+    }
+    public VIN clickOnSendRequest() {
+        getElement(sendRequest).click();
         return this;
     }
 }

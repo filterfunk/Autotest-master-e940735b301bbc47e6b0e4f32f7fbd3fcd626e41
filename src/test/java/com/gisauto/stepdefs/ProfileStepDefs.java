@@ -83,4 +83,10 @@ public class ProfileStepDefs {
                 true,
                 PF.getPage(Warehouse.class).checkManufacturer(manufacturer));
     }
+
+    @Если("^пользователь нажимает запрос по VIN$")
+    public void пользовательНажимаетЗапросПоVIN() {
+        PF.getPage(Profile.class).clickOnRequestToSpare();
+    }
+
 }

@@ -16,7 +16,9 @@ public class Profile extends BasePage {
             saveButton = new By.ByXPath("//*[@id=\"submit-btn\"]"),
             orgInfo = new By.ByXPath("//*[@id=\"mainWin\"]/div[1]/ul/li[2]/a"),
             incomingRequests = new By.ByXPath("//*[@id=\"topBlock\"]/nav/ul/li[3]/a"),
-            warehouse = new By.ByXPath("//*[@id=\"topBlock\"]/nav/ul/li[5]/a");
+            warehouse = new By.ByXPath("//*[@id=\"topBlock\"]/nav/ul/li[5]/a"),
+            requestToSpare = new By.ByXPath("/html/body/div[1]/div[1]/nav/ul/li[3]/a/div");
+
 
     @Override
     public SearchByNumberPage clickOnSearchByNumber() {
@@ -24,7 +26,7 @@ public class Profile extends BasePage {
         return PF.getPage(SearchByNumberPage.class);
     }
 
-    public Profile clickOnIncomingRequests(){
+    public Profile clickOnIncomingRequests() {
         getElement(incomingRequests).click();
         return this;
     }
@@ -69,9 +71,13 @@ public class Profile extends BasePage {
         return PF.getPage(OrganizationInfo.class);
     }
 
-    public Warehouse clickOnWarehouse(){
+    public Warehouse clickOnWarehouse() {
         getElement(warehouse).click();
         return PF.getPage(Warehouse.class);
     }
 
+    public Profile clickOnRequestToSpare() {
+        getElement(requestToSpare).click();
+        return this;
+    }
 }

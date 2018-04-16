@@ -53,5 +53,29 @@ public class VINRequestStepDefs {
         PF.getPage(VIN.class).typeEmail(UF.getUser(Individual.class).getLogin());
     }
 
+    @Если("пользователь нажимает кнопку отправить запрос")
+    public void пользовательНажимаетКнопкуОтправитьЗапрос() {
+        PF.getPage(VIN.class).clickOnSendRequest();
+    }
+
+    @Если("^пользователь нажимает кнопку я не знаю VIN")
+    public void пользовательНажимаетКнопкуЯНеЗнаюVin() {
+        PF.getPage(VIN.class).clickOnDontKnowVinButton();
+    }
+
+    @Если("^пользователь выбирает марку \"([^\"]*)\"$")
+    public void пользовательВыбираетМарку(String brandButton) {
+        PF.getPage(VIN.class).chooseBrand(brandButton);
+    }
+
+    @Если("^пользователь выбирает модель \"([^\"]*)\"$")
+    public void пользовательВыбираетМодель(String modelButton) {
+        PF.getPage(VIN.class).chooseModel(modelButton);
+    }
+
+    @Если("^пользователь вводит год \"([^\"]*)\"$")
+    public void пользовательВводитГод(String yearInput) {
+        PF.getPage(VIN.class).typeYear(yearInput);
+    }
 }
 

@@ -58,7 +58,7 @@ public class VINRequestStepDefs {
         PF.getPage(VIN.class).clickOnSendRequest();
     }
 
-    @Если("пользователь нажимает кнопку я не знаю vin")
+    @Если("^пользователь нажимает кнопку я не знаю VIN")
     public void пользовательНажимаетКнопкуЯНеЗнаюVin() {
         PF.getPage(VIN.class).clickOnDontKnowVinButton();
     }

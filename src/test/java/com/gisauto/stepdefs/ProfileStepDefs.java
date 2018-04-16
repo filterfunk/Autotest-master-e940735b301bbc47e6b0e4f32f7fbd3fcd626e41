@@ -1,12 +1,15 @@
 package com.gisauto.stepdefs;
 
+import com.gisauto.pageObjects.OutgoingRequests;
 import com.gisauto.pageObjects.Profile;
 import com.gisauto.pageObjects.Warehouse;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
+import cucumber.api.PendingException;
 import cucumber.api.java.ru.Если;
+import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.То;
 import org.junit.Assert;
 
@@ -87,6 +90,27 @@ public class ProfileStepDefs {
     @Если("^пользователь нажимает запрос по VIN$")
     public void пользовательНажимаетЗапросПоVIN() {
         PF.getPage(Profile.class).clickOnRequestToSpare();
+    }
+
+    @То("^в таблице появляется дата$")
+    public void вТаблицеПоявляетсяДата(String date) {
+        Assert.assertEquals("Запрос с датой" + date + " не обнаружен. ",
+                true,
+                PF.getPage(OutgoingRequests.class).checkDate());
+    }
+
+    @То("^в таблице появляется бренд$")
+    public void вТаблицеПоявляетсяБренд(String brand) {
+        Assert.assertEquals("Бренд " + brand + " не обнаружен.",
+                true,
+                PF.getPage(OutgoingRequests.class).checkBrand(brand));
+    }
+
+    @То("^в таблице появляется наименование$")
+    public void вТаблицеПоявляетсяНаименование(String name) {
+        Assert.assertEquals(" Наименование " + name + " не обнаружено.",
+                true,
+                PF.getPage(OutgoingRequests.class).checkName(name));
     }
 
 }

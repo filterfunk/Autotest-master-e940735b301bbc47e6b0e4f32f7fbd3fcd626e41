@@ -77,5 +77,6 @@ public class VINRequestStepDefs {
     public void пользовательВводитГод(String yearInput) {
         PF.getPage(VIN.class).typeYear(yearInput);
     }
+
 }
 

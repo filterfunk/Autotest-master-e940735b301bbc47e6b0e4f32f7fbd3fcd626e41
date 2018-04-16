@@ -15,14 +15,22 @@ public class VIN extends BasePage {
             nameInput = new By.ByXPath("//*[@id=\"customer_request_customerName\"]"),
             emailInput = new By.ByXPath("//*[@id=\"customer_request_customerEmail\"]"),
             cityInput = new By.ByXPath("//*[@id=\"step-3\"]/div/div[1]/div[2]/div/div[1]/div[1]/input"),
-            sendRequest = new By.ByXPath("//*[@id=\"form-submit\"]");
+            sendRequest = new By.ByXPath("//*[@id=\"form-submit\"]"),
+            dontKnowVinButton = new By.ByXPath("//*[@id=\"step-1\"]/div[7]"),
+            brandButton = new By.ByXPath("//*[@id=\"step-1\"]/div[8]/div[1]/div/div[1]/div[1]/input"),
+            modelButton = new By.ByXPath("//*[@id=\"step-1\"]/div[8]/div[2]/div/div[1]/div[1]/input"),
+            yearInput = new By.ByXPath("//*[@id=\"customer_request_releaseYear\"]");
 
 
     List<WebElement> a;
 
+    public VIN(){
+        super();
+        a = getElements(nextButton);
+    }
+
     public VIN typeVIN(String vin) {
         inputText(getElement(vinInput), vin);
-        a = getElements(nextButton);
         return this;
     }
 
@@ -68,8 +76,37 @@ public class VIN extends BasePage {
         getElementFromSelect("//*[@id=\"step-3\"]//span[text()=\"", "\"]", text, getElement(cityInput)).click();
         return this;
     }
+
     public VIN clickOnSendRequest() {
         getElement(sendRequest).click();
         return this;
     }
+
+    public VIN clickOnDontKnowVinButton() {
+        getElement(dontKnowVinButton).click();
+        return this;
+    }
+
+    public VIN chooseBrand(String text) {
+        getElementFromSelect("//*[@id=\"step-1\"]//span[text()=\"",
+                "\"]",
+                text,
+                getElement(brandButton)).click();
+        return this;
+    }
+
+    public VIN chooseModel(String text) {
+        getElementFromSelect("//*[@id=\"step-1\"]//span[text()=\"",
+                "\"]",
+                text,
+                getElement(modelButton)).click();
+        return this;
+    }
+
+    public VIN typeYear(String year) {
+        inputText(getElement(yearInput), year);
+        return this;
+    }
 }
+
+

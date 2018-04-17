@@ -93,20 +93,20 @@ public class ProfileStepDefs {
     }
 
     @То("^в таблице появляется дата$")
-    public void вТаблицеПоявляетсяДата(String date) {
-        Assert.assertEquals("Запрос с датой" + date + " не обнаружен. ",
+    public void вТаблицеПоявляетсяДата() {
+        Assert.assertEquals("Запрос с текущей датой не обнаружен. ",
                 true,
                 PF.getPage(OutgoingRequests.class).checkDate());
     }
 
-    @То("^в таблице появляется бренд$")
+    @То("^в таблице появляется бренд \"([^\"]*)\"$")
     public void вТаблицеПоявляетсяБренд(String brand) {
         Assert.assertEquals("Бренд " + brand + " не обнаружен.",
                 true,
                 PF.getPage(OutgoingRequests.class).checkBrand(brand));
     }
 
-    @То("^в таблице появляется наименование$")
+    @То("^в таблице появляется наименование \"([^\"]*)\"$")
     public void вТаблицеПоявляетсяНаименование(String name) {
         Assert.assertEquals(" Наименование " + name + " не обнаружено.",
                 true,

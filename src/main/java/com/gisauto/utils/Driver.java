@@ -7,25 +7,29 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public final class Driver {
 
     private static WebDriver driver = null;
 
-    private static WebDriver initDriver() {
-        System.setProperty("webdriver.chrome.driver",
-                System.getenv("CHROME_PATH"));
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
-
-        driver = new ChromeDriver(options);
+    private static WebDriver initDriver(boolean isMobile) {
+        driver = new ChromeDriver(getDriverOptions(isMobile));
         waitForLoad(driver);
         return driver;
     }
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            return initDriver();
+            return initDriver(false);
+        }
+        return driver;
+    }
+
+    public static WebDriver getMobileDriver(){
+        if (driver == null) {
+            return initDriver(true);
         }
         return driver;
     }
@@ -43,6 +47,24 @@ public final class Driver {
 
     public static void refreshPage() {
         driver.navigate().refresh();
+    }
+
+    private static ChromeOptions getDriverOptions(boolean isMobile){
+        System.setProperty("webdriver.chrome.driver",
+                System.getenv("CHROME_PATH"));
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+
+        if (isMobile){
+            Map<String, String> mobileEmulation = new HashMap<>();
+
+            mobileEmulation.put("deviceName", "Nexus 5");
+
+            options.setExperimentalOption("mobileEmulation", mobileEmulation);
+        }
+
+        return options;
     }
 
 }

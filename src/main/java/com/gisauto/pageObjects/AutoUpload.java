@@ -88,10 +88,12 @@ public class AutoUpload extends PriceUpload {
 
     public AutoUpload clickOnCreateButton() {
         getElement(createButton).click();
+
         return this;
     }
 
     public TemplateSettings clickOnTemplateCreateButton(){
+        await(1000);
         getElement(createTemplate).click();
         return PF.getPage(TemplateSettings.class);
     }

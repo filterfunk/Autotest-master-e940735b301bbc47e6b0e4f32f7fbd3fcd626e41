@@ -34,6 +34,7 @@ public class TemplateSettings extends BasePage {
             closeModal = new By.ByXPath("//*[@id=\"newUploadTemplateItem\"]/div/div/div[1]/div");
 
     public TemplateSettings typeTemplateName(String name) {
+        await(1000);
         inputText(getElement(templateNameInput), name);
         return this;
     }

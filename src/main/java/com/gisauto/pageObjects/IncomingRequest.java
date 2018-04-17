@@ -10,10 +10,10 @@ import java.util.List;
 
 public class IncomingRequest extends BasePage {
 
-    private By date = new By.ByXPath(""),
-            auto = new By.ByXPath(""),
-            part = new By.ByXPath(""),
-            customer = new By.ByXPath("");
+    private By date = new By.ByXPath("//*[@id=\"inbox-main-table\"]/tbody//td[3]/text()[1]"),
+            auto = new By.ByXPath("//*[@id=\"inbox-main-table\"]/tbody//td[5]/p"),
+            part = new By.ByXPath("//*[@id=\"inbox-main-table\"]/tbody//td[6]/div/div[2]/p[1]"),
+            customer = new By.ByXPath("//*[@id=\"inbox-main-table\"]/tbody//a");
 
 
     public boolean checkDate() {

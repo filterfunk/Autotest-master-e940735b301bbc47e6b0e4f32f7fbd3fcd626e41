@@ -12,14 +12,16 @@ public class OutgoingStepDefs {
         PF.getPage(OutgoingRequests.class).checkRequest(partName);
     }
 
-    @Если("^пользователь нажимает выход физ")
-    public void пользовательНажимаетВыходФиз() {
-        PF.getPage(OutgoingRequests.class).logoutFiz();
+    @Если("^пользователь нажимает выход \"([^\"]*)\"$")
+    public void пользовательНажимаетВыход(String user) {
+        if (user.toLowerCase().trim().equals("физ")) {
+            PF.getPage(OutgoingRequests.class).logoutFiz();
+        } else if (user.toLowerCase().trim().equals("юр")) {
+            PF.getPage(OutgoingRequests.class).logoutUr();
+        } else {
+            throw new IllegalArgumentException("Ожидался аргумент физ или юр, но получен " + user);
+        }
     }
 
-    @Если("^пользователь нажимает выход юр")
-    public void пользовательНажимаетВыходЮр() {
-        PF.getPage(OutgoingRequests.class).logoutUr();
-    }
 
 }

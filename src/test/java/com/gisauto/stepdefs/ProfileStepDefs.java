@@ -92,25 +92,4 @@ public class ProfileStepDefs {
         PF.getPage(Profile.class).clickOnRequestToSpare();
     }
 
-    @То("^в таблице появляется дата$")
-    public void вТаблицеПоявляетсяДата() {
-        Assert.assertEquals("Запрос с текущей датой не обнаружен. ",
-                true,
-                PF.getPage(OutgoingRequests.class).checkDate());
-    }
-
-    @То("^в таблице появляется бренд \"([^\"]*)\"$")
-    public void вТаблицеПоявляетсяБренд(String brand) {
-        Assert.assertEquals("Бренд " + brand + " не обнаружен.",
-                true,
-                PF.getPage(OutgoingRequests.class).checkBrand(brand));
-    }
-
-    @То("^в таблице появляется наименование \"([^\"]*)\"$")
-    public void вТаблицеПоявляетсяНаименование(String name) {
-        Assert.assertEquals(" Наименование " + name + " не обнаружено.",
-                true,
-                PF.getPage(OutgoingRequests.class).checkName(name));
-    }
-
 }

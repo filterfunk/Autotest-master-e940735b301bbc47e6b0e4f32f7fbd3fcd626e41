@@ -7,12 +7,22 @@ import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
+import cucumber.api.PendingException;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
 import org.junit.Assert;
 
 public class HomePageStepDefs {
+
+    @Если("^пользователь открывает главную страницу моб.")
+    public void пользовательОткрываетГлавнуюСтраницуМоб() {
+        PF.getPageForce(HomePage.class);
+    }
+    @Если("^пользователь открывает главную страницу деск.")
+    public void пользовательОткрываетГлавнуюСтраницуДеск() {
+        PF.getPageForce(HomePage.class);
+    }
 
     @Если("^пользователь нажимает на поиск по номеру")
     public void пользовательНажимаетНаПоискПоНомеру() {
@@ -88,4 +98,15 @@ public class HomePageStepDefs {
         PF.getPage(HomePage.class).clickOnVinRequestButton();
     }
 
+    @То("^открывается мобильная версия$")
+    public void открываетсяМобильнаяВерсия() throws Throwable {
+        Assert
+                .assertEquals(true, PF.getPage(HomePage.class).checkMobileUrl("m.beta.gisauto.ru"));
+    }
+
+    @То("^открывается десктопная версия$")
+    public void открываетсяДесктопнаяВерсия() throws Throwable {
+        Assert
+                .assertEquals(true, PF.getPage(HomePage.class).checkDesktopUrl("beta.gisauto.ru"));
+    }
 }

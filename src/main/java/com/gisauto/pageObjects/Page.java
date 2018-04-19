@@ -154,5 +154,12 @@ public abstract class Page {
         return wb;
     }
 
+    public static boolean checkMobileUrl(String url){
+        return url.equals(Driver.getMobileDriver().getCurrentUrl());
+    }
+
+    public static boolean checkDesktopUrl(String url){
+        return url.equals(Driver.getDriver().getCurrentUrl());
+    }
 
 }

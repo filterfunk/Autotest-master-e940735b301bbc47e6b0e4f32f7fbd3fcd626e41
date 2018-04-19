@@ -1,12 +1,15 @@
 package com.gisauto.stepdefs;
 
+import com.gisauto.pageObjects.OutgoingRequests;
 import com.gisauto.pageObjects.Profile;
 import com.gisauto.pageObjects.Warehouse;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
+import cucumber.api.PendingException;
 import cucumber.api.java.ru.Если;
+import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.То;
 import org.junit.Assert;
 

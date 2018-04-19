@@ -181,6 +181,7 @@ public abstract class BasePage extends Page {
     }
 
     public BasePage clickOnProfileButton() {
+        await(3000);
         getElement(profile).click();
         return this;
     }
@@ -194,7 +195,7 @@ public abstract class BasePage extends Page {
     private static class FizLicoModal {
 
         private static final By outgoingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div/div[1]/a[text() = 'Мои запросы']"),
-                exit = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[5]/div[1]/div");
+                exit = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[7]/div[1]/div");
 
         public static void clickOnOutGoingRequest() {
             getElement(outgoingRequests).click();
@@ -209,7 +210,7 @@ public abstract class BasePage extends Page {
     private static class UrLicoModal {
 
         private static final By incomingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[5]/div[1]/a[text() = 'Входящие запросы']"),
-                exit = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[9]/div[1]/div"),
+                exit = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[11]/div[1]/div"),
                 outgoingRequests = new By.ByXPath("//*[@id=\"modalProfile\"]/div/div/div[2]/div[2]/div[6]/div[1]/a[text() = 'Исходящие запросы']");
 
         public static void clickOnLogOut() {

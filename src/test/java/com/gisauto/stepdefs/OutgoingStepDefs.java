@@ -4,6 +4,7 @@ import com.gisauto.pageObjects.OutgoingRequests;
 import com.gisauto.utils.PF;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
+import org.junit.Assert;
 
 public class OutgoingStepDefs {
 
@@ -21,6 +22,27 @@ public class OutgoingStepDefs {
         } else {
             throw new IllegalArgumentException("Ожидался аргумент физ или юр, но получен " + user);
         }
+    }
+
+    @То("^в таблице появляется дата$")
+    public void вТаблицеПоявляетсяДата() {
+        Assert.assertEquals("Запрос с текущей датой не обнаружен. ",
+                true,
+                PF.getPage(OutgoingRequests.class).checkDate());
+    }
+
+    @То("^в таблице появляется бренд \"([^\"]*)\"$")
+    public void вТаблицеПоявляетсяБренд(String brand) {
+        Assert.assertEquals("Бренд " + brand + " не обнаружен.",
+                true,
+                PF.getPage(OutgoingRequests.class).checkBrand(brand));
+    }
+
+    @То("^в таблице появляется наименование \"([^\"]*)\"$")
+    public void вТаблицеПоявляетсяНаименование(String name) {
+        Assert.assertEquals(" Наименование " + name + " не обнаружено.",
+                true,
+                PF.getPage(OutgoingRequests.class).checkName(name));
     }
 
 

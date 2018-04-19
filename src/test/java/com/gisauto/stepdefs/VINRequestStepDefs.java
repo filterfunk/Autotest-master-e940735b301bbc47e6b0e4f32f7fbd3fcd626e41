@@ -2,6 +2,7 @@ package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.VIN;
 import com.gisauto.users.Individual;
+import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
 import cucumber.api.java.ru.Если;
@@ -33,12 +34,12 @@ public class VINRequestStepDefs {
         PF.getPage(VIN.class).clickOnPartType(partType);
     }
 
-    @Если("^пользователь вводит имя \"([^\"]*)\"$")
+    @Если("^пользователь вводит VIN имя \"([^\"]*)\"$")
     public void пользовательВводитИмя(String name) {
         PF.getPage(VIN.class).typeName(name);
     }
 
-    @Если("^пользователь вводит email \"([^\"]*)\"$")
+    @Если("^пользователь вводит VIN email \"([^\"]*)\"$")
     public void пользовательВводитEmail(String emailInput) {
         PF.getPage(VIN.class).typeEmail(emailInput);
     }
@@ -48,9 +49,14 @@ public class VINRequestStepDefs {
         PF.getPage(VIN.class).chooseCity(cityInput);
     }
 
-    @Если("^пользователь вводит случайную электронную почту")
-    public void пользовательВводитСлучайнуюЭлектроннуюПочту() {
+    @Если("^пользователь вводит VIN электронную почту физ лица")
+    public void пользовательВводитЭлектроннуюПочтуФизЛица() {
         PF.getPage(VIN.class).typeEmail(UF.getUser(Individual.class).getLogin());
+    }
+
+    @Если("^пользователь вводит VIN электронную почту юр лица")
+    public void пользовательВводитЭлектроннуюПочтуЮрЛица() {
+        PF.getPage(VIN.class).typeEmail(UF.getUser(LegalEntity.class).getLogin());
     }
 
     @Если("пользователь нажимает кнопку отправить запрос")
@@ -77,5 +83,6 @@ public class VINRequestStepDefs {
     public void пользовательВводитГод(String yearInput) {
         PF.getPage(VIN.class).typeYear(yearInput);
     }
+
 }
 

@@ -5,7 +5,9 @@ import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
+import cucumber.api.PendingException;
 import cucumber.api.java.ru.Если;
+import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.То;
 import org.junit.Assert;
 
@@ -27,7 +29,7 @@ public class SearchByNumberStepDefs {
     }
 
     @Если("^пользователь нажимает заказать у первого продавца$")
-    public void пользовательНажимаетЗаказатьУПервогоПродавца(){
+    public void пользовательНажимаетЗаказатьУПервогоПродавца() {
         PF.getPage(SearchByNumberPage.class).clickOnFirstBuyButton();
     }
 
@@ -135,7 +137,7 @@ public class SearchByNumberStepDefs {
     }
 
     @То("^в таблице появилось предложение на запчасть \"([^\"]*)\" от \"([^\"]*)\"$")
-    public void вТаблицеПоявилосьПредложениеНаЗапчасть(String partNumber, String shopName){
+    public void вТаблицеПоявилосьПредложениеНаЗапчасть(String partNumber, String shopName) {
         Assert.assertEquals(
                 "Предложение для " + partNumber + "не появилось.",
                 true,
@@ -143,4 +145,31 @@ public class SearchByNumberStepDefs {
                         .checkOrder(UF.getUser(LegalEntity.class).getShopName() + " - " + shopName));
     }
 
+    @Если("^пользователь нажимает написать отзыв \"([^\"]*)\"$")
+    public void пользовательНажимаетНаписатьОтзыв(String shopName) {
+        PF.getPage(SearchByNumberPage.class).clickOnFeedbackButton(shopName);
+    }
+
+
+    @Если("^пользователь нажимает добавить отзыв$")
+    public void пользовательНажимаетДобавитьОтзыв() {
+        PF.getPage(SearchByNumberPage.class).clickOnAddFeedbackButton();
+    }
+
+    @Если("^пользователь вводит текст отзыва \"([^\"]*)\"$")
+    public void пользовательВводитТекстОтзыва(String textFeedback) {
+
+        PF.getPage(SearchByNumberPage.class).typeFeedback(textFeedback);
+    }
+
+    @Если("^пользователь нажимает отправить$")
+    public void пользовательНажимаетОтправить() {
+        PF.getPage(SearchByNumberPage.class).clickOnSendFeedbackButton();
+
+    }
+
+    @И("^пользователь открывает страницу \"([^\"]*)\"$")
+    public void пользовательОткрываетСтраницу(String url) {
+        PF.getPage(SearchByNumberPage.class).openPage(url);
+    }
 }

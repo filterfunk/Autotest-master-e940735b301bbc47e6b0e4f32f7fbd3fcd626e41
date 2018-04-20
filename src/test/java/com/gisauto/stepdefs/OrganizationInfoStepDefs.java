@@ -1,6 +1,6 @@
 package com.gisauto.stepdefs;
 
-import com.gisauto.pageObjects.OrganizationInfo;
+import com.gisauto.pageObjects.gisauto.OrganizationInfo;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;

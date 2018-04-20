@@ -1,9 +1,8 @@
-package com.gisauto.pageObjects;
+package com.gisauto.pageObjects.gisauto;
 
 import com.gisauto.utils.FileUploader;
 import com.gisauto.utils.PF;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class PriceUpload extends BasePage {
 

@@ -1,5 +1,6 @@
-package com.gisauto.pageObjects;
+package com.gisauto.pageObjects.gisauto;
 
+import com.gisauto.pageObjects.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -17,7 +18,7 @@ public class IncomingRequest extends BasePage {
 
 
     public boolean checkDate() {
-        List<WebElement> list = getElements(date);
+        List<WebElement> list = Page.getElements(date);
         for (WebElement we : list) {
             SimpleDateFormat formatter = new SimpleDateFormat("dd.mm.yy");
             Date date = new Date();
@@ -33,7 +34,7 @@ public class IncomingRequest extends BasePage {
     }
 
     public boolean checkAuto(String text) {
-        List<WebElement> list = getElements(auto);
+        List<WebElement> list = Page.getElements(auto);
         for (WebElement we : list) {
             if (we.getText().equals(text)) return true;
         }
@@ -41,7 +42,7 @@ public class IncomingRequest extends BasePage {
     }
 
     public boolean checkPart(String text) {
-        List<WebElement> list = getElements(part);
+        List<WebElement> list = Page.getElements(part);
         for (WebElement we : list) {
             if (we.getText().equals(text)) return true;
         }
@@ -49,7 +50,7 @@ public class IncomingRequest extends BasePage {
     }
 
     public boolean checkCustomer(String text) {
-        List<WebElement> list = getElements(customer);
+        List<WebElement> list = Page.getElements(customer);
         for (WebElement we : list) {
             if (we.getText().equals(text)) return true;
         }

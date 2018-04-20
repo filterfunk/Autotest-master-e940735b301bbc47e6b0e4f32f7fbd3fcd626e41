@@ -1,4 +1,4 @@
-package com.gisauto.pageObjects;
+package com.gisauto.pageObjects.gisauto;
 
 public class NotificationSettings extends BasePage {
 }

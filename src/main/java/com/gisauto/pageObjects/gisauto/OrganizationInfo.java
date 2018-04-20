@@ -1,9 +1,6 @@
-package com.gisauto.pageObjects;
+package com.gisauto.pageObjects.gisauto;
 
-import com.gisauto.users.LegalEntity;
-import com.gisauto.utils.UF;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class OrganizationInfo extends Profile {
 

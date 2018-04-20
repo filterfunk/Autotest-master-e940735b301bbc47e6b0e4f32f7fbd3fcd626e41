@@ -1,4 +1,4 @@
-package com.gisauto.pageObjects;
+package com.gisauto.pageObjects.gisauto;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;

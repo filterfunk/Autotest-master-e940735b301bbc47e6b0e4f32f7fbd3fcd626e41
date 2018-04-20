@@ -1,6 +1,6 @@
 package com.gisauto.stepdefs;
 
-import com.gisauto.pageObjects.OutgoingRequests;
+import com.gisauto.pageObjects.gisauto.OutgoingRequests;
 import com.gisauto.utils.PF;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;

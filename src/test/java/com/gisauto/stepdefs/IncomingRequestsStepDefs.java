@@ -1,8 +1,7 @@
 package com.gisauto.stepdefs;
 
-import com.gisauto.pageObjects.IncomingRequest;
+import com.gisauto.pageObjects.gisauto.IncomingRequest;
 import com.gisauto.utils.PF;
-import cucumber.api.PendingException;
 import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.То;
 import org.junit.Assert;

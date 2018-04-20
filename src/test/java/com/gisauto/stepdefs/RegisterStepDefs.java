@@ -1,6 +1,6 @@
 package com.gisauto.stepdefs;
 
-import com.gisauto.pageObjects.Register;
+import com.gisauto.pageObjects.gisauto.Register;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.Driver;

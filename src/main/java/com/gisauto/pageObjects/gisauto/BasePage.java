@@ -1,5 +1,6 @@
-package com.gisauto.pageObjects;
+package com.gisauto.pageObjects.gisauto;
 
+import com.gisauto.pageObjects.Page;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import org.apache.logging.log4j.LogManager;

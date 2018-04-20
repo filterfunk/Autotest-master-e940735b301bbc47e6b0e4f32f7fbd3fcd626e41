@@ -1,9 +1,8 @@
 package com.gisauto.stepdefs;
 
-import com.gisauto.pageObjects.SearchByNumberPage;
+import com.gisauto.pageObjects.gisauto.SearchByNumberPage;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
-import com.gisauto.users.User;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
 import cucumber.api.java.ru.Если;

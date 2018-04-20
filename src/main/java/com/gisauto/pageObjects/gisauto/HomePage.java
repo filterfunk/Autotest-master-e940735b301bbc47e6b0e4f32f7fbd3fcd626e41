@@ -1,5 +1,6 @@
-package com.gisauto.pageObjects;
+package com.gisauto.pageObjects.gisauto;
 
+import com.gisauto.pageObjects.Page;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import org.junit.Assert;
@@ -83,24 +84,24 @@ public class HomePage extends BasePage {
     }
 
     public SearchByNumberPage clickOnSearchByNumber() {
-        getElement(this.searchByNumber).click();
+        Page.getElement(this.searchByNumber).click();
         return PF.getPage(SearchByNumberPage.class);
     }
 
     @Override
     public Profile submitLogin() {
         try {
-            getElement(submit).click();
+            Page.getElement(submit).click();
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new AssertionError("Не удалось нажать на \"Войти\". Возможно элемент входа скрыт.");
         }
-        await(2000);
+        Page.await(2000);
         return PF.getPage(Profile.class);
     }
 
     public VIN clickOnVinRequestButton() {
-        getElement(vinRequestButton).click();
+        Page.getElement(vinRequestButton).click();
         return PF.getPage(VIN.class);
     }
 

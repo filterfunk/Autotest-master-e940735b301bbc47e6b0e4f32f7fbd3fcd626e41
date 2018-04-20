@@ -1,13 +1,12 @@
 package com.gisauto.stepdefs;
 
-import com.gisauto.pageObjects.HomePage;
-import com.gisauto.pageObjects.Profile;
+import com.gisauto.pageObjects.gisauto.HomePage;
+import com.gisauto.pageObjects.gisauto.Profile;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
-import cucumber.api.PendingException;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
@@ -19,6 +18,7 @@ public class HomePageStepDefs {
     public void пользовательОткрываетГлавнуюСтраницуМоб() {
         PF.getPageForce(HomePage.class);
     }
+
     @Если("^пользователь открывает главную страницу деск.")
     public void пользовательОткрываетГлавнуюСтраницуДеск() {
         PF.getPageForce(HomePage.class);

@@ -1,8 +1,8 @@
 package com.gisauto.stepdefs;
 
-import com.gisauto.pageObjects.AutoUpload;
-import com.gisauto.pageObjects.PriceUpload;
-import com.gisauto.pageObjects.TemplateSettings;
+import com.gisauto.pageObjects.gisauto.AutoUpload;
+import com.gisauto.pageObjects.gisauto.PriceUpload;
+import com.gisauto.pageObjects.gisauto.TemplateSettings;
 import com.gisauto.utils.PF;
 import cucumber.api.java.ru.Если;
 

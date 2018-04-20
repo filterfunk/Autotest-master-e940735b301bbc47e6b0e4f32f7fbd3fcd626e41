@@ -1,11 +1,10 @@
 package com.gisauto.stepdefs;
 
-import com.gisauto.pageObjects.VIN;
+import com.gisauto.pageObjects.gisauto.VIN;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
-import cucumber.api.PendingException;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.И;
 

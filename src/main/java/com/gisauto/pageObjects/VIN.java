@@ -1,5 +1,6 @@
 package com.gisauto.pageObjects;
 
+import com.gisauto.utils.PF;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -19,12 +20,20 @@ public class VIN extends BasePage {
             dontKnowVinButton = new By.ByXPath("//*[@id=\"step-1\"]/div[7]"),
             brandButton = new By.ByXPath("//*[@id=\"step-1\"]/div[8]/div[1]/div/div[1]/div[1]/input"),
             modelButton = new By.ByXPath("//*[@id=\"step-1\"]/div[8]/div[2]/div/div[1]/div[1]/input"),
-            yearInput = new By.ByXPath("//*[@id=\"customer_request_releaseYear\"]");
+            yearInput = new By.ByXPath("//*[@id=\"customer_request_releaseYear\"]"),
+            register = new By.ByXPath("//*[@id=\"step_3_reg\"]"),
+            passwordInput = new By.ByXPath("//*[@id=\"registration_user_password\"]"),
+            individual = new By.ByXPath("//*[@id=\"minFormRegistration\"]/div[2]/div[5]/label"),
+            legalEntity = new By.ByXPath("//*[@id=\"minFormRegistration\"]/div[2]/div[6]/label"),
+            doneRegister = new By.ByXPath("//*[@id=\"minFormRegistration\"]/div[2]/button"),
+            login = new By.ByXPath("//*[@id=\"step_3_auth\"]"),
+            loginPassInput = new By.ByXPath("//*[@id=\"password\"]"),
+            loginButton = new By.ByXPath("//*[@id=\"formLogin-modal\"]/button");
 
 
     List<WebElement> a;
 
-    public VIN(){
+    public VIN() {
         super();
         a = getElements(nextButton);
     }
@@ -107,6 +116,41 @@ public class VIN extends BasePage {
         inputText(getElement(yearInput), year);
         return this;
     }
+
+    public VIN clickOnRegisterVIN() {
+        await(1500);
+        getElement(register).click();
+        return this;
+    }
+
+    public VIN chooseFiz() {
+        getElement(individual).click();
+        return this;
+    }
+
+    public Profile clickOnRegisterDone() {
+        getElement(doneRegister).click();
+        return PF.getPage(Profile.class);
+    }
+
+    @Override
+    public VIN typePassword(String pass) {
+        inputText(getElement(passwordInput), pass);
+        return this;
+    }
+
+    public VIN clickOnLogIn() {
+        getElement(login).click();
+        return this;
+    }
+
+    public VIN typePasswordLogin(String pass) {
+        inputText(getElement(loginPassInput), pass);
+        return this;
+    }
+
+    public VIN clickOnLoginButton() {
+        getElement(loginButton).click();
+        return this;
+    }
 }
-
-

@@ -5,7 +5,9 @@ import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
+import cucumber.api.PendingException;
 import cucumber.api.java.ru.Если;
+import cucumber.api.java.ru.И;
 
 public class VINRequestStepDefs {
 
@@ -84,5 +86,48 @@ public class VINRequestStepDefs {
         PF.getPage(VIN.class).typeYear(yearInput);
     }
 
+    @И("^пользователь нажимает зарегистрироваться VIN$")
+    public void пользовательНажимаетЗарегистрироватьсяVIN() {
+        PF.getPage(VIN.class).clickOnRegisterVIN();
+    }
+
+    @И("^пользователь нажимает физ лицо VIN$")
+    public void пользовательНажимаетФизЛицоVIN() {
+        PF.getPage(VIN.class).chooseFiz();
+    }
+
+    @И("^пользователь вводит пароль VIN \"([^\"]*)\"$")
+    public void пользовательВводитПарольVIN(String user) {
+        String pass;
+
+        if (user.toLowerCase().trim().equals("физ")) {
+            pass = UF.getUser(Individual.class).getPassword();
+        } else if (user.toLowerCase().trim().equals("юр")) {
+            pass = UF.getUser(LegalEntity.class).getPassword();
+        } else throw new IllegalArgumentException("Неожиданный тип пользователя. " +
+                "Ожидалось физ или юр, получено " + user);
+
+        PF.getPage(VIN.class).typePassword(pass);
+    }
+
+    @И("^пользователь нажимает регистрация VIN$")
+    public void пользовательНажимаетРегистрацияVIN() {
+        PF.getPage(VIN.class).clickOnRegisterDone();
+    }
+
+    @И("^пользователь нажимает войти VIN$")
+    public void пользовательНажимаетВойтиVIN() {
+        PF.getPage(VIN.class).clickOnLogIn();
+    }
+
+    @И("^пользователь вводит пароль \"([^\"]*)\" VIN$")
+    public void пользовательВводитПарольVINLogin(String pass) {
+        PF.getPage(VIN.class).typePasswordLogin(pass);
+    }
+
+    @И("^пользователь нажимает на кнопку входа VIN$")
+    public void пользовательНажимаетНаКнопкуВходаVIN() {
+        PF.getPage(VIN.class).clickOnLoginButton();
+    }
 }
 

@@ -154,6 +154,7 @@ public abstract class BasePage extends Page {
     }
 
     public BasePage clickOnOutgoingRequestsFiz() {
+        await(1000);
         FizLicoModal.clickOnOutGoingRequest();
         return this;
     }

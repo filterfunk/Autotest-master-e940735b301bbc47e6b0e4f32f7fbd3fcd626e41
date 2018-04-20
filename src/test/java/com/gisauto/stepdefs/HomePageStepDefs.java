@@ -7,6 +7,7 @@ import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.Driver;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
+import cucumber.api.PendingException;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Если;
 import cucumber.api.java.ru.То;
@@ -14,12 +15,12 @@ import org.junit.Assert;
 
 public class HomePageStepDefs {
 
-    @Если("^пользователь нажимает на поиск по номеру")
+    @Если("^пользователь нажимает на поиск по номеру$")
     public void пользовательНажимаетНаПоискПоНомеру() {
         PF.getPage(HomePage.class).clickOnSearchByNumber();
     }
 
-    @Дано("^пользователь открывает главную страницу")
+    @Дано("^пользователь открывает главную страницу$")
     public void пользовательОткрываетГлавнуюСтраницу() {
         PF.getPageForce(HomePage.class);
     }
@@ -29,12 +30,12 @@ public class HomePageStepDefs {
         PF.getPage(HomePage.class).loginFromSystemEnv();
     }
 
-    @Если("^пользователь нажимает войти")
+    @Если("^пользователь нажимает войти$")
     public void пользовательНажимаетВойти() {
         PF.getPage(HomePage.class).clickOnDropDown();
     }
 
-    @Если("^пользователь нажимает зарегистрироваться")
+    @Если("^пользователь нажимает зарегистрироваться$")
     public void пользовательНажимаетЗарегистрироваться() {
         PF.getPage(HomePage.class).clickOnRegister();
     }
@@ -53,7 +54,7 @@ public class HomePageStepDefs {
                 .loginAs(UF.getUser(LegalEntity.class).getLogin(), UF.getUser(LegalEntity.class).getPassword());
     }
 
-    @То("^система редиректит на страницу профиля")
+    @То("^система редиректит на страницу профиля$")
     public void системаРедиректитНаСтраницуПрофиля() {
         PF.getPage(Profile.class).isPageLoaded("Автозапчасти России - Настройки - Мой профиль");
         Assert
@@ -61,29 +62,23 @@ public class HomePageStepDefs {
                         .getTitle());
     }
 
-    @То("^система выводит сообщение, что введенные данные не верны")
+    @То("^система выводит сообщение, что введенные данные не верны$")
     public void системаВыводитСообщениеЧтоВведенныеДанныеНеВерны() {
 
     }
 
-    @То("^открывается модалка входа")
+    @То("^открывается модалка входа$")
     public void открываетсяМодалкаВхода() {
         Assert.
                 assertEquals("Модалка входа окрыта", true, PF.getPage(HomePage.class)
                         .isModalVisible());
     }
 
-    public boolean isLoggedIn() {
-        return PF
-                .getPage(HomePage.class)
-                .isLoggedIn();
-    }
-
     @Если("^пользователь вводит логин пароль \"([^\"]*)\" \"([^\"]*)\"$")
     public void пользовательВводитЛогинПароль(String login, String password) {
         PF.getPage(HomePage.class).loginAs(login, password);
     }
-    @Если("^пользователь нажимает на запрос по vin")
+    @Если("^пользователь нажимает на запрос по vin$")
     public void пользовательНажимаетНаЗапросПоVin() {
         PF.getPage(HomePage.class).clickOnVinRequestButton();
     }

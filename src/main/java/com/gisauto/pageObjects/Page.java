@@ -28,6 +28,9 @@ public abstract class Page {
     public void openPage(String url) {
         Driver.getDriver().get(url);
     }
+    public void openMobile(String url) {
+        Driver.getMobileDriver().get(url);
+    }
 
     public boolean isPageLoaded(String title) {
         startTime = System.currentTimeMillis();
@@ -154,11 +157,11 @@ public abstract class Page {
         return wb;
     }
 
-    public static boolean checkMobileUrl(String url){
+    public boolean checkMobileUrl(String url){
         return url.equals(Driver.getMobileDriver().getCurrentUrl());
     }
 
-    public static boolean checkDesktopUrl(String url){
+    public boolean checkDesktopUrl(String url){
         return url.equals(Driver.getDriver().getCurrentUrl());
     }
 

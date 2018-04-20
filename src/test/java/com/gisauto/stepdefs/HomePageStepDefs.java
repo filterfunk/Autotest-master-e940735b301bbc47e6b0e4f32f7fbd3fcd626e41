@@ -15,6 +15,15 @@ import org.junit.Assert;
 
 public class HomePageStepDefs {
 
+    @Если("^пользователь открывает главную страницу моб.")
+    public void пользовательОткрываетГлавнуюСтраницуМоб() {
+        PF.getPageForce(HomePage.class);
+    }
+    @Если("^пользователь открывает главную страницу деск.")
+    public void пользовательОткрываетГлавнуюСтраницуДеск() {
+        PF.getPageForce(HomePage.class);
+    }
+
     @Если("^пользователь нажимает на поиск по номеру$")
     public void пользовательНажимаетНаПоискПоНомеру() {
         PF.getPage(HomePage.class).clickOnSearchByNumber();
@@ -83,4 +92,15 @@ public class HomePageStepDefs {
         PF.getPage(HomePage.class).clickOnVinRequestButton();
     }
 
+    @То("^открывается мобильная версия$")
+    public void открываетсяМобильнаяВерсия() throws Throwable {
+        Assert
+                .assertEquals(true, PF.getPage(HomePage.class).checkMobileUrl("m.beta.gisauto.ru"));
+    }
+
+    @То("^открывается десктопная версия$")
+    public void открываетсяДесктопнаяВерсия() throws Throwable {
+        Assert
+                .assertEquals(true, PF.getPage(HomePage.class).checkDesktopUrl("beta.gisauto.ru"));
+    }
 }

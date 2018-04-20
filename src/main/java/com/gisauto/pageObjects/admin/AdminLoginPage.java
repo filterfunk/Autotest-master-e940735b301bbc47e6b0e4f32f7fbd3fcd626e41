@@ -9,6 +9,10 @@ import org.openqa.selenium.By;
 
 public class AdminLoginPage extends AdminBasePage {
 
+    public AdminLoginPage(){
+        openPage("https://admin.beta.gisauto.ru");
+    }
+
     private final By loginInput = new By.ByXPath("//*[@id=\"formLogin\"]//input[@type=\"text\"]"),
             passwordInput = new By.ByXPath("//*[@id=\"formLogin\"]//input[@type=\"password\"]"),
             loginButton = new By.ByXPath("//*[@id=\"formLogin\"]//button");

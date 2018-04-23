@@ -1,5 +1,6 @@
 package com.gisauto.stepdefs;
 
+import com.gisauto.pageObjects.admin.AdminBasePage;
 import com.gisauto.pageObjects.gisauto.SearchByNumberPage;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
@@ -172,4 +173,13 @@ public class SearchByNumberStepDefs {
     public void пользовательОткрываетСтраницу(String url) {
         PF.getPage(SearchByNumberPage.class).openPage(url);
     }
+
+    @Если("^пользователь нажимает поставить оценку$")
+    public void пользовательНажимаетПоставитьОценку() {
+        PF.getPage(SearchByNumberPage.class).clickOnEvaluateButton();
+    }
+
+
 }
+
+

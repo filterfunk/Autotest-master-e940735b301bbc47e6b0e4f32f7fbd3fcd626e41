@@ -1,10 +1,15 @@
 package com.gisauto.pageObjects.gisauto;
 
+import com.gisauto.utils.Driver;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.Locale;
 
 /**
  * PageObject страницы поиска по номеру
@@ -38,7 +43,12 @@ public class SearchByNumberPage extends BasePage {
             orderConfirmSendButton = new By.ByXPath("//*[@id=\"order_confirm_button\"]"),
             orderConfirmFirstCity = new By.ByXPath("//*[@id=\"confirmOrderForm\"]/div[2]/div[2]/div/div[1]/div[2]/ul/li[1]/label"),
             orderConfirmSentModal = new By.ByXPath("//*[@id=\"modalCartDone\"]/div/div/div"),
-            closeModalButton = new By.ByXPath("//*[@id=\"modalOrderDone\"]/div/div/div[2]/button");
+            closeModalButton = new By.ByXPath("//*[@id=\"modalOrderDone\"]/div/div/div[2]/button"),
+            feedbackButton = new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody/tr[1]/td[7]/span"),
+            addFeedbackButton = new By.ByXPath("//*[@id=\"m-num__review\"]/div/div[1]/div[2]/button"),
+            feedbackInput = new By.ByXPath("//*[@id=\"feedback_senderComment\"]"),
+            sendFeedbackButton = new By.ByXPath("//*[@id=\"formAddReview\"]/div[5]/div[3]"),
+            evaluateButton = new By.ByXPath("//*[@id=\"formAddReview\"]/div[5]/div[1]/div[1]/label[2]");
 
     public SearchByNumberPage clickOnBuyButton(String shopName) {
         await(500);
@@ -46,7 +56,7 @@ public class SearchByNumberPage extends BasePage {
         return this;
     }
 
-    public SearchByNumberPage clickOnFirstBuyButton(){
+    public SearchByNumberPage clickOnFirstBuyButton() {
         System.setProperty("SELLER", clickFirstSellerBuyBtn());
         return this;
     }
@@ -96,7 +106,7 @@ public class SearchByNumberPage extends BasePage {
         return this;
     }
 
-    private String clickFirstSellerBuyBtn(){
+    private String clickFirstSellerBuyBtn() {
         try {
             getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[1]/td[6]/div[2]/button")).click();
             String s = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
@@ -117,7 +127,7 @@ public class SearchByNumberPage extends BasePage {
             tr++;
             try {
                 a = getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr["
-                        + tr + "]/td[7]/div[2]/span/a/span[1]"));
+                        + tr + "]/td[7]/div[3]/span/span[1]"));
             } catch (Exception e) {
                 e.printStackTrace();
                 return getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr/td[7]/div["
@@ -226,5 +236,61 @@ public class SearchByNumberPage extends BasePage {
         }
         return false;
     }
+
+    public SearchByNumberPage clickOnFeedbackButton(String shopName) {
+        int tr = getSellerTr(shopName);
+        getElement(new By.ByXPath("//*[@id=\"categories-wrapper\"]/tbody[2]/tr[" + tr + "]/td[7]/div[2]")).click();
+        return this;
+    }
+
+    public SearchByNumberPage clickOnAddFeedbackButton() {
+        getElement(addFeedbackButton).click();
+        return this;
+    }
+
+    public SearchByNumberPage typeFeedback() {
+        inputText(getElement(feedbackInput), generateFeedBack());
+        return this;
+    }
+
+    public SearchByNumberPage clickOnEvaluateButton() {
+        getElement(evaluateButton).click();
+        return this;
+    }
+
+    public SearchByNumberPage clickOnSendFeedbackButton() {
+        getElement(sendFeedbackButton).click();
+        return this;
+    }
+
+    private String additioanalFeedback;
+
+    public String generateFeedBack() {
+        additioanalFeedback = System.currentTimeMillis() + Faker.instance(new Locale("Ru")).chuckNorris().fact();
+        return additioanalFeedback;
+    }
+
+    public String getAdditioanalFeedback() {
+        return this.additioanalFeedback;
+    }
+
+    public boolean isNewFeedbackAppear(String feedBack){
+        return getFeedBackDiv(feedBack);
+    }
+
+    private boolean getFeedBackDiv(String message) {
+        int div = 1;
+        String msg;
+
+        do {
+            div += div % 12 == 0 ? 1 : 2;
+            WebElement webElement = getElement(new By.ByXPath("//*[@id=\"m-num__review\"]/div/div[2]/div["
+                    + div + "]/div[2]/div[2]"));
+            msg = webElement.getText().trim();
+        } while (!msg.equals(message));
+
+        return true;
+    }
+
 
 }

@@ -1,6 +1,9 @@
 package com.gisauto.pageObjects.admin;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
+
+import java.util.Locale;
 
 /**
  * @autor neradko, created on 20.04.18
@@ -8,7 +11,7 @@ import org.openqa.selenium.By;
 
 public class FeedbackModerationPage extends AdminBasePage {
 
-    public AdminBasePage clickOnAceptFeedback(String message) {
+    public AdminBasePage clickOnAcceptFeedback(String message) {
         int tr = getTr(message);
 
         getElement(new By.ByXPath("/html/body/div[1]/div[1]/table/tbody/tr[" +
@@ -20,9 +23,8 @@ public class FeedbackModerationPage extends AdminBasePage {
         int tr = getTr(message);
 
         getElement(new By.ByXPath("/html/body/div[1]/div[1]/table/tbody/tr[" +
-                tr + "]/td[7]/a[2]"));
+                tr + "]/td[7]/a[2]")).click();
         return this;
     }
-
 
 }

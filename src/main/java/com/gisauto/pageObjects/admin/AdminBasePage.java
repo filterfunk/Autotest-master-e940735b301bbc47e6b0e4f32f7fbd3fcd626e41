@@ -24,10 +24,11 @@ public class AdminBasePage extends Page {
         String msg;
 
         do {
+            tr++;
             WebElement webElement = getElement(new By.ByXPath("/html/body/div[1]/div[1]/table/tbody/tr["
                     + tr + "]/td[4]"));
             msg = webElement.getText();
-        } while (msg.equals(message));
+        } while (!msg.equals(message));
         return tr;
     }
 

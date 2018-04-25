@@ -157,10 +157,9 @@ public class SearchByNumberStepDefs {
         PF.getPage(SearchByNumberPage.class).clickOnAddFeedbackButton();
     }
 
-    @Если("^пользователь вводит текст отзыва \"([^\"]*)\"$")
-    public void пользовательВводитТекстОтзыва(String textFeedback) {
-
-        PF.getPage(SearchByNumberPage.class).typeFeedback(textFeedback);
+    @Если("^пользователь вводит текст отзыва$")
+    public void пользовательВводитТекстОтзыва() {
+        PF.getPage(SearchByNumberPage.class).typeFeedback();
     }
 
     @Если("^пользователь нажимает отправить$")
@@ -179,7 +178,17 @@ public class SearchByNumberStepDefs {
         PF.getPage(SearchByNumberPage.class).clickOnEvaluateButton();
     }
 
+    @То("^появился отзыв$")
+    public void появилсяОтзыв() {
+        PF.getPage(SearchByNumberPage.class);
+        Assert
+                .assertEquals("Появился отзыв ", true,
+                        PF.getPage(SearchByNumberPage.class)
+                                .isNewFeedbackAppear(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback()));
+    }
+
 
 }
+
 
 

@@ -32,5 +32,11 @@ public class AdminStepDefs {
                 .clickOnDeclineFeedback(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback());
     }
 
+    @И("^пользователь нажимает на кнопку принять жалобу$")
+    public void пользовательНажимаетНаКнопкуПринятьЖалобу() {
+        PF.getPage(FeedbackModerationPage.class)
+                .clickOnAcceptComplain(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback());
+    }
+
 
 }

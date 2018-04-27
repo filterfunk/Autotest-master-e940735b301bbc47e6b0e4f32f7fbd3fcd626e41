@@ -38,5 +38,14 @@ public class AdminStepDefs {
                 .clickOnAcceptComplain(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback());
     }
 
-
+    @И("^пользователь нажимает на кнопку принять ответ на отзыв \"([^\"]*)\"$")
+    public void пользовательНажимаетНаКнопкуПринятьОтветНаОтзыв(String text) {
+        PF.getPage(FeedbackModerationPage.class)
+                .clickOnAcceptFeedbackAnswer(text);
+    }
+    @И("^пользователь нажимает на кнопку отклонить ответ на отзыв \"([^\"]*)\"$")
+    public void пользовательНажимаетНаКнопкуОтклонитьОтветНаОтзыв(String text) {
+        PF.getPage(FeedbackModerationPage.class)
+                .clickOnAcceptFeedbackAnswer(text);
+    }
 }

@@ -27,8 +27,8 @@ public class AdminBasePage extends Page {
             tr++;
             WebElement webElement = getElement(new By.ByXPath("/html/body/div[1]/div[1]/table/tbody/tr["
                     + tr + "]/td[4]"));
-            msg = webElement.getText();
-        } while (!msg.equals(message));
+            msg = webElement.getText().trim();
+        } while (!msg.contains(message));
         return tr;
     }
 

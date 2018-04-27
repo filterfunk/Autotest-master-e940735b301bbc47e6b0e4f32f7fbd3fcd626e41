@@ -1,5 +1,6 @@
 package com.gisauto.pageObjects.gisauto;
 
+import com.gisauto.utils.PF;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,10 +9,10 @@ import org.openqa.selenium.support.FindBy;
 public class Reviews extends BasePage {
 
 
-    @FindBy(xpath = "//*[@id=\"categories-wrapper\"]/tbody[2]/tr[1]/td[7]/div[2]/svg/path")
+    @FindBy(xpath = "//*[@id=\"topBlock\"]/nav/ul/li[6]/a/span")
     private WebElement feedbackButton;
 
-    @FindBy(xpath = "//*[@id=\"cabinet-reviews\"]/div/div/div/div[5]/div[2]")
+    @FindBy(xpath = "//*[@id=\"cabinet-reviews\"]//div[@class=\"answer-complain a-like\"]")
     private WebElement complainFeedbackButton;
 
     @FindBy(xpath = "//*[@id=\"cabinet-reviews\"]/div/div/div/div[5]/form/button")
@@ -26,7 +27,7 @@ public class Reviews extends BasePage {
     @FindBy(xpath = "//*[@id=\"cabinet-reviews\"]/div/div/div/div[5]/form/button")
     private WebElement sendAnswerButton;
 
-    @FindBy(xpath = "//*[@id=\"feedbackClaimForm\"]/div/div[3]/span")
+    @FindBy(xpath = "//*[@id=\"feedbackClaimForm\"]/div/div[3]/label")
     private WebElement otherReasonButton;
 
     @FindBy(xpath = "//*[@id=\"feedbackClaimForm\"]/button")
@@ -37,8 +38,8 @@ public class Reviews extends BasePage {
 
     @FindBy(xpath = "//*[@id=\"feedback_recipientClaimToModerator\"]")
     private WebElement complaintText;
-
-    @FindBy(xpath = "//*[@id=\"categories-wrapper\"]/tbody[2]/tr[1]/td[7]/div[2]/svg/path")
+                     //*[@id="categories-wrapper"]/tbody[2]/tr[1]/td[7]/div[2]/svg/path
+    @FindBy(xpath = "//*[@id=\"categories-wrapper\"]/tbody[2]/tr[1]/td[7]/div[2]")
     private WebElement shopFeedbacksButton;
 
 
@@ -49,7 +50,11 @@ public class Reviews extends BasePage {
     }
 
     public Reviews clickOnComplainFeedbackButton() {
-        complainFeedbackButton.click();
+        await(2000);
+        getElement(new By.ByXPath("//*[@id=\"cabinet-reviews\"]/div/div[" +
+                getFeedback(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback()) +
+                "]/div/div[5]/div[2]"))
+                .click();
         return this;
 
 
@@ -80,6 +85,7 @@ public class Reviews extends BasePage {
     }
 
     public Reviews clickOnOtherReasonButton() {
+        await(2000);
         otherReasonButton.click();
         return this;
 
@@ -105,5 +111,15 @@ public class Reviews extends BasePage {
     public Reviews clickOnShopFeedbacksButton() {
         shopFeedbacksButton.click();
         return this;
+    }
+
+    private int getFeedback(String message) {
+        int div = 0;
+        String text;
+        do {
+            div++;
+            text = getElement(new By.ByXPath("//*[@id=\"cabinet-reviews\"]/div/div[" + div + "]/div/div[4]/div")).getText();
+        } while (!text.equals(message));
+        return div;
     }
 }

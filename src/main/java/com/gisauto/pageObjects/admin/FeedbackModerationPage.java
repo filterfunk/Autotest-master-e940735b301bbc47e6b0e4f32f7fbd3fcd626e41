@@ -27,4 +27,25 @@ public class FeedbackModerationPage extends AdminBasePage {
         return this;
     }
 
+    public AdminBasePage clickOnAcceptComplain(String message) {
+        int tr = getTr(message);
+
+        getElement(new By.ByXPath("/html/body/div[1]/div[1]/table/tbody/tr[" +
+                tr + "]/td[4]/div/a[2]")).click();
+        return this;
+    }
+    public AdminBasePage clickOnAcceptFeedbackAnswer(String message) {
+        int tr = getTr(message);
+
+        getElement(new By.ByXPath("/html/body/div[1]/div[1]/table/tbody/tr[" +
+                tr + "]/td[7]/a[1]")).click();
+        return this;
+    }
+    public AdminBasePage clickOnDeclineFeedbackAnswer(String message) {
+        int tr = getTr(message);
+
+        getElement(new By.ByXPath("/html/body/div[1]/div[1]/table/tbody/tr[" +
+                tr + "]/td[7]/a[2]")).click();
+        return this;
+    }
 }

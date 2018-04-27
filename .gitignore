@@ -1,4 +1,4 @@
 *.jar
 */target
 *.log
-src/test/java/com/gisauto/RunnerTest.java
+*RunnerTest.java

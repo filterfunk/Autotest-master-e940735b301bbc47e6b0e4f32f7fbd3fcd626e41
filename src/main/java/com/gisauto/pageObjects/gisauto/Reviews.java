@@ -62,6 +62,7 @@ public class Reviews extends BasePage {
 
     public Reviews clickOnAnswerFeedbackButton() {
         answerFeedbackButton.click();
+        await(1000);
         return this;
 
     }
@@ -98,7 +99,8 @@ public class Reviews extends BasePage {
     }
 
     public Reviews typeFeedbackAnswer(String feedback) {
-        inputText(feedbackAnswer, feedback);
+        inputText(getElement(new By.ByXPath("// *[@id=\"cabinet-reviews\"]/div/div[" +
+                getFeedback(feedback) + "]/div/div[5]/form/button")), feedback);
         return this;
     }
 

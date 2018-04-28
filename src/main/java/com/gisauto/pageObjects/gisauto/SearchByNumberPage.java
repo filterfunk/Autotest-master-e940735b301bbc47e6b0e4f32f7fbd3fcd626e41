@@ -274,23 +274,33 @@ public class SearchByNumberPage extends BasePage {
         return this.additioanalFeedback;
     }
 
-    public boolean isNewFeedbackAppear(String feedBack){
-        return getFeedBackDiv(feedBack);
+    public boolean isNewFeedbackAppear(String feedBack) {
+        return isFeedbackAppear(feedBack);
     }
 
-    private boolean getFeedBackDiv(String message) {
+    private boolean isFeedbackAppear(String message) {
         int div = 1;
         String msg;
 
+        System.out.println("LOOKING FOR " + message);
         do {
             div += div % 12 == 0 ? 1 : 2;
             WebElement webElement = getElement(new By.ByXPath("//*[@id=\"m-num__review\"]/div/div[2]/div["
                     + div + "]/div[2]/div[2]"));
             msg = webElement.getText().trim();
+            System.out.println("FEEDBACK = " + msg);
         } while (!msg.equals(message));
 
         return true;
     }
 
+    public boolean isNewFeedbackDelete(String feedBack) {
+        try {
+            return !isFeedbackAppear(feedBack);
+        } catch (Exception e){
+
+        }
+        return true;
+    }
 
 }

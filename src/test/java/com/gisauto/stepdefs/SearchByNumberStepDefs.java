@@ -187,6 +187,14 @@ public class SearchByNumberStepDefs {
                                 .isNewFeedbackAppear(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback()));
     }
 
+    @То("^удалился отзыв$")
+    public void удалилсяОтзыв() {
+        PF.getPage(SearchByNumberPage.class);
+        Assert
+                .assertEquals("Удалился отзыв ", true,
+                        PF.getPage(SearchByNumberPage.class)
+                                .isNewFeedbackDelete(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback()));
+    }
 
 }
 

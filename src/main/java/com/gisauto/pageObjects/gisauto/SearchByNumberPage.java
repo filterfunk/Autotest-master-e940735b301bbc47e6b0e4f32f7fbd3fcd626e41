@@ -297,10 +297,25 @@ public class SearchByNumberPage extends BasePage {
     public boolean isNewFeedbackDelete(String feedBack) {
         try {
             return !isFeedbackAppear(feedBack);
-        } catch (Exception e){
+        } catch (Exception e) {
 
         }
         return true;
     }
 
+    public boolean feedbackAnswerAppear(String message) {
+        int div = 1;
+        String msg;
+
+        System.out.println("LOOKING FOR " + message);
+        do {
+            div += div % 12 == 0 ? 1 : 2;
+            WebElement webElement = getElement(new By.ByXPath("//*[@id=\"cabinet-reviews\"]/div/div["
+                    + div + "]/div/div[5]/form/textarea"));
+            msg = webElement.getText().trim();
+            System.out.println("FEEDBACKANSWER = " + msg);
+        } while (!msg.equals(message));
+
+        return true;
+    }
 }

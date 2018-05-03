@@ -196,6 +196,14 @@ public class SearchByNumberStepDefs {
                                 .isNewFeedbackDelete(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback()));
     }
 
+    @То("^появился ответ на отзыв \"([^\"]*)\"$")
+    public void появилсяОтветНаОтзыв(String msg) {
+        PF.getPage(SearchByNumberPage.class);
+        Assert
+                .assertEquals("Появился ответ на отзыв ", true,
+                        PF.getPage(SearchByNumberPage.class)
+                                .feedbackAnswerAppear(msg));
+    }
 }
 
 

@@ -1,7 +1,9 @@
 package com.gisauto.stepdefs;
 
+import com.gisauto.pageObjects.admin.AdminLoginPage;
 import com.gisauto.pageObjects.gisauto.HomePage;
 import com.gisauto.pageObjects.gisauto.Profile;
+import com.gisauto.pageObjects.gisauto.SearchByNumberPage;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.Driver;
@@ -35,7 +37,7 @@ public class HomePageStepDefs {
     }
 
     @Если("^пользователь вводит логин и пароль из переменной$")
-    public void пользовательВводитЛогинИПарольИзПеременной(){
+    public void пользовательВводитЛогинИПарольИзПеременной() {
         PF.getPage(HomePage.class).loginFromSystemEnv();
     }
 
@@ -87,6 +89,7 @@ public class HomePageStepDefs {
     public void пользовательВводитЛогинПароль(String login, String password) {
         PF.getPage(HomePage.class).loginAs(login, password);
     }
+
     @Если("^пользователь нажимает на запрос по vin$")
     public void пользовательНажимаетНаЗапросПоVin() {
         PF.getPage(HomePage.class).clickOnVinRequestButton();
@@ -104,3 +107,4 @@ public class HomePageStepDefs {
                 .assertEquals(true, PF.getPage(HomePage.class).checkDesktopUrl("beta.gisauto.ru"));
     }
 }
+

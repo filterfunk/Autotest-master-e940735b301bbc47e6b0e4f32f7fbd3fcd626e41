@@ -1,11 +1,14 @@
 package com.gisauto.stepdefs;
 
+import com.gisauto.pageObjects.admin.AdminBasePage;
 import com.gisauto.pageObjects.gisauto.SearchByNumberPage;
 import com.gisauto.users.Individual;
 import com.gisauto.users.LegalEntity;
 import com.gisauto.utils.PF;
 import com.gisauto.utils.UF;
+import cucumber.api.PendingException;
 import cucumber.api.java.ru.Если;
+import cucumber.api.java.ru.И;
 import cucumber.api.java.ru.То;
 import org.junit.Assert;
 
@@ -27,7 +30,7 @@ public class SearchByNumberStepDefs {
     }
 
     @Если("^пользователь нажимает заказать у первого продавца$")
-    public void пользовательНажимаетЗаказатьУПервогоПродавца(){
+    public void пользовательНажимаетЗаказатьУПервогоПродавца() {
         PF.getPage(SearchByNumberPage.class).clickOnFirstBuyButton();
     }
 
@@ -135,7 +138,7 @@ public class SearchByNumberStepDefs {
     }
 
     @То("^в таблице появилось предложение на запчасть \"([^\"]*)\" от \"([^\"]*)\"$")
-    public void вТаблицеПоявилосьПредложениеНаЗапчасть(String partNumber, String shopName){
+    public void вТаблицеПоявилосьПредложениеНаЗапчасть(String partNumber, String shopName) {
         Assert.assertEquals(
                 "Предложение для " + partNumber + "не появилось.",
                 true,
@@ -143,4 +146,65 @@ public class SearchByNumberStepDefs {
                         .checkOrder(UF.getUser(LegalEntity.class).getShopName() + " - " + shopName));
     }
 
+    @Если("^пользователь нажимает написать отзыв \"([^\"]*)\"$")
+    public void пользовательНажимаетНаписатьОтзыв(String shopName) {
+        PF.getPage(SearchByNumberPage.class).clickOnFeedbackButton(shopName);
+    }
+
+
+    @Если("^пользователь нажимает добавить отзыв$")
+    public void пользовательНажимаетДобавитьОтзыв() {
+        PF.getPage(SearchByNumberPage.class).clickOnAddFeedbackButton();
+    }
+
+    @Если("^пользователь вводит текст отзыва$")
+    public void пользовательВводитТекстОтзыва() {
+        PF.getPage(SearchByNumberPage.class).typeFeedback();
+    }
+
+    @Если("^пользователь нажимает отправить$")
+    public void пользовательНажимаетОтправить() {
+        PF.getPage(SearchByNumberPage.class).clickOnSendFeedbackButton();
+
+    }
+
+    @И("^пользователь открывает страницу \"([^\"]*)\"$")
+    public void пользовательОткрываетСтраницу(String url) {
+        PF.getPage(SearchByNumberPage.class).openPage(url);
+    }
+
+    @Если("^пользователь нажимает поставить оценку$")
+    public void пользовательНажимаетПоставитьОценку() {
+        PF.getPage(SearchByNumberPage.class).clickOnEvaluateButton();
+    }
+
+    @То("^появился отзыв$")
+    public void появилсяОтзыв() {
+        PF.getPage(SearchByNumberPage.class);
+        Assert
+                .assertEquals("Появился отзыв ", true,
+                        PF.getPage(SearchByNumberPage.class)
+                                .isNewFeedbackAppear(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback()));
+    }
+
+    @То("^удалился отзыв$")
+    public void удалилсяОтзыв() {
+        PF.getPage(SearchByNumberPage.class);
+        Assert
+                .assertEquals("Удалился отзыв ", true,
+                        PF.getPage(SearchByNumberPage.class)
+                                .isNewFeedbackDelete(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback()));
+    }
+
+    @То("^появился ответ на отзыв \"([^\"]*)\"$")
+    public void появилсяОтветНаОтзыв(String msg) {
+        PF.getPage(SearchByNumberPage.class);
+        Assert
+                .assertEquals("Появился ответ на отзыв ", true,
+                        PF.getPage(SearchByNumberPage.class)
+                                .feedbackAnswerAppear(msg));
+    }
 }
+
+
+

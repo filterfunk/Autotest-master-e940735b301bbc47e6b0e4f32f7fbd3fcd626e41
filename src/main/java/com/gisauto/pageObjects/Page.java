@@ -4,10 +4,7 @@ import com.gisauto.utils.Driver;
 import io.qameta.allure.Attachment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptException;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.List;
 
@@ -99,7 +96,9 @@ public abstract class Page {
 
     private static boolean tryGetElement(By xPath) {
         try {
-            return Driver.getDriver().findElement(xPath).isDisplayed();
+            WebElement webElement = Driver.getDriver().findElement(xPath);
+            if (!webElement.isDisplayed()) ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView();", webElement);
+            return webElement.isDisplayed();
         } catch (Exception ex) {
             return false;
         }

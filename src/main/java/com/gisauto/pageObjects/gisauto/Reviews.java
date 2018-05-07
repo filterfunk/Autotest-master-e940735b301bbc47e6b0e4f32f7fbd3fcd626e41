@@ -100,7 +100,7 @@ public class Reviews extends BasePage {
 
     public Reviews typeFeedbackAnswer(String feedback) {
         inputText(getElement(new By.ByXPath("// *[@id=\"cabinet-reviews\"]/div/div[" +
-                getFeedback(feedback) + "]/div/div[5]/form/button")), feedback);
+                getFeedback(PF.getPage(SearchByNumberPage.class).getAdditioanalFeedback()) + "]/div/div[5]/form/button")), feedback);
         return this;
     }
 

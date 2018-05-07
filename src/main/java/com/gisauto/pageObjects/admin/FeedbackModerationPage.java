@@ -1,9 +1,6 @@
 package com.gisauto.pageObjects.admin;
 
-import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
-
-import java.util.Locale;
 
 /**
  * @autor neradko, created on 20.04.18

@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1528167762542" stop="1528168252088" version="1.5.2" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Отзывы</name>
+    <description type="text"></description>
+    <test-cases>
+        <test-case start="1528167762552" stop="1528167826755" status="passed">
+            <name>Отзыв добавление</name>
+            <title>Отзыв добавление</title>
+            <description type="text"></description>
+            <steps>
+                <step start="1528167762555" stop="1528167767878" status="passed">
+                    <name>Дано пользователь открывает главную страницу</name>
+                    <title>Дано пользователь открывает главную страницу</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167767878" stop="1528167769084" status="passed">
+                    <name>И пользователь нажимает войти</name>
+                    <title>И пользователь нажимает войти</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167769085" stop="1528167773081" status="passed">
+                    <name>Если пользователь вводит логин пароль "qwedsa12@mail.ru" "gisgis"</name>
+                    <title>Если пользователь вводит логин пароль "qwedsa12@mail.ru" "gisgis"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167773081" stop="1528167775195" status="passed">
+                    <name>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</name>
+                    <title>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167775196" stop="1528167781407" status="passed">
+                    <name>И пользователь закрывает помощника</name>
+                    <title>И пользователь закрывает помощника</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167781407" stop="1528167781585" status="passed">
+                    <name>И пользователь нажимает написать отзыв "qagisauto"</name>
+                    <title>И пользователь нажимает написать отзыв "qagisauto"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167781585" stop="1528167783807" status="passed">
+                    <name>И пользователь нажимает добавить отзыв</name>
+                    <title>И пользователь нажимает добавить отзыв</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167783808" stop="1528167807855" status="passed">
+                    <name>И пользователь вводит текст отзыва</name>
+                    <title>И пользователь вводит текст отзыва</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167807855" stop="1528167808092" status="passed">
+                    <name>И пользователь нажимает поставить оценку</name>
+                    <title>И пользователь нажимает поставить оценку</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167808092" stop="1528167808392" status="passed">
+                    <name>И пользователь нажимает отправить</name>
+                    <title>И пользователь нажимает отправить</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167808392" stop="1528167818324" status="passed">
+                    <name>И пользователь заходит в админку</name>
+                    <title>И пользователь заходит в админку</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167818325" stop="1528167819227" status="passed">
+                    <name>И пользователь нажимает на модерацию отзывов</name>
+                    <title>И пользователь нажимает на модерацию отзывов</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167819227" stop="1528167820934" status="passed">
+                    <name>И пользователь нажимает на кнопку принять</name>
+                    <title>И пользователь нажимает на кнопку принять</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167820935" stop="1528167822911" status="passed">
+                    <name>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</name>
+                    <title>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167822911" stop="1528167823146" status="passed">
+                    <name>И пользователь нажимает написать отзыв "qagisauto"</name>
+                    <title>И пользователь нажимает написать отзыв "qagisauto"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167823146" stop="1528167825896" status="passed">
+                    <name>То появился отзыв</name>
+                    <title>То появился отзыв</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="story" value="Отзыв добавление"/>
+                <label name="feature" value="Отзывы"/>
+                <label name="host" value="DESKTOP-5CMG1NV"/>
+                <label name="thread" value="26784@DESKTOP-5CMG1NV.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+        <test-case start="1528167826755" stop="1528167938803" status="passed">
+            <name>Отзыв отклонение</name>
+            <title>Отзыв отклонение</title>
+            <description type="text"></description>
+            <steps>
+                <step start="1528167826755" stop="1528167831146" status="passed">
+                    <name>Дано пользователь открывает главную страницу</name>
+                    <title>Дано пользователь открывает главную страницу</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167831146" stop="1528167832336" status="passed">
+                    <name>И пользователь нажимает войти</name>
+                    <title>И пользователь нажимает войти</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167832336" stop="1528167836281" status="passed">
+                    <name>Если пользователь вводит логин пароль "qwedsa12@mail.ru" "gisgis"</name>
+                    <title>Если пользователь вводит логин пароль "qwedsa12@mail.ru" "gisgis"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167836281" stop="1528167838355" status="passed">
+                    <name>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</name>
+                    <title>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167838355" stop="1528167844570" status="passed">
+                    <name>И пользователь закрывает помощника</name>
+                    <title>И пользователь закрывает помощника</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167844570" stop="1528167844748" status="passed">
+                    <name>И пользователь нажимает написать отзыв "qagisauto"</name>
+                    <title>И пользователь нажимает написать отзыв "qagisauto"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167844749" stop="1528167846951" status="passed">
+                    <name>И пользователь нажимает добавить отзыв</name>
+                    <title>И пользователь нажимает добавить отзыв</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167846951" stop="1528167860971" status="passed">
+                    <name>И пользователь вводит текст отзыва</name>
+                    <title>И пользователь вводит текст отзыва</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167860971" stop="1528167861194" status="passed">
+                    <name>И пользователь нажимает поставить оценку</name>
+                    <title>И пользователь нажимает поставить оценку</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167861194" stop="1528167861502" status="passed">
+                    <name>И пользователь нажимает отправить</name>
+                    <title>И пользователь нажимает отправить</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167861502" stop="1528167871572" status="passed">
+                    <name>И пользователь заходит в админку</name>
+                    <title>И пользователь заходит в админку</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167871572" stop="1528167872520" status="passed">
+                    <name>И пользователь нажимает на модерацию отзывов</name>
+                    <title>И пользователь нажимает на модерацию отзывов</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167872521" stop="1528167872737" status="passed">
+                    <name>И пользователь нажимает на кнопку отклонить</name>
+                    <title>И пользователь нажимает на кнопку отклонить</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167872737" stop="1528167874754" status="passed">
+                    <name>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</name>
+                    <title>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167874754" stop="1528167874988" status="passed">
+                    <name>И пользователь нажимает написать отзыв "qagisauto"</name>
+                    <title>И пользователь нажимает написать отзыв "qagisauto"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167874988" stop="1528167937997" status="passed">
+                    <name>То удалился отзыв</name>
+                    <title>То удалился отзыв</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="story" value="Отзыв отклонение"/>
+                <label name="feature" value="Отзывы"/>
+                <label name="host" value="DESKTOP-5CMG1NV"/>
+                <label name="thread" value="26784@DESKTOP-5CMG1NV.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+        <test-case start="1528167938803" stop="1528168089644" status="passed">
+            <name>Отзыв жалоба</name>
+            <title>Отзыв жалоба</title>
+            <description type="text"></description>
+            <steps>
+                <step start="1528167938819" stop="1528167943295" status="passed">
+                    <name>Дано пользователь открывает главную страницу</name>
+                    <title>Дано пользователь открывает главную страницу</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167943296" stop="1528167944507" status="passed">
+                    <name>И пользователь нажимает войти</name>
+                    <title>И пользователь нажимает войти</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167944507" stop="1528167948503" status="passed">
+                    <name>Если пользователь вводит логин пароль "qwedsa12@mail.ru" "gisgis"</name>
+                    <title>Если пользователь вводит логин пароль "qwedsa12@mail.ru" "gisgis"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167948503" stop="1528167950662" status="passed">
+                    <name>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</name>
+                    <title>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167950662" stop="1528167956864" status="passed">
+                    <name>И пользователь закрывает помощника</name>
+                    <title>И пользователь закрывает помощника</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167956864" stop="1528167957048" status="passed">
+                    <name>И пользователь нажимает написать отзыв "qagisauto"</name>
+                    <title>И пользователь нажимает написать отзыв "qagisauto"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167957049" stop="1528167959229" status="passed">
+                    <name>И пользователь нажимает добавить отзыв</name>
+                    <title>И пользователь нажимает добавить отзыв</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167959230" stop="1528167975230" status="passed">
+                    <name>И пользователь вводит текст отзыва</name>
+                    <title>И пользователь вводит текст отзыва</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167975230" stop="1528167975465" status="passed">
+                    <name>И пользователь нажимает поставить оценку</name>
+                    <title>И пользователь нажимает поставить оценку</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167975465" stop="1528167975766" status="passed">
+                    <name>И пользователь нажимает отправить</name>
+                    <title>И пользователь нажимает отправить</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167975766" stop="1528167985617" status="passed">
+                    <name>И пользователь заходит в админку</name>
+                    <title>И пользователь заходит в админку</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167985617" stop="1528167986570" status="passed">
+                    <name>И пользователь нажимает на модерацию отзывов</name>
+                    <title>И пользователь нажимает на модерацию отзывов</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167986570" stop="1528167988292" status="passed">
+                    <name>И пользователь нажимает на кнопку принять</name>
+                    <title>И пользователь нажимает на кнопку принять</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167988293" stop="1528167989780" status="passed">
+                    <name>И пользователь открывает главную страницу</name>
+                    <title>И пользователь открывает главную страницу</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167989780" stop="1528167993027" status="passed">
+                    <name>И пользователь нажимает на профиль</name>
+                    <title>И пользователь нажимает на профиль</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167993027" stop="1528167994659" status="passed">
+                    <name>И пользователь нажимает выход "физ"</name>
+                    <title>И пользователь нажимает выход "физ"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167994659" stop="1528167995805" status="passed">
+                    <name>И пользователь нажимает войти</name>
+                    <title>И пользователь нажимает войти</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167995805" stop="1528167999209" status="passed">
+                    <name>И пользователь вводит логин пароль "qagisauto@mail.ru" "qagisauto"</name>
+                    <title>И пользователь вводит логин пароль "qagisauto@mail.ru" "qagisauto"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528167999209" stop="1528168001962" status="passed">
+                    <name>И пользователь нажимает на отзывы</name>
+                    <title>И пользователь нажимает на отзывы</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168001962" stop="1528168004172" status="passed">
+                    <name>И пользователь нажимает пожаловаться на отзыв</name>
+                    <title>И пользователь нажимает пожаловаться на отзыв</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168004172" stop="1528168006317" status="passed">
+                    <name>И пользователь нажимает другая причина</name>
+                    <title>И пользователь нажимает другая причина</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168006317" stop="1528168009668" status="passed">
+                    <name>И пользователь вводит текст жалобы "Не согласен!"</name>
+                    <title>И пользователь вводит текст жалобы "Не согласен!"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168009668" stop="1528168009778" status="passed">
+                    <name>И пользователь нажимает отправить жалобу</name>
+                    <title>И пользователь нажимает отправить жалобу</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168009778" stop="1528168019658" status="passed">
+                    <name>И пользователь заходит в админку</name>
+                    <title>И пользователь заходит в админку</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168019659" stop="1528168020586" status="passed">
+                    <name>И пользователь нажимает на модерацию отзывов</name>
+                    <title>И пользователь нажимает на модерацию отзывов</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168020586" stop="1528168022299" status="passed">
+                    <name>И пользователь нажимает на кнопку принять жалобу</name>
+                    <title>И пользователь нажимает на кнопку принять жалобу</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168022299" stop="1528168023859" status="passed">
+                    <name>И пользователь открывает главную страницу</name>
+                    <title>И пользователь открывает главную страницу</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168023860" stop="1528168025749" status="passed">
+                    <name>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</name>
+                    <title>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168025749" stop="1528168025848" status="passed">
+                    <name>И пользователь открывает отзывы о магазине</name>
+                    <title>И пользователь открывает отзывы о магазине</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1528168025848" stop="1528168088844" status="passed">
+                    <name>То удалился отзыв</name>
+                    <title>То удалился отзыв</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="story" value="Отзыв жалоба"/>
+                <label name="feature" value="Отзывы"/>
+                <label name="host" value="DESKTOP-5CMG1NV"/>
+                <label name="thread" value="26784@DESKTOP-5CMG1NV.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+        <test-case start="1528168089645" stop="1528168252086" status="broken">
+            <name>Отзыв ответ</name>
+            <title>Отзыв ответ</title>
+            <description type="text"></description>
+            <failure>
+                <message>RuntimeException: Не удалось найти элемент по By.xpath: /html/body/div[1]/div[1]/table/tbody/tr[11]/td[4]
+Истекло время ожидания равное 60 сек.</message>
+                <stack-trace>java.lang.RuntimeException: Не удалось найти элемент по By.xpath: /html/body/div[1]/div[1]/table/tbody/tr[11]/td[4]
+Истекло время ожидания равное 60 сек.
+	at com.gisauto.pageObjects.Page.tryFindElement(Page.java:87)
+	at com.gisauto.pageObjects.Page.getElement(Page.java:151)
+	at com.gisauto.pageObjects.admin.AdminBasePage.getTr(AdminBasePage.java:28)
+	at com.gisauto.pageObjects.admin.FeedbackModerationPage.clickOnAcceptFeedbackAnswer(FeedbackModerationPage.java:35)
+	at com.gisauto.stepdefs.AdminStepDefs.пользовательНажимаетНаКнопкуПринятьОтветНаОтзыв(AdminStepDefs.java:44)
+	at ✽.И пользователь нажимает на кнопку принять ответ на отзыв "тест ответ1"(testFeedback/13-TestFeedback.feature:122)
+</stack-trace>
+            </failure>
+            <steps>
+                <step start="1528168089645" stop="1528168093825" status="passed">
+                    <name>Дано пользователь открывает главную страницу</name>
+                    <title>Дано пользователь открывает главную страницу</title>
+                </step>
+                <step start="1528168093825" stop="1528168095004" status="passed">
+                    <name>И пользователь нажимает войти</name>
+                    <title>И пользователь нажимает войти</title>
+                </step>
+                <step start="1528168095004" stop="1528168098966" status="passed">
+                    <name>Если пользователь вводит логин пароль "qwedsa12@mail.ru" "gisgis"</name>
+                    <title>Если пользователь вводит логин пароль "qwedsa12@mail.ru" "gisgis"</title>
+                </step>
+                <step start="1528168098967" stop="1528168101119" status="passed">
+                    <name>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</name>
+                    <title>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</title>
+                </step>
+                <step start="1528168101119" stop="1528168107318" status="passed">
+                    <name>И пользователь закрывает помощника</name>
+                    <title>И пользователь закрывает помощника</title>
+                </step>
+                <step start="1528168107318" stop="1528168107500" status="passed">
+                    <name>И пользователь нажимает написать отзыв "qagisauto"</name>
+                    <title>И пользователь нажимает написать отзыв "qagisauto"</title>
+                </step>
+                <step start="1528168107501" stop="1528168109760" status="passed">
+                    <name>И пользователь нажимает добавить отзыв</name>
+                    <title>И пользователь нажимает добавить отзыв</title>
+                </step>
+                <step start="1528168109760" stop="1528168147504" status="passed">
+                    <name>И пользователь вводит текст отзыва</name>
+                    <title>И пользователь вводит текст отзыва</title>
+                </step>
+                <step start="1528168147504" stop="1528168147769" status="passed">
+                    <name>И пользователь нажимает поставить оценку</name>
+                    <title>И пользователь нажимает поставить оценку</title>
+                </step>
+                <step start="1528168147769" stop="1528168148066" status="passed">
+                    <name>И пользователь нажимает отправить</name>
+                    <title>И пользователь нажимает отправить</title>
+                </step>
+                <step start="1528168148067" stop="1528168158159" status="passed">
+                    <name>И пользователь заходит в админку</name>
+                    <title>И пользователь заходит в админку</title>
+                </step>
+                <step start="1528168158159" stop="1528168159113" status="passed">
+                    <name>И пользователь нажимает на модерацию отзывов</name>
+                    <title>И пользователь нажимает на модерацию отзывов</title>
+                </step>
+                <step start="1528168159114" stop="1528168160870" status="passed">
+                    <name>И пользователь нажимает на кнопку принять</name>
+                    <title>И пользователь нажимает на кнопку принять</title>
+                </step>
+                <step start="1528168160870" stop="1528168162414" status="passed">
+                    <name>И пользователь открывает главную страницу</name>
+                    <title>И пользователь открывает главную страницу</title>
+                </step>
+                <step start="1528168162414" stop="1528168165594" status="passed">
+                    <name>И пользователь нажимает на профиль</name>
+                    <title>И пользователь нажимает на профиль</title>
+                </step>
+                <step start="1528168165594" stop="1528168167221" status="passed">
+                    <name>И пользователь нажимает выход "физ"</name>
+                    <title>И пользователь нажимает выход "физ"</title>
+                </step>
+                <step start="1528168167221" stop="1528168168409" status="passed">
+                    <name>И пользователь нажимает войти</name>
+                    <title>И пользователь нажимает войти</title>
+                </step>
+                <step start="1528168168409" stop="1528168171776" status="passed">
+                    <name>И пользователь вводит логин пароль "qagisauto@mail.ru" "qagisauto"</name>
+                    <title>И пользователь вводит логин пароль "qagisauto@mail.ru" "qagisauto"</title>
+                </step>
+                <step start="1528168171776" stop="1528168174486" status="passed">
+                    <name>И пользователь нажимает на отзывы</name>
+                    <title>И пользователь нажимает на отзывы</title>
+                </step>
+                <step start="1528168174487" stop="1528168175580" status="passed">
+                    <name>И пользователь нажимает ответить на отзыв</name>
+                    <title>И пользователь нажимает ответить на отзыв</title>
+                </step>
+                <step start="1528168175580" stop="1528168178812" status="passed">
+                    <name>И пользователь вводит текст ответа на отзыв "тест ответ1!"</name>
+                    <title>И пользователь вводит текст ответа на отзыв "тест ответ1!"</title>
+                </step>
+                <step start="1528168178812" stop="1528168178874" status="passed">
+                    <name>И пользователь нажимает кнопку отправить ответ</name>
+                    <title>И пользователь нажимает кнопку отправить ответ</title>
+                </step>
+                <step start="1528168178874" stop="1528168188250" status="passed">
+                    <name>И пользователь заходит в админку</name>
+                    <title>И пользователь заходит в админку</title>
+                </step>
+                <step start="1528168188250" stop="1528168189148" status="passed">
+                    <name>И пользователь нажимает на модерацию отзывов</name>
+                    <title>И пользователь нажимает на модерацию отзывов</title>
+                </step>
+                <step start="1528168189148" stop="1528168251277" status="broken">
+                    <name>И пользователь нажимает на кнопку принять ответ на отзыв "тест ответ1"</name>
+                    <title>И пользователь нажимает на кнопку принять ответ на отзыв "тест ответ1"</title>
+                    <attachments>
+                        <attachment title="attachment0" source="ac996545-796b-4388-954a-0e4b79b1bbe6-attachment.png" type="image/png"/>
+                    </attachments>
+                </step>
+                <step start="1528168251277" stop="1528168251277" status="canceled">
+                    <name>И пользователь открывает главную страницу</name>
+                    <title>И пользователь открывает главную страницу</title>
+                </step>
+                <step start="1528168251277" stop="1528168251277" status="canceled">
+                    <name>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</name>
+                    <title>И пользователь открывает страницу "https://beta.gisauto.ru/poisk-po-nomeru/toyota/1340517010"</title>
+                </step>
+                <step start="1528168251277" stop="1528168251277" status="canceled">
+                    <name>И пользователь открывает отзывы о магазине</name>
+                    <title>И пользователь открывает отзывы о магазине</title>
+                </step>
+                <step start="1528168251277" stop="1528168251277" status="canceled">
+                    <name>То появился ответ на отзыв "тест ответ1"</name>
+                    <title>То появился ответ на отзыв "тест ответ1"</title>
+                </step>
+            </steps>
+            <attachments/>
+            <labels>
+                <label name="story" value="Отзыв ответ"/>
+                <label name="feature" value="Отзывы"/>
+                <label name="host" value="DESKTOP-5CMG1NV"/>
+                <label name="thread" value="26784@DESKTOP-5CMG1NV.main(1)"/>
+                <label name="framework" value="CucumberJVM"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="feature" value="Отзывы"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

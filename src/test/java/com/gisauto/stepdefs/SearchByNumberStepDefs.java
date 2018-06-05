@@ -29,6 +29,11 @@ public class SearchByNumberStepDefs {
         PF.getPage(SearchByNumberPage.class).clickOnBuyButton(seller);
     }
 
+    @Если("^пользователь закрывает помощника")
+    public void пользовательЗакрываетПомощника() {
+        PF.getPage(SearchByNumberPage.class).clickOnOffHelper();
+    }
+
     @Если("^пользователь нажимает заказать у первого продавца$")
     public void пользовательНажимаетЗаказатьУПервогоПродавца() {
         PF.getPage(SearchByNumberPage.class).clickOnFirstBuyButton();

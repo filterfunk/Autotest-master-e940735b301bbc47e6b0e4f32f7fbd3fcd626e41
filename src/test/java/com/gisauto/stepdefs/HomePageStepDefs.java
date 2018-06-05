@@ -1,6 +1,7 @@
 package com.gisauto.stepdefs;
 
 import com.gisauto.pageObjects.admin.AdminLoginPage;
+import com.gisauto.pageObjects.gisauto.BasePage;
 import com.gisauto.pageObjects.gisauto.HomePage;
 import com.gisauto.pageObjects.gisauto.Profile;
 import com.gisauto.pageObjects.gisauto.SearchByNumberPage;

@@ -48,7 +48,17 @@ public class SearchByNumberPage extends BasePage {
             addFeedbackButton = new By.ByXPath("//*[@id=\"m-num__review\"]/div/div[1]/div[2]/button"),
             feedbackInput = new By.ByXPath("//*[@id=\"feedback_senderComment\"]"),
             sendFeedbackButton = new By.ByXPath("//*[@id=\"formAddReview\"]/div[5]/div[3]"),
-            evaluateButton = new By.ByXPath("//*[@id=\"formAddReview\"]/div[5]/div[1]/div[1]/label[2]");
+            evaluateButton = new By.ByXPath("//*[@id=\"formAddReview\"]/div[5]/div[1]/div[1]/label[2]"),
+//         openHelper = new By.ByClassName("asd relative");
+//           openHelper = new By.ByCssSelector("body > div.body-shadow > div.apex.apex-default > nav > ul > li.apex__item.apex__item_helper.popover-catalog_oem > div > div.btn-quest"),
+offHelper = new By.ByXPath("//div[2]/div[6]/div");
+                                          //*[@id="popover849286"]/div[2]/div[6]/div
+                                          //*[@id="popover10730"]/div[2]/div[6]/div
+    //*[@id="popover123059"]/div[2]/div[6]/div
+
+
+//    offHelper = new By.ByCssSelector("body > div.body-shadow > div.apex.apex-default > nav > ul > li.apex__item.apex__item_helper.popover-catalog_oem > div > div.apex__helper-text.tleft > div.apex__helper-off > div");
+//offHelper = new By.ByClassName("aqualink apex__helper-off-btn");
 
     public SearchByNumberPage clickOnBuyButton(String shopName) {
         await(500);
@@ -262,6 +272,19 @@ public class SearchByNumberPage extends BasePage {
         getElement(sendFeedbackButton).click();
         return this;
     }
+
+//    public SearchByNumberPage clickOnOpenHelper() {
+//        getElement(openHelper).click();
+//        return this;
+//
+//    }
+
+    public SearchByNumberPage clickOnOffHelper() {
+        await(6000);
+        getElement(offHelper).click();
+        return this;
+    }
+
 
     private String additioanalFeedback;
 
